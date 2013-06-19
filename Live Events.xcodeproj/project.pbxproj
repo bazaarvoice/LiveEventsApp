@@ -46,6 +46,8 @@
 		6FD5776E177234F600DA6C67 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5776D177234F600DA6C67 /* BackgroundView.m */; };
 		6FD57772177245AB00DA6C67 /* dove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FD57771177245AB00DA6C67 /* dove.jpg */; };
 		6FD57775177248CB00DA6C67 /* BorderedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD57774177248CB00DA6C67 /* BorderedBar.m */; };
+		6FD5777B177253A100DA6C67 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD5777A177253A100DA6C67 /* CoreText.framework */; };
+		6FD5777E1772577400DA6C67 /* FadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5777D1772577400DA6C67 /* FadeLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,9 @@
 		6FD57771177245AB00DA6C67 /* dove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dove.jpg; sourceTree = "<group>"; };
 		6FD57773177248CA00DA6C67 /* BorderedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedBar.h; sourceTree = "<group>"; };
 		6FD57774177248CB00DA6C67 /* BorderedBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedBar.m; sourceTree = "<group>"; };
+		6FD5777A177253A100DA6C67 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		6FD5777C1772577400DA6C67 /* FadeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeLabel.h; sourceTree = "<group>"; };
+		6FD5777D1772577400DA6C67 /* FadeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD5777B177253A100DA6C67 /* CoreText.framework in Frameworks */,
 				6F6F2F98176B780F0045AB10 /* UIKit.framework in Frameworks */,
 				6F6F2F9A176B780F0045AB10 /* Foundation.framework in Frameworks */,
 				6F6F2F9C176B780F0045AB10 /* CoreGraphics.framework in Frameworks */,
@@ -177,6 +183,7 @@
 		6F6F2F96176B780F0045AB10 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FD5777A177253A100DA6C67 /* CoreText.framework */,
 				6FD5774F1770F37300DA6C67 /* BVSDK.framework */,
 				6F6F2F97176B780F0045AB10 /* UIKit.framework */,
 				6F6F2F99176B780F0045AB10 /* Foundation.framework */,
@@ -203,6 +210,8 @@
 				6F6F2FAF176B780F0045AB10 /* MainStoryboard.storyboard */,
 				6F6F2FB2176B780F0045AB10 /* ViewController.h */,
 				6F6F2FB3176B780F0045AB10 /* ViewController.m */,
+				6FD5777C1772577400DA6C67 /* FadeLabel.h */,
+				6FD5777D1772577400DA6C67 /* FadeLabel.m */,
 				6F6F2F9E176B780F0045AB10 /* Supporting Files */,
 				6FD5776C177234F600DA6C67 /* BackgroundView.h */,
 				6FD5776D177234F600DA6C67 /* BackgroundView.m */,
@@ -342,6 +351,7 @@
 				6F009DB4176FB6BA007FB010 /* SwipeView.m in Sources */,
 				6FD5776E177234F600DA6C67 /* BackgroundView.m in Sources */,
 				6FD57775177248CB00DA6C67 /* BorderedBar.m in Sources */,
+				6FD5777E1772577400DA6C67 /* FadeLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "CategoryCell.h"
+#import <QuartzCore/QuartzCore.h>
+#import "FadeLabel.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UIButton *seeAllButton;
-@property (weak, nonatomic) IBOutlet UILabel *rateAndReview;
-@property (weak, nonatomic) IBOutlet UILabel *informOthers;
+@property (weak, nonatomic) IBOutlet FadeLabel *informOthers;
+@property (weak, nonatomic) IBOutlet FadeLabel *rateAndReview;
 @property (weak, nonatomic) IBOutlet CategoryCell *productsView;
 
 
@@ -46,11 +48,20 @@
                                                       selector:@selector(timerFired:)
                                                       userInfo:nil
                                                        repeats:YES];
+    self.rateAndReview.secondaryColor = [self getMidnightBlueColor];
+    self.informOthers.secondaryColor = [self getMidnightBlueColor];
+    self.seeAllButton.titleLabel.textColor = [self getMidnightBlueColor];
+}
+
+-(UIColor *)getMidnightBlueColor {
+    return [UIColor colorWithRed:(17.0/255) green:(24.0/255) blue:(115.0/255) alpha:1.0];
 }
 
 -(void)enabledValues {
     self.overlayView.alpha = 0;
     self.productsView.alpha = 1.0;
+    [self.informOthers showSecondaryColor:YES];
+    [self.rateAndReview showSecondaryColor:YES];
 }
 
 -(void)notEnabledValues {
@@ -84,7 +95,7 @@
 
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
-    BVGet *theRequest = (BVGet *)request;
+    //BVGet *theRequest = (BVGet *)request;
     self.productsData = [response objectForKey:@"Results"];
     self.productsView.dataArray = self.productsData;
 }
@@ -109,6 +120,8 @@
     [self setSeeAllButton:nil];
     [self setRateAndReview:nil];
     [self setInformOthers:nil];
+    [self setInformOthers:nil];
+    [self setRateAndReview:nil];
     [super viewDidUnload];
 }
 @end

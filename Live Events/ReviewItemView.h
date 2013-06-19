@@ -10,7 +10,7 @@
 #import "RateView.h"
 #import "SwipeView.h"
 
-@interface ReviewItemView : UICollectionViewCell <RateViewDelegate>
+@interface ReviewItemView : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
 @property (weak, nonatomic) IBOutlet UILabel *productTitle;
 @property (nonatomic) NSInteger index;
