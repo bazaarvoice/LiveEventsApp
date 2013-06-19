@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="HxY-Sg-7yh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="HxY-Sg-7yh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -29,28 +29,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNG-Xr-ddA" customClass="CategoryCell">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMq-Xh-9jo" customClass="BackgroundView">
+                            <view contentMode="scaleToFill" id="uMq-Xh-9jo" customClass="BackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="ya5-nU-pjy" customClass="BorderedBar">
+                                        <rect key="frame" x="0.0" y="971" width="768" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="0be-kw-z8h">
+                                                <rect key="frame" x="247" y="0.0" width="58" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="Lc9-QW-bMm">
+                                                <rect key="frame" x="488" y="0.0" width="58" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S8y-vM-Rr0">
+                                                <rect key="frame" x="53" y="16" width="137" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share your Thoughts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RJI-t2-TKc">
+                                                <rect key="frame" x="316" y="16" width="159" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hmK-rU-eD7">
+                                                <rect key="frame" x="634" y="16" width="56" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.9379847171532848" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rate and Review" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6rb-U1-ibD">
+                                        <rect key="frame" x="47" y="80" width="634" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="70"/>
+                                        <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Inform other shoppers &amp; influence new products" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gg7-to-bys">
+                                        <rect key="frame" x="47" y="33" width="624" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ap0-Fa-SCu">
+                                        <rect key="frame" x="454" y="806" width="264" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="See all Dove products  >">
+                                            <color key="titleColor" red="0.49803921580314636" green="0.49803921580314636" blue="0.49803921580314636" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <view alpha="0.40000000000000013" contentMode="scaleToFill" id="2mr-hp-3e3">
+                                        <rect key="frame" x="5" y="763" width="373" height="206"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view alpha="0.5" contentMode="scaleToFill" id="CNG-Xr-ddA" customClass="CategoryCell">
+                                <rect key="frame" x="0.0" y="350" width="768" height="289"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="uMq-Xh-9jo" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" constant="74" id="2jg-1h-g74"/>
-                            <constraint firstAttribute="bottom" secondItem="uMq-Xh-9jo" secondAttribute="bottom" constant="297" id="5wo-rC-NLg"/>
-                            <constraint firstItem="CNG-Xr-ddA" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" type="default" id="6tA-uP-s3g"/>
-                            <constraint firstItem="uMq-Xh-9jo" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" constant="424" id="8Ee-dB-TNE"/>
-                            <constraint firstItem="CNG-Xr-ddA" firstAttribute="trailing" secondItem="Jgz-vZ-dxk" secondAttribute="trailing" type="default" id="JkP-oA-QyF"/>
-                            <constraint firstAttribute="bottom" secondItem="CNG-Xr-ddA" secondAttribute="bottom" constant="740" id="PW3-tZ-kcN"/>
-                            <constraint firstAttribute="trailing" secondItem="uMq-Xh-9jo" secondAttribute="trailing" constant="29" id="WI2-BG-O3G"/>
-                            <constraint firstItem="CNG-Xr-ddA" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" constant="-5" id="bIC-kr-Bqb"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xwn-rn-iQH"/>
                     <connections>
+                        <outlet property="informOthers" destination="gg7-to-bys" id="jjN-RL-ZCV"/>
+                        <outlet property="overlayView" destination="2mr-hp-3e3" id="xZr-eA-6QB"/>
                         <outlet property="productsView" destination="CNG-Xr-ddA" id="6Yu-aD-khL"/>
+                        <outlet property="rateAndReview" destination="6rb-U1-ibD" id="E7W-da-59t"/>
+                        <outlet property="seeAllButton" destination="ap0-Fa-SCu" id="JbA-e9-kg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DsB-lg-2Fm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,20 +125,27 @@
             <point key="canvasLocation" x="694" y="-99"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="A_Diagonals.png" width="54" height="42"/>
+    </resources>
     <classes>
         <class className="BackgroundView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundView.h"/>
         </class>
+        <class className="BorderedBar" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BorderedBar.h"/>
+        </class>
         <class className="CategoryCell" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryCell.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="informOthers" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="productsView" candidateClass="CategoryCell"/>
+                <relationship kind="outlet" name="rateAndReview" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="seeAllButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

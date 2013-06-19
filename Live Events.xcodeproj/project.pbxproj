@@ -45,6 +45,7 @@
 		6FD5776B177233F900DA6C67 /* A_X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD5775F177233F900DA6C67 /* A_X.png */; };
 		6FD5776E177234F600DA6C67 /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5776D177234F600DA6C67 /* BackgroundView.m */; };
 		6FD57772177245AB00DA6C67 /* dove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6FD57771177245AB00DA6C67 /* dove.jpg */; };
+		6FD57775177248CB00DA6C67 /* BorderedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD57774177248CB00DA6C67 /* BorderedBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,8 @@
 		6FD5776C177234F600DA6C67 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		6FD5776D177234F600DA6C67 /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		6FD57771177245AB00DA6C67 /* dove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dove.jpg; sourceTree = "<group>"; };
+		6FD57773177248CA00DA6C67 /* BorderedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedBar.h; sourceTree = "<group>"; };
+		6FD57774177248CB00DA6C67 /* BorderedBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 				6F6F2F9E176B780F0045AB10 /* Supporting Files */,
 				6FD5776C177234F600DA6C67 /* BackgroundView.h */,
 				6FD5776D177234F600DA6C67 /* BackgroundView.m */,
+				6FD57773177248CA00DA6C67 /* BorderedBar.h */,
+				6FD57774177248CB00DA6C67 /* BorderedBar.m */,
 			);
 			path = "Live Events";
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				6F009DB1176FB63C007FB010 /* CategoryCell.m in Sources */,
 				6F009DB4176FB6BA007FB010 /* SwipeView.m in Sources */,
 				6FD5776E177234F600DA6C67 /* BackgroundView.m in Sources */,
+				6FD57775177248CB00DA6C67 /* BorderedBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
