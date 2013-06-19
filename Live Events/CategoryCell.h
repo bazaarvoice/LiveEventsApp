@@ -11,7 +11,7 @@
 
 
 @protocol CategoryCellDelegate
-- (void)cellClickedAtRow:(NSInteger)row column:(NSInteger)column withRating:(NSInteger)rating;
+- (void)cellClickedAtRow:(NSInteger)row column:(NSInteger)column;
 @end
 
 @interface CategoryCell : UIView<SwipeViewDataSource, SwipeViewDelegate>

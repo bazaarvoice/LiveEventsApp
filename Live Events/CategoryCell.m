@@ -71,13 +71,10 @@
     if(reviewItem == nil){
         reviewItem = [[ReviewItemView alloc] init];
     }
-    [reviewItem.rateViewEnabled.layer removeAllAnimations];
-    reviewItem.rateViewEnabled.alpha = 0.02;
     reviewItem.swipeDelegate = self;
     reviewItem.index = index;
     reviewItem.productTitle.text = self.dataArray[index][@"Name"];
     [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]]];
-    reviewItem.ratingLabel.text = [NSString stringWithFormat:@"%i ratings - %@ average rating", [self.dataArray[index][@"ReviewStatistics"][@"TotalReviewCount"] intValue], self.dataArray[index][@"ReviewStatistics"][@"AverageOverallRating"] ];
     reviewItem.backgroundColor = [UIColor grayColor];
     return reviewItem;
 }
@@ -87,8 +84,8 @@
 }
 
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
-    ReviewItemView *reviewItemView = (ReviewItemView *)[self.swipeView itemViewAtIndex:index];
-    [self.delegate cellClickedAtRow:self.myRow column:index withRating:reviewItemView.rateViewEnabled.rating];
+    //ReviewItemView *reviewItemView = (ReviewItemView *)[self.swipeView itemViewAtIndex:index];
+    [self.delegate cellClickedAtRow:self.myRow column:index];
 }
 
 - (void)animateToNext {
