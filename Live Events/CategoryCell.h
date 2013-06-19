@@ -14,10 +14,13 @@
 - (void)cellClickedAtRow:(NSInteger)row column:(NSInteger)column withRating:(NSInteger)rating;
 @end
 
-@interface CategoryCell : UITableViewCell<SwipeViewDataSource, SwipeViewDelegate>
+@interface CategoryCell : UIView<SwipeViewDataSource, SwipeViewDelegate>
 
 @property (strong) NSArray * dataArray;
 @property (nonatomic, assign) NSInteger myRow;
 @property (strong) id<CategoryCellDelegate> delegate;
+
+
+- (void)animateToNext;
 
 @end

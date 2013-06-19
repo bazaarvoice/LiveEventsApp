@@ -42,6 +42,7 @@
     SwipeView * swipeView = [[SwipeView alloc] initWithFrame:CGRectMake(0, 0, 768, 350)];
     swipeView.dataSource = self;
     swipeView.delegate = self;
+    swipeView.wrapEnabled = YES;
     self.swipeView = swipeView;
     [self addSubview:swipeView];
     
@@ -88,6 +89,10 @@
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
     ReviewItemView *reviewItemView = (ReviewItemView *)[self.swipeView itemViewAtIndex:index];
     [self.delegate cellClickedAtRow:self.myRow column:index withRating:reviewItemView.rateViewEnabled.rating];
+}
+
+- (void)animateToNext {
+    [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:1];
 }
 
 /*
