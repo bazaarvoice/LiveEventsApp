@@ -40,9 +40,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    //self.productLabel.text = self.productToReview[@"Name"];
-    //[self.productImage setImageWithURL:self.productToReview[@"ImageUrl"]];
-    //self.rateView.rating = [self.productToReview[@"myRating"] intValue];
+    self.productLabel.text = self.productToReview.name;
+    [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
 }
 
 - (void)didReceiveMemoryWarning

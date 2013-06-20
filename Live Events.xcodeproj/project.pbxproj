@@ -50,6 +50,7 @@
 		6FF7833B177380C500F3A4E2 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF78338177380C500F3A4E2 /* RateView.m */; };
 		6FF7833D177380DB00F3A4E2 /* BVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF7833C177380DB00F3A4E2 /* BVSDK.framework */; };
 		6FF78340177383D800F3A4E2 /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7833F177383D700F3A4E2 /* ProductReview.m */; };
+		6FF783431773AB1E00F3A4E2 /* RoundedCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,8 @@
 		6FF7833C177380DB00F3A4E2 /* BVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BVSDK.framework; sourceTree = "<group>"; };
 		6FF7833E177383D700F3A4E2 /* ProductReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReview.h; sourceTree = "<group>"; };
 		6FF7833F177383D700F3A4E2 /* ProductReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReview.m; sourceTree = "<group>"; };
+		6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedCornerView.h; sourceTree = "<group>"; };
+		6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedCornerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				6F5F2D8117737FC8002E899B /* ViewController.m */,
 				6F5F2D8217737FC8002E899B /* ReviewViewController.h */,
 				6F5F2D8317737FC8002E899B /* ReviewViewController.m */,
+				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
+				6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */,
 				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
 				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
@@ -364,6 +369,7 @@
 				6FF78334177380B300F3A4E2 /* UIImageView+WebCache.m in Sources */,
 				6FF7833B177380C500F3A4E2 /* RateView.m in Sources */,
 				6FF78340177383D800F3A4E2 /* ProductReview.m in Sources */,
+				6FF783431773AB1E00F3A4E2 /* RoundedCornerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
