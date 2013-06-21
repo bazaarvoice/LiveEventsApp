@@ -588,7 +588,8 @@
 
 - (CGFloat)easeInOut:(CGFloat)time
 {
-    return (time < 0.5f)? 0.5f * powf(time * 2.0f, 3.0f): 0.5f * powf(time * 2.0f - 2.0f, 3.0f) + 1.0f;
+    //return (time < 0.5f)? 0.5f * powf(time * 2.0f, 3.0f): 0.5f * powf(time * 2.0f - 2.0f, 3.0f) + 1.0f;
+    return time;
 }
 
 - (void)step

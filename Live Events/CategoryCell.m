@@ -89,7 +89,7 @@
 }
 
 - (void)animateToNext {
-    [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:1];
+    [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:2.0];
 }
 
 /*
