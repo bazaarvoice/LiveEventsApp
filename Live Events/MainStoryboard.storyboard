@@ -339,6 +339,7 @@
                         <outlet property="productImage" destination="Bba-wW-NdX" id="F0z-0g-Ho9"/>
                         <outlet property="productLabel" destination="K3b-UX-fyy" id="t4l-ro-UCk"/>
                         <outlet property="rateView" destination="g7Q-Z6-eOx" id="TgP-bE-IJl"/>
+                        <outlet property="reviewTextView" destination="LPM-vk-1ve" id="p9R-nk-X9n"/>
                         <segue destination="l3K-fo-kwH" kind="push" identifier="publish" id="K0N-se-rsF"/>
                     </connections>
                 </viewController>
@@ -428,49 +429,68 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a nickname, for example &quot;love2write&quot;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UH9-Zi-52u">
-                                                <rect key="frame" x="53" y="60" width="389" height="36"/>
+                                                <rect key="frame" x="52" y="100" width="389" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                                 <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="There is an error in this form." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RB4-Ln-qe1">
+                                                <rect key="frame" x="52" y="63" width="389" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                                <color key="textColor" red="0.8551266193" green="0.0" blue="0.0092789843659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Where should we send your confirmation email?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Knj-Fn-ycp">
-                                                <rect key="frame" x="53" y="179" width="406" height="46"/>
+                                                <rect key="frame" x="52" y="218" width="406" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                                 <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="8hM-WY-v5t" customClass="RoundedCornerView">
-                                                <rect key="frame" x="46" y="111" width="514" height="60"/>
+                                                <rect key="frame" x="45" y="138" width="514" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nickname:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MGS-Vn-wHN">
-                                                        <rect key="frame" x="20" y="0.0" width="157" height="60"/>
+                                                        <rect key="frame" x="11" y="0.0" width="157" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="emj-La-JzZ">
+                                                        <rect key="frame" x="168" y="14" width="326" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="B15-VY-nZu" customClass="RoundedCornerView">
-                                                <rect key="frame" x="46" y="233" width="514" height="57"/>
+                                                <rect key="frame" x="45" y="260" width="514" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Review:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o0C-gh-tID">
-                                                        <rect key="frame" x="6" y="0.0" width="95" height="57"/>
+                                                        <rect key="frame" x="11" y="0.0" width="95" height="57"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="5jX-DC-cVG">
+                                                        <rect key="frame" x="162" y="14" width="326" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3I0-fz-TxD" customClass="RoundedCornerButton">
-                                                <rect key="frame" x="413" y="298" width="147" height="44"/>
+                                                <rect key="frame" x="418" y="345" width="147" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Done">
@@ -481,11 +501,11 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="continueClicked:" destination="Wrs-s6-4xL" eventType="touchUpInside" id="i9S-ym-KTm"/>
+                                                    <action selector="doneClicked:" destination="l3K-fo-kwH" eventType="touchUpInside" id="aR8-dF-JcX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SjA-ha-uIU" customClass="RoundedCornerButton">
-                                                <rect key="frame" x="295" y="298" width="73" height="44"/>
+                                                <rect key="frame" x="300" y="345" width="73" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Cancel">
@@ -496,7 +516,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cancelClicked:" destination="Wrs-s6-4xL" eventType="touchUpInside" id="Jmu-n7-6xN"/>
+                                                    <action selector="cancelClicked:" destination="l3K-fo-kwH" eventType="touchUpInside" id="lR7-Vc-IGq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -510,6 +530,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="l7S-RO-vov"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="Knj-Fn-ycp" id="HKo-xK-nbA"/>
+                        <outlet property="emailTextField" destination="5jX-DC-cVG" id="Z2J-91-O9K"/>
+                        <outlet property="errorLabel" destination="RB4-Ln-qe1" id="Byd-Vd-euu"/>
+                        <outlet property="nicknameLabel" destination="UH9-Zi-52u" id="Ox1-Mr-0Nz"/>
+                        <outlet property="nicknameTextField" destination="emj-La-JzZ" id="CA1-Rm-E4p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIJ-IX-t3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -520,55 +547,6 @@
         <image name="A_Diagonals.png" width="54" height="42"/>
         <image name="A_Mail.png" width="41" height="27"/>
     </resources>
-    <classes>
-        <class className="BackgroundView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundView.h"/>
-        </class>
-        <class className="BorderedBar" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BorderedBar.h"/>
-        </class>
-        <class className="CategoryCell" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryCell.h"/>
-        </class>
-        <class className="FadeLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FadeLabel.h"/>
-        </class>
-        <class className="PublishViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
-        </class>
-        <class className="RateView" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RateView.h"/>
-        </class>
-        <class className="ReviewViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="continueClicked:"/>
-                <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
-                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="productLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateView" candidateClass="RateView"/>
-            </relationships>
-        </class>
-        <class className="RoundedCornerButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerButton.h"/>
-        </class>
-        <class className="RoundedCornerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerView.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bottomBar" candidateClass="BorderedBar"/>
-                <relationship kind="outlet" name="informOthers" candidateClass="FadeLabel"/>
-                <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="productsView" candidateClass="CategoryCell"/>
-                <relationship kind="outlet" name="rateAndReview" candidateClass="FadeLabel"/>
-                <relationship kind="outlet" name="seeAllButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

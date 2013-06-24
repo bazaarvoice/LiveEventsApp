@@ -9,9 +9,12 @@
 #import "ReviewViewController.h"
 #import "UIImageView+WebCache.h"
 #import "RoundedCornerButton.h"
+#import "PublishViewController.h"
+#import "UIColor+AppColors.h"
 
 @interface ReviewViewController ()
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
+@property (weak, nonatomic) IBOutlet UITextView *reviewTextView;
 
 @end
 
@@ -39,8 +42,7 @@
     self.rateView.maxRating = 5;
     self.title = @"Write a Review";
     
-    self.continueButton.borderColor = [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
-
+    self.continueButton.borderColor = [UIColor BVDarkBlue];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -57,8 +59,23 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)continueClicked:(id)sender {
-    
+    self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
+    self.productToReview.reviewText = self.reviewTextView.text;
+    [self performSegueWithIdentifier:@"publish" sender:self];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"publish"])
+    {
+        // Get reference to the destination view controller
+        PublishViewController *pubVC = [segue destinationViewController];
+        pubVC.productToReview = (ProductReview *)sender;
+        pubVC.managedObjectContext = self.managedObjectContext;
+    }
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

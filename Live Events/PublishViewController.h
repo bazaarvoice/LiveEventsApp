@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductReview.h"
 
 @interface PublishViewController : UIViewController
+
+@property (strong) ProductReview *productToReview;
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

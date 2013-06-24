@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */; };
 		6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243A1778B877006C93A0 /* PublishViewController.m */; };
+		6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -60,6 +61,8 @@
 		6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedCornerButton.m; sourceTree = "<group>"; };
 		6F4324391778B877006C93A0 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		6F43243A1778B877006C93A0 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
+		6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
+		6F43243E1778DAB0006C93A0 /* UIColor+AppColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
 				6FF7833E177383D700F3A4E2 /* ProductReview.h */,
 				6FF7833F177383D700F3A4E2 /* ProductReview.m */,
+				6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */,
+				6F43243E1778DAB0006C93A0 /* UIColor+AppColors.h */,
 				6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */,
 				6F4324391778B877006C93A0 /* PublishViewController.h */,
 				6F43243A1778B877006C93A0 /* PublishViewController.m */,
@@ -382,6 +387,7 @@
 				6FF783431773AB1E00F3A4E2 /* RoundedCornerView.m in Sources */,
 				6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */,
 				6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */,
+				6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
