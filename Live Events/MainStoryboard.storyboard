@@ -220,21 +220,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 star is poor, 5 stars is excellent" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1T8-wk-lAK">
-                                        <rect key="frame" x="63" y="257" width="315" height="30"/>
+                                        <rect key="frame" x="62" y="284" width="315" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                         <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What do you like?  What can we do better?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kvd-FF-LEn">
-                                        <rect key="frame" x="63" y="441" width="370" height="46"/>
+                                        <rect key="frame" x="62" y="466" width="370" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                         <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" id="n9a-Vo-sFi" customClass="RoundedCornerView">
-                                        <rect key="frame" x="56" y="308" width="514" height="125"/>
+                                        <rect key="frame" x="55" y="325" width="514" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rate:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qCR-dS-5Ar">
@@ -253,7 +253,7 @@
                                         <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="UIO-OW-6sC" customClass="RoundedCornerView">
-                                        <rect key="frame" x="55" y="495" width="514" height="192"/>
+                                        <rect key="frame" x="54" y="512" width="514" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Tell Us What You Think" id="LPM-vk-1ve">
@@ -298,7 +298,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jp4-ul-5IL" customClass="RoundedCornerButton">
-                                        <rect key="frame" x="423" y="716" width="147" height="44"/>
+                                        <rect key="frame" x="422" y="745" width="147" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Continue">
@@ -313,7 +313,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dYw-u6-Kmd" customClass="RoundedCornerButton">
-                                        <rect key="frame" x="305" y="716" width="73" height="44"/>
+                                        <rect key="frame" x="304" y="745" width="73" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Cancel">
@@ -327,6 +327,13 @@
                                             <action selector="cancelClicked:" destination="Wrs-s6-4xL" eventType="touchUpInside" id="2lS-js-7Vr"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="There is an error in this form." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bXu-Xx-HJY">
+                                        <rect key="frame" x="62" y="252" width="389" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                        <color key="textColor" red="0.8551266193" green="0.0" blue="0.0092789843659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -336,9 +343,12 @@
                     <navigationItem key="navigationItem" id="k0j-yU-bDU"/>
                     <connections>
                         <outlet property="continueButton" destination="jp4-ul-5IL" id="blL-XV-KBZ"/>
+                        <outlet property="errorLabel" destination="bXu-Xx-HJY" id="Ka9-Zg-k6o"/>
                         <outlet property="productImage" destination="Bba-wW-NdX" id="F0z-0g-Ho9"/>
                         <outlet property="productLabel" destination="K3b-UX-fyy" id="t4l-ro-UCk"/>
+                        <outlet property="rateLabel" destination="1T8-wk-lAK" id="jrq-zt-Dvg"/>
                         <outlet property="rateView" destination="g7Q-Z6-eOx" id="TgP-bE-IJl"/>
+                        <outlet property="reviewLabel" destination="kvd-FF-LEn" id="Cto-uj-lZ2"/>
                         <outlet property="reviewTextView" destination="LPM-vk-1ve" id="p9R-nk-X9n"/>
                         <segue destination="l3K-fo-kwH" kind="push" identifier="publish" id="K0N-se-rsF"/>
                     </connections>
@@ -411,7 +421,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="backClicked:" destination="Wrs-s6-4xL" eventType="touchUpInside" id="gwW-CN-nxo"/>
+                                                    <action selector="backClicked:" destination="l3K-fo-kwH" eventType="touchUpInside" id="Y3o-sR-VA2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -473,7 +483,7 @@
                                                 <rect key="frame" x="45" y="260" width="514" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Review:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o0C-gh-tID">
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o0C-gh-tID">
                                                         <rect key="frame" x="11" y="0.0" width="95" height="57"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
@@ -547,6 +557,73 @@
         <image name="A_Diagonals.png" width="54" height="42"/>
         <image name="A_Mail.png" width="41" height="27"/>
     </resources>
+    <classes>
+        <class className="BackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BorderedBar" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BorderedBar.h"/>
+        </class>
+        <class className="CategoryCell" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryCell.h"/>
+        </class>
+        <class className="FadeLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FadeLabel.h"/>
+        </class>
+        <class className="PublishViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nicknameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nicknameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="RateView" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RateView.h"/>
+        </class>
+        <class className="ReviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="continueClicked:"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="productLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rateView" candidateClass="RateView"/>
+                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reviewTextView" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="RoundedCornerButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerButton.h"/>
+        </class>
+        <class className="RoundedCornerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerView.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bottomBar" candidateClass="BorderedBar"/>
+                <relationship kind="outlet" name="informOthers" candidateClass="FadeLabel"/>
+                <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="productsView" candidateClass="CategoryCell"/>
+                <relationship kind="outlet" name="rateAndReview" candidateClass="FadeLabel"/>
+                <relationship kind="outlet" name="seeAllButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

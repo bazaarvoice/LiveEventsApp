@@ -14,7 +14,10 @@
 
 @interface ReviewViewController ()
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
-@property (weak, nonatomic) IBOutlet UITextView *reviewTextView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+@property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
 
 @end
 
@@ -43,6 +46,8 @@
     self.title = @"Write a Review";
     
     self.continueButton.borderColor = [UIColor BVDarkBlue];
+    
+    self.errorLabel.alpha = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -61,7 +66,7 @@
 - (IBAction)continueClicked:(id)sender {
     self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
     self.productToReview.reviewText = self.reviewTextView.text;
-    [self performSegueWithIdentifier:@"publish" sender:self];
+    [self performSegueWithIdentifier:@"publish" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -71,7 +76,7 @@
     {
         // Get reference to the destination view controller
         PublishViewController *pubVC = [segue destinationViewController];
-        pubVC.productToReview = (ProductReview *)sender;
+        pubVC.productToReview = (ProductReview *)self.productToReview;
         pubVC.managedObjectContext = self.managedObjectContext;
     }
 }

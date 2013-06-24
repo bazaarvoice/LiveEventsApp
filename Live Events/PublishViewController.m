@@ -47,6 +47,10 @@
     self.errorLabel.alpha = 0;
 }
 
+- (IBAction)backClicked:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)cancelClicked:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

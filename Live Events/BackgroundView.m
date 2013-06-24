@@ -13,6 +13,8 @@
 
 @property (strong) UIImage * background;
 @property (strong) UIImage * logo;
+@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 
 @end
 
@@ -39,7 +41,6 @@
     // Initialization code
     self.background = [UIImage imageNamed:@"A_Pattern.png"];
     self.logo = [self convertImageToGrayScale:[UIImage imageNamed:@"dove.jpg"]];
-
 }
 
 - (void)drawRect:(CGRect)rect
