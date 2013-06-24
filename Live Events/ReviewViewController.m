@@ -64,9 +64,30 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)continueClicked:(id)sender {
-    self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
-    self.productToReview.reviewText = self.reviewTextView.text;
-    [self performSegueWithIdentifier:@"publish" sender:nil];
+    BOOL error = NO;
+    
+    if(self.rateView.rating == 0) {
+        self.rateLabel.textColor = [UIColor BVBrightRed];
+        error = YES;
+    } else {
+        self.rateLabel.textColor = [UIColor BVVeryLightGray];
+    }
+    
+    if(self.reviewTextView.text.length == 0 || [self.reviewTextView.text isEqualToString:@"Tell Us What You Think"]) {
+        self.reviewLabel.textColor = [UIColor BVBrightRed];
+        error = YES;
+    } else {
+        self.reviewLabel.textColor = [UIColor BVVeryLightGray];
+    }
+    
+    if(!error){
+        self.errorLabel.alpha = 0;
+        self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
+        self.productToReview.reviewText = self.reviewTextView.text;
+        [self performSegueWithIdentifier:@"publish" sender:nil];
+    } else {
+        self.errorLabel.alpha = 1;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
