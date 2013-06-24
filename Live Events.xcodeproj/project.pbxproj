@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */; };
+		6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243A1778B877006C93A0 /* PublishViewController.m */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -54,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F4324361778AB0F006C93A0 /* RoundedCornerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedCornerButton.h; sourceTree = "<group>"; };
+		6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedCornerButton.m; sourceTree = "<group>"; };
+		6F4324391778B877006C93A0 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
+		6F43243A1778B877006C93A0 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -192,12 +198,16 @@
 				6FF7833E177383D700F3A4E2 /* ProductReview.h */,
 				6FF7833F177383D700F3A4E2 /* ProductReview.m */,
 				6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */,
+				6F4324391778B877006C93A0 /* PublishViewController.h */,
+				6F43243A1778B877006C93A0 /* PublishViewController.m */,
 				6F5F2D8017737FC8002E899B /* ViewController.h */,
 				6F5F2D8117737FC8002E899B /* ViewController.m */,
 				6F5F2D8217737FC8002E899B /* ReviewViewController.h */,
 				6F5F2D8317737FC8002E899B /* ReviewViewController.m */,
 				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
 				6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */,
+				6F4324361778AB0F006C93A0 /* RoundedCornerButton.h */,
+				6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */,
 				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
 				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
@@ -370,6 +380,8 @@
 				6FF7833B177380C500F3A4E2 /* RateView.m in Sources */,
 				6FF78340177383D800F3A4E2 /* ProductReview.m in Sources */,
 				6FF783431773AB1E00F3A4E2 /* RoundedCornerView.m in Sources */,
+				6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */,
+				6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

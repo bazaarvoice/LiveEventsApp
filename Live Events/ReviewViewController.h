@@ -10,7 +10,7 @@
 #import "RateView.h"
 #import "ProductReview.h"
 
-@interface ReviewViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
+@interface ReviewViewController : UIViewController<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
 @property (weak, nonatomic) IBOutlet UILabel *productLabel;
 @property (weak, nonatomic) IBOutlet RateView *rateView;

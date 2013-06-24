@@ -8,8 +8,10 @@
 
 #import "ReviewViewController.h"
 #import "UIImageView+WebCache.h"
+#import "RoundedCornerButton.h"
 
 @interface ReviewViewController ()
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
 
 @end
 
@@ -30,12 +32,14 @@
 	// Do any additional setup after loading the view.
     UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submit)];
     self.navigationItem.rightBarButtonItem = rightBar;
-    self.rateView.notSelectedImage = [UIImage imageNamed:@"empty_star.png"];
-    self.rateView.fullSelectedImage = [UIImage imageNamed:@"full_star.png"];
+    self.rateView.notSelectedImage = [UIImage imageNamed:@"A_Star-Empty.png"];
+    self.rateView.fullSelectedImage = [UIImage imageNamed:@"A_Star-Filled.png"];
     self.rateView.rating = 0;
-    self.rateView.editable = NO;
+    self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.title = @"Write a Review";
+    
+    self.continueButton.borderColor = [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
 
 }
 
@@ -49,6 +53,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)cancelClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)continueClicked:(id)sender {
+    
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -59,6 +69,10 @@
     if([textView.text isEqualToString:@"Tell Us What You Think"]){
         textView.text = @"";
     }
+}
+
+- (IBAction)backClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)submit {

@@ -7,6 +7,7 @@
 //
 
 #import "BackgroundView.h"
+#import "RoundedCornerButton.h"
 
 @interface BackgroundView()
 

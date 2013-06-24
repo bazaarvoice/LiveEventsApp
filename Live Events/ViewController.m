@@ -80,7 +80,7 @@
 }
 
 -(void)notEnabledValues {
-    self.overlayView.alpha = 1.0;
+    self.overlayView.alpha = 0.4;
     self.productsView.alpha = 0.5;
     [self.informOthers showSecondaryColor:NO];
     [self.rateAndReview showSecondaryColor:NO];
