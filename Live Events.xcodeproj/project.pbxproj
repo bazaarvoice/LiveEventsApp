@@ -10,6 +10,7 @@
 		6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */; };
 		6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243A1778B877006C93A0 /* PublishViewController.m */; };
 		6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */; };
+		6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324411778E40A006C93A0 /* LEDataManager.m */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 		6F43243A1778B877006C93A0 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		6F43243E1778DAB0006C93A0 /* UIColor+AppColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
+		6F4324401778E40A006C93A0 /* LEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LEDataManager.h; path = "Live Events/LEDataManager.h"; sourceTree = "<group>"; };
+		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LEDataManager.m; path = "Live Events/LEDataManager.m"; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +155,8 @@
 		6F5F2D3D17737EE1002E899B = {
 			isa = PBXGroup;
 			children = (
+				6F4324401778E40A006C93A0 /* LEDataManager.h */,
+				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D5117737EE1002E899B /* Live Events */,
 				6F5F2D4817737EE1002E899B /* Frameworks */,
 				6F5F2D4717737EE1002E899B /* Products */,
@@ -388,6 +393,7 @@
 				6F4324381778AB0F006C93A0 /* RoundedCornerButton.m in Sources */,
 				6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */,
 				6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */,
+				6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
