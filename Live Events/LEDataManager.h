@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ProductReview.h"
+#import <BVSDK/BVSDK.h>
 
-@interface LEDataManager : NSObject
+@interface LEDataManager : NSObject<BVDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 

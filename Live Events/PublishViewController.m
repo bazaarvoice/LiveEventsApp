@@ -48,7 +48,7 @@
 }
 
 - (IBAction)backClicked:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)cancelClicked:(id)sender {

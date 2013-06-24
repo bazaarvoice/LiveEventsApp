@@ -7,9 +7,15 @@
 //
 
 #import "LEDataManager.h"
+#import "BVProductReviewPost.h"
+
+@interface LEDataManager()
+
+@property (strong) NSMutableDictionary * outstandingReviews;
+
+@end
 
 @implementation LEDataManager
-
 
 +(id)sharedInstanceWithContext:(NSManagedObjectContext *) managedObjectContext;
 {
@@ -22,6 +28,13 @@
     return sharedInstance;
 }
 
+-(id)init {
+    self = [super init];
+    if (self) {
+        self.outstandingReviews = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
 
 -(BOOL)addToQueue:(ProductReview *)productReview {
     NSError *error;
@@ -35,10 +48,27 @@
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for (ProductReview *info in productsToSend) {
-        
+    for (ProductReview *product in productsToSend) {
+        BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
+        [postReview sendRequestWithDelegate:self];
     }
+}
 
+- (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
+    
+    BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
+    if(![self hasErrors:response]){
+        [self.managedObjectContext deleteObject:theRequest.productToReview];
+    }
+}
+
+- (void) didFailToReceiveResponse:(NSError*)err forRequest:(id)request {
+    
+}
+
+- (BOOL) hasErrors:(NSDictionary *)response {
+    BOOL hasErrors = [[response objectForKey:@"HasErrors"] boolValue] || ([response objectForKey:@"HasErrors"] == nil);
+    return hasErrors;
 }
 
 - (void)dealloc

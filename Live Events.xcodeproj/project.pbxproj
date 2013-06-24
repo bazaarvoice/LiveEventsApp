@@ -11,6 +11,7 @@
 		6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243A1778B877006C93A0 /* PublishViewController.m */; };
 		6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */; };
 		6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324411778E40A006C93A0 /* LEDataManager.m */; };
+		6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324441778F010006C93A0 /* BVProductReviewPost.m */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -49,8 +50,6 @@
 		6FF78332177380B300F3A4E2 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF78329177380B300F3A4E2 /* SDWebImageDownloader.m */; };
 		6FF78333177380B300F3A4E2 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7832C177380B300F3A4E2 /* SDWebImageManager.m */; };
 		6FF78334177380B300F3A4E2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7832F177380B300F3A4E2 /* UIImageView+WebCache.m */; };
-		6FF78339177380C500F3A4E2 /* empty_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF78335177380C500F3A4E2 /* empty_star.png */; };
-		6FF7833A177380C500F3A4E2 /* full_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF78336177380C500F3A4E2 /* full_star.png */; };
 		6FF7833B177380C500F3A4E2 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF78338177380C500F3A4E2 /* RateView.m */; };
 		6FF7833D177380DB00F3A4E2 /* BVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF7833C177380DB00F3A4E2 /* BVSDK.framework */; };
 		6FF78340177383D800F3A4E2 /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7833F177383D700F3A4E2 /* ProductReview.m */; };
@@ -64,8 +63,10 @@
 		6F43243A1778B877006C93A0 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		6F43243E1778DAB0006C93A0 /* UIColor+AppColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
-		6F4324401778E40A006C93A0 /* LEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LEDataManager.h; path = "Live Events/LEDataManager.h"; sourceTree = "<group>"; };
-		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LEDataManager.m; path = "Live Events/LEDataManager.m"; sourceTree = "<group>"; };
+		6F4324401778E40A006C93A0 /* LEDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEDataManager.h; sourceTree = "<group>"; };
+		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
+		6F4324431778F010006C93A0 /* BVProductReviewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductReviewPost.h; sourceTree = "<group>"; };
+		6F4324441778F010006C93A0 /* BVProductReviewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductReviewPost.m; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,8 +126,6 @@
 		6FF7832D177380B300F3A4E2 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDWebImageManagerDelegate.h; path = SDWebImage/SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
 		6FF7832E177380B300F3A4E2 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		6FF7832F177380B300F3A4E2 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		6FF78335177380C500F3A4E2 /* empty_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = empty_star.png; path = RateView/empty_star.png; sourceTree = "<group>"; };
-		6FF78336177380C500F3A4E2 /* full_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = full_star.png; path = RateView/full_star.png; sourceTree = "<group>"; };
 		6FF78337177380C500F3A4E2 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RateView.h; path = RateView/RateView.h; sourceTree = "<group>"; };
 		6FF78338177380C500F3A4E2 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RateView.m; path = RateView/RateView.m; sourceTree = "<group>"; };
 		6FF7833C177380DB00F3A4E2 /* BVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BVSDK.framework; sourceTree = "<group>"; };
@@ -155,8 +154,6 @@
 		6F5F2D3D17737EE1002E899B = {
 			isa = PBXGroup;
 			children = (
-				6F4324401778E40A006C93A0 /* LEDataManager.h */,
-				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D5117737EE1002E899B /* Live Events */,
 				6F5F2D4817737EE1002E899B /* Frameworks */,
 				6F5F2D4717737EE1002E899B /* Products */,
@@ -191,6 +188,8 @@
 				6FF783071773807E00F3A4E2 /* RateView */,
 				6F5F2D5A17737EE1002E899B /* AppDelegate.h */,
 				6F5F2D5B17737EE1002E899B /* AppDelegate.m */,
+				6F4324401778E40A006C93A0 /* LEDataManager.h */,
+				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D8A17737FD0002E899B /* BackgroundView.h */,
 				6F5F2D8B17737FD0002E899B /* BackgroundView.m */,
 				6F5F2D8C17737FD0002E899B /* BorderedBar.h */,
@@ -220,6 +219,8 @@
 				6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */,
 				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
 				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
+				6F4324431778F010006C93A0 /* BVProductReviewPost.h */,
+				6F4324441778F010006C93A0 /* BVProductReviewPost.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
 			);
 			path = "Live Events";
@@ -242,8 +243,6 @@
 		6FF783071773807E00F3A4E2 /* RateView */ = {
 			isa = PBXGroup;
 			children = (
-				6FF78335177380C500F3A4E2 /* empty_star.png */,
-				6FF78336177380C500F3A4E2 /* full_star.png */,
 				6FF78337177380C500F3A4E2 /* RateView.h */,
 				6FF78338177380C500F3A4E2 /* RateView.m */,
 			);
@@ -359,8 +358,6 @@
 				6FF7831F177380A500F3A4E2 /* A_Star-Empty.png in Resources */,
 				6FF78320177380A500F3A4E2 /* A_Star-Filled.png in Resources */,
 				6FF78321177380A500F3A4E2 /* A_X.png in Resources */,
-				6FF78339177380C500F3A4E2 /* empty_star.png in Resources */,
-				6FF7833A177380C500F3A4E2 /* full_star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +391,7 @@
 				6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */,
 				6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */,
 				6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */,
+				6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
