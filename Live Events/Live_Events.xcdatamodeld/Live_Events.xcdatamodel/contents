@@ -11,7 +11,11 @@
         <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
+    <entity name="ProductsResponse" representedClassName="ProductsResponse" syncable="YES">
+        <attribute name="response" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <elements>
         <element name="ProductReview" positionX="-11252" positionY="-4435" width="128" height="135"/>
+        <element name="ProductsResponse" positionX="-11252" positionY="-4257" width="128" height="60"/>
     </elements>
 </model>

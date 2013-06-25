@@ -80,6 +80,8 @@
         self.reviewLabel.textColor = [UIColor BVVeryLightGray];
     }
     
+    //TODO: REMOVE
+    error = NO;
     if(!error){
         self.errorLabel.alpha = 0;
         self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];

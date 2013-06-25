@@ -16,4 +16,7 @@
 
 +(id)sharedInstanceWithContext:(NSManagedObjectContext *) managedObjectContext;
 
+- (NSArray *)getCachedProducts;
+- (BOOL)setCachedProducts:(NSArray *)products;
+
 @end

@@ -12,6 +12,8 @@
 		6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */; };
 		6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324411778E40A006C93A0 /* LEDataManager.m */; };
 		6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324441778F010006C93A0 /* BVProductReviewPost.m */; };
+		6F542E7D1779F62700A36849 /* ProductsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E7C1779F62700A36849 /* ProductsResponse.m */; };
+		6F542E7F1779FA2F00A36849 /* dove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F542E7E1779FA2F00A36849 /* dove.jpg */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -67,6 +69,9 @@
 		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
 		6F4324431778F010006C93A0 /* BVProductReviewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductReviewPost.h; sourceTree = "<group>"; };
 		6F4324441778F010006C93A0 /* BVProductReviewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductReviewPost.m; sourceTree = "<group>"; };
+		6F542E7B1779F62700A36849 /* ProductsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsResponse.h; sourceTree = "<group>"; };
+		6F542E7C1779F62700A36849 /* ProductsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsResponse.m; sourceTree = "<group>"; };
+		6F542E7E1779FA2F00A36849 /* dove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dove.jpg; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -202,6 +207,8 @@
 				6F5F2D7A17737FBD002E899B /* SwipeView.h */,
 				6F5F2D7B17737FBD002E899B /* SwipeView.m */,
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
+				6F542E7B1779F62700A36849 /* ProductsResponse.h */,
+				6F542E7C1779F62700A36849 /* ProductsResponse.m */,
 				6FF7833E177383D700F3A4E2 /* ProductReview.h */,
 				6FF7833F177383D700F3A4E2 /* ProductReview.m */,
 				6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */,
@@ -285,6 +292,7 @@
 				6FF78313177380A500F3A4E2 /* A_Star-Empty.png */,
 				6FF78314177380A500F3A4E2 /* A_Star-Filled.png */,
 				6FF78315177380A500F3A4E2 /* A_X.png */,
+				6F542E7E1779FA2F00A36849 /* dove.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				6FF7831F177380A500F3A4E2 /* A_Star-Empty.png in Resources */,
 				6FF78320177380A500F3A4E2 /* A_Star-Filled.png in Resources */,
 				6FF78321177380A500F3A4E2 /* A_X.png in Resources */,
+				6F542E7F1779FA2F00A36849 /* dove.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +401,7 @@
 				6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */,
 				6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */,
 				6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */,
+				6F542E7D1779F62700A36849 /* ProductsResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

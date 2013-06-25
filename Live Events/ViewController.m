@@ -13,6 +13,7 @@
 #import "BorderedBar.h"
 #import "ProductReview.h"
 #import "ReviewViewController.h"
+#import "LEDataManager.h"
 
 #define SLIDE_INTERVAL 2.0
 #define IDLE_INTERVAL 4.0
@@ -45,6 +46,9 @@
     [BVSettings instance].baseURL = @"api.bazaarvoice.com";
     [BVSettings instance].passKey = @"70idospb1wubvlbyzixo3elq9";
     
+    self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProducts];
+    self.productsView.dataArray = self.productsData;
+    
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
     getFresh.search = @"extra fresh";
     getFresh.limit = 100;
@@ -56,6 +60,8 @@
                                                       selector:@selector(timerFired:)
                                                       userInfo:nil
                                                        repeats:YES];
+    [self timerFired:self.scrollTimer];
+
     self.rateAndReview.secondaryColor = [self getMidnightBlueColor];
     self.informOthers.secondaryColor = [self getMidnightBlueColor];
     self.seeAllButton.titleLabel.textColor = [self getMidnightBlueColor];
@@ -120,8 +126,9 @@
 
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
-    //BVGet *theRequest = (BVGet *)request;
-    self.productsData = [response objectForKey:@"Results"];
+    NSArray *results = [response objectForKey:@"Results"];
+    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results];
+    self.productsData = results;
     self.productsView.dataArray = self.productsData;
 }
 
