@@ -105,8 +105,9 @@
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 
-- (void)cellClickedAtIndex:(NSInteger)index {
-   
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

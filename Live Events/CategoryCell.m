@@ -71,7 +71,6 @@
     if(reviewItem == nil){
         reviewItem = [[ReviewItemView alloc] init];
     }
-    reviewItem.swipeDelegate = self;
     reviewItem.index = index;
     reviewItem.productTitle.text = self.dataArray[index][@"Name"];
     [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]]];
@@ -84,7 +83,6 @@
 }
 
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
-    //ReviewItemView *reviewItemView = (ReviewItemView *)[self.swipeView itemViewAtIndex:index];
     [self.delegate cellClickedAtIndex:index];
 }
 

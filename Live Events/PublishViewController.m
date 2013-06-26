@@ -55,7 +55,23 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if(textField == self.nicknameTextField){
+        [textField resignFirstResponder];
+        [self.emailTextField becomeFirstResponder];
+    } else if(textField == self.emailTextField){
+        [textField resignFirstResponder];
+        [self doValidation];
+    }
+    return NO;
+}
+
+
 - (IBAction)doneClicked:(id)sender {
+    [self doValidation];
+}
+
+- (void)doValidation {
     BOOL error = NO;
     if(self.nicknameTextField.text.length == 0){
         self.nicknameLabel.textColor = [UIColor BVBrightRed];
@@ -70,15 +86,16 @@
     } else {
         self.emailLabel.textColor = [UIColor BVVeryLightGray];
     }
-
+    
     if(error) {
         self.errorLabel.alpha = 1;
         return;
     } else {
         self.productToReview.nickname = self.nicknameTextField.text;
         self.productToReview.email = self.emailTextField.text;
-
+        
     }
+
 }
 
 - (BOOL)validateEmailWithString:(NSString*)email

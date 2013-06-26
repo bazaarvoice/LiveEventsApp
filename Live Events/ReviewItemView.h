@@ -14,6 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
 @property (weak, nonatomic) IBOutlet UILabel *productTitle;
 @property (nonatomic) NSInteger index;
-@property (strong) id<SwipeViewDelegate> swipeDelegate;
 
 @end

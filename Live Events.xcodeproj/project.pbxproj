@@ -501,6 +501,8 @@
 		6F5F2D7317737EE1002E899B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bazaarvoice, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bazaarvoice, Inc.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -509,6 +511,8 @@
 				GCC_PREFIX_HEADER = "Live Events/Live Events-Prefix.pch";
 				INFOPLIST_FILE = "Live Events/Live Events-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "D828CE11-A014-4507-A697-A4ED9B24369C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D828CE11-A014-4507-A697-A4ED9B24369C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

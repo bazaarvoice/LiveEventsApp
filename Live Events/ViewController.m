@@ -137,7 +137,12 @@
     self.idleCount = 0;
 }
 
+- (void)swipeViewDidScroll:(SwipeView *)swipeView {
+    self.idleCount = 0;
+}
+
 - (void)cellClickedAtIndex:(NSInteger)index {
+    self.idleCount = 0;
     NSDictionary * selectedProduct = self.productsData[index];
     NSManagedObjectContext * context = [self managedObjectContext];
     ProductReview * productReview = [NSEntityDescription
