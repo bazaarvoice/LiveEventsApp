@@ -11,10 +11,13 @@
 #import "UIImageView+WebCache.h"
 #import "ProductReview.h"
 #import "ReviewViewController.h"
+#import "MBProgressHUD.h"
 
 @interface GridViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+
+@property (strong) MBProgressHUD *HUD;
 
 @end
 
@@ -39,11 +42,21 @@
     CGRect frame = self.searchTextField.frame;
     frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 10);
     self.searchTextField.frame = frame;
+    [self searchWithTerm:@"Fresh"];
+}
+
+- (void)searchWithTerm:(NSString *)term {
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	HUD.labelText = @"Loading";
+    [HUD show:YES];
+    self.HUD = HUD;
     
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
-    getFresh.search = @"Fresh   ";
+    getFresh.search = term;
     getFresh.limit = 100;
     [getFresh sendRequestWithDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,9 +73,11 @@
     NSArray *results = [response objectForKey:@"Results"];
     self.dataArray = results;
     [self.collectionView reloadData];
+    [self.HUD hide:YES];
 }
 
 -(void)didFailToReceiveResponse:(NSError *)err forRequest:(id)request {
+    [self.HUD hide:YES];
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
                                                       message:@"An error occurred.  Please check your connection and try again."
                                                      delegate:self
@@ -92,7 +107,7 @@
     return reviewItem;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
     NSDictionary * selectedProduct = self.dataArray[index];
     NSManagedObjectContext * context = [self managedObjectContext];
@@ -107,6 +122,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [self searchWithTerm:self.searchTextField.text];
     return NO;
 }
 
@@ -140,7 +156,7 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 60 );
+    return UIEdgeInsetsMake(0, 0, 0, 60);
 }
 
 
