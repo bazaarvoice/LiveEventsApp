@@ -14,6 +14,8 @@
 #import "ProductReview.h"
 #import "ReviewViewController.h"
 #import "LEDataManager.h"
+#import "UIColor+AppColors.h"
+#import "GridViewController.h"
 
 #define SLIDE_INTERVAL 2.0
 #define IDLE_INTERVAL 4.0
@@ -60,19 +62,14 @@
                                                       selector:@selector(timerFired:)
                                                       userInfo:nil
                                                        repeats:YES];
-    [self timerFired:self.scrollTimer];
 
-    self.rateAndReview.secondaryColor = [self getMidnightBlueColor];
-    self.informOthers.secondaryColor = [self getMidnightBlueColor];
-    self.seeAllButton.titleLabel.textColor = [self getMidnightBlueColor];
+    self.rateAndReview.secondaryColor = [UIColor BVMidnightBlueColor];
+    self.informOthers.secondaryColor = [UIColor BVMidnightBlueColor];
+    self.seeAllButton.titleLabel.textColor = [UIColor BVMidnightBlueColor];
     
     self.productsView.delegate = self;
 
     [self notEnabledValues];
-}
-
--(UIColor *)getMidnightBlueColor {
-    return [UIColor colorWithRed:(17.0/255) green:(24.0/255) blue:(115.0/255) alpha:1.0];
 }
 
 -(void)enabledValues {
@@ -161,24 +158,15 @@
         ReviewViewController *rateVC = [segue destinationViewController];
         rateVC.productToReview = (ProductReview *)sender;
         rateVC.managedObjectContext = self.managedObjectContext;
-    } else if ([[segue identifier] isEqualToString:@"gridView"]){
-        /*
-         GridViewController *gridView = [segue destinationViewController];
-        UIButton *clickedButton = sender;
-        int index = clickedButton.tag;
-        if(index == 0){
-            gridView.dataArray = self.extraFreshData;
-        } else if(index == 1){
-            gridView.dataArray = self.antiperspirantData;
-        } else if(index == 2){
-            gridView.dataArray = self.hairData;
-        } else if(index == 3){
-            gridView.dataArray = self.lotionsData;
-        }*/
-        
+    } else if ([[segue identifier] isEqualToString:@"seeall"]){
+        GridViewController *gridView = [segue destinationViewController];
+        gridView.managedObjectContext = self.managedObjectContext;
     }
 }
 
+- (IBAction)seeAllClicked:(id)sender {
+    [self performSegueWithIdentifier:@"seeall" sender:self];
+}
 
 - (void)didReceiveMemoryWarning
 {

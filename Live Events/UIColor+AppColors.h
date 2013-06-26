@@ -13,5 +13,6 @@
 +(UIColor *)BVDarkBlue;
 +(UIColor *)BVBrightRed;
 +(UIColor *)BVVeryLightGray;
++(UIColor *)BVMidnightBlueColor;
 
 @end

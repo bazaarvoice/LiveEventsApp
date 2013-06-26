@@ -1,0 +1,146 @@
+//
+//  GridViewController.m
+//  Mockup
+//
+//  Created by Alex Medearis on 5/23/13.
+//  Copyright (c) 2013 Bazaarvoice. All rights reserved.
+//
+
+#import "GridViewController.h"
+#import "ReviewItemView.h"
+#import "UIImageView+WebCache.h"
+#import "ProductReview.h"
+#import "ReviewViewController.h"
+
+@interface GridViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+
+@end
+
+@implementation GridViewController
+
+@synthesize dataArray = _dataArray;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.searchTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"A_Search.png"]];
+    [self.searchTextField setLeftViewMode:UITextFieldViewModeAlways];
+    CGRect frame = self.searchTextField.frame;
+    frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 10);
+    self.searchTextField.frame = frame;
+    
+    BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
+    getFresh.search = @"Fresh   ";
+    getFresh.limit = 100;
+    [getFresh sendRequestWithDelegate:self];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)backClicked:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
+    NSArray *results = [response objectForKey:@"Results"];
+    self.dataArray = results;
+    [self.collectionView reloadData];
+}
+
+-(void)didFailToReceiveResponse:(NSError *)err forRequest:(id)request {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                      message:@"An error occurred.  Please check your connection and try again."
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:nil];
+    [message show];
+}
+
+#pragma mark - UICollectionView Datasource
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    int index = indexPath.row;
+    NSDictionary *product = self.dataArray[index];
+    NSLog(@"%@", product);
+    ReviewItemView * reviewItem = [[ReviewItemView alloc] init];
+    reviewItem.index = index;
+    reviewItem.productTitle.text = product[@"Name"];
+    [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]]];
+    return reviewItem;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    int index = indexPath.row;
+    NSDictionary * selectedProduct = self.dataArray[index];
+    NSManagedObjectContext * context = [self managedObjectContext];
+    ProductReview * productReview = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"ProductReview"
+                                     inManagedObjectContext:context];
+    
+    productReview.name = selectedProduct[@"Name"];
+    productReview.imageUrl = selectedProduct[@"ImageUrl"];
+    [self performSegueWithIdentifier:@"rate" sender:productReview];
+}
+
+- (void)cellClickedAtIndex:(NSInteger)index {
+   
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"rate"])
+    {
+        // Get reference to the destination view controller
+        ReviewViewController *rateVC = [segue destinationViewController];
+        rateVC.productToReview = (ProductReview *)sender;
+        rateVC.managedObjectContext = self.managedObjectContext;
+    }
+}
+
+- (void)reload{
+    [self.collectionView reloadData];
+}
+
+- (void)setDataArray:(NSArray *)dataArray{
+    _dataArray = dataArray;
+    [self reload];
+}
+
+- (NSArray *)dataArray{
+    return _dataArray;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(185, 350);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 60 );
+}
+
+
+@end
