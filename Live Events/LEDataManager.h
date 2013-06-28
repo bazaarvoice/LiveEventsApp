@@ -19,4 +19,8 @@
 - (NSArray *)getCachedProducts;
 - (BOOL)setCachedProducts:(NSArray *)products;
 
+-(ProductReview *)getNewProductReview;
+-(BOOL)addOutstandingObjectToQueue;
+-(void)purgeQueue;
+
 @end

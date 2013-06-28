@@ -11,7 +11,7 @@
 #import <BVSDK/BVSDK.h>
 #import "CategoryCell.h"
 
-@interface ViewController : UIViewController<BVDelegate, CategoryCellDelegate>
+@interface ViewController : UIViewController<BVDelegate, SwipeViewDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 

@@ -2,7 +2,7 @@
 //  ProductReview.h
 //  Live Events
 //
-//  Created by Alex Medearis on 6/20/13.
+//  Created by Alex Medearis on 6/28/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -12,11 +12,12 @@
 
 @interface ProductReview : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * nickname;
-@property (nonatomic, retain) NSString * reviewText;
-@property (nonatomic, retain) NSNumber * rating;
 @property (nonatomic, retain) NSString * imageUrl;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * nickname;
+@property (nonatomic, retain) NSNumber * rating;
+@property (nonatomic, retain) NSString * reviewText;
+@property (nonatomic, retain) NSString * productId;
 
 @end

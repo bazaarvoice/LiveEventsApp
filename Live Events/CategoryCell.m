@@ -82,7 +82,11 @@
 }
 
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
-    [self.delegate cellClickedAtIndex:index];
+    [self.delegate swipeView:swipeView didSelectItemAtIndex:index];
+}
+
+- (void)swipeViewDidScroll:(SwipeView *)swipeView {
+    [self.delegate swipeViewDidScroll:swipeView];
 }
 
 - (void)animateToNext {

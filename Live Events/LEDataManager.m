@@ -13,6 +13,7 @@
 @interface LEDataManager()
 
 @property (strong) NSMutableDictionary * outstandingReviews;
+@property (strong) ProductReview * outstandingProductReview;
 
 @end
 
@@ -33,17 +34,43 @@
     self = [super init];
     if (self) {
         self.outstandingReviews = [[NSMutableDictionary alloc] init];
+        self.outstandingProductReview = nil;
     }
     return self;
 }
 
--(BOOL)addToQueue:(ProductReview *)productReview {
+- (ProductReview *)getNewProductReview {
+    // If we have a product outstanding, but try to create a new one, discard the old one
+    if(self.outstandingProductReview != nil){
+        NSError *error;
+        [self.managedObjectContext deleteObject:self.outstandingProductReview];
+        [self.managedObjectContext save:&error];
+    }
+    
+    ProductReview * productReview = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"ProductReview"
+                                     inManagedObjectContext:self.managedObjectContext];
+    self.outstandingProductReview = productReview;
+    return productReview;
+}
+
+
+-(BOOL)addOutstandingObjectToQueue {
+    // Make sure that the object is saved, allow creation of new objects
     NSError *error;
-    return [self.managedObjectContext save:&error];    
+    BOOL success = [self.managedObjectContext save:&error];
+    self.outstandingProductReview = nil;
+    return success;
 }
 
 -(void)purgeQueue {
+    // If we have a product outstanding, but try to purge the queue before saving, delete the outstanding product review
     NSError *error;
+    if(self.outstandingProductReview != nil){
+        [self.managedObjectContext deleteObject:self.outstandingProductReview];
+        [self.managedObjectContext save:&error];
+    }
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductReview"
                                               inManagedObjectContext:self.managedObjectContext];

@@ -8,6 +8,7 @@
 
 #import "PublishViewController.h"
 #import "UIColor+AppColors.h"
+#import "LEDataManager.h"
 
 @interface PublishViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
@@ -93,7 +94,15 @@
     } else {
         self.productToReview.nickname = self.nicknameTextField.text;
         self.productToReview.email = self.emailTextField.text;
-        
+        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] addOutstandingObjectToQueue];
+        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Success!"
+                                                          message:@"Your review has been submitted. Thank you for your feedback."
+                                                         delegate:self
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 
 }

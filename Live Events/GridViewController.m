@@ -12,6 +12,7 @@
 #import "ProductReview.h"
 #import "ReviewViewController.h"
 #import "MBProgressHUD.h"
+#import "LEDataManager.h"
 
 @interface GridViewController ()
 
@@ -81,7 +82,7 @@
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
                                                       message:@"An error occurred.  Please check your connection and try again."
                                                      delegate:self
-                                            cancelButtonTitle:nil
+                                            cancelButtonTitle:@"Ok"
                                             otherButtonTitles:nil];
     [message show];
 }
@@ -110,13 +111,10 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
     NSDictionary * selectedProduct = self.dataArray[index];
-    NSManagedObjectContext * context = [self managedObjectContext];
-    ProductReview * productReview = [NSEntityDescription
-                                     insertNewObjectForEntityForName:@"ProductReview"
-                                     inManagedObjectContext:context];
-    
+    ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"];
+    productReview.productId = selectedProduct[@"Id"];
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 

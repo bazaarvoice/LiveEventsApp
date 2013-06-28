@@ -45,8 +45,12 @@
     
     self.enabled = false;
     self.title = @"Dove";
-    [BVSettings instance].baseURL = @"api.bazaarvoice.com";
-    [BVSettings instance].passKey = @"70idospb1wubvlbyzixo3elq9";
+    [BVSettings instance].baseURL = @"dove.ugc.bazaarvoice.com";
+    [BVSettings instance].staging = false;
+
+    [BVSettings instance].passKey = [BVSettings instance].staging ? @"kwxnz88pprfo7d8wdr6xdndzz" : @"70idospb1wubvlbyzixo3elq9";
+    
+
     
     self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProducts];
     self.productsView.dataArray = self.productsData;
@@ -124,6 +128,7 @@
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
     NSArray *results = [response objectForKey:@"Results"];
+    NSLog(@"%@", results);
     [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results];
     self.productsData = results;
     self.productsView.dataArray = self.productsData;
@@ -131,7 +136,7 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if(!self.enabled){
+    if(!self.enabled && self.productsData.count > 0){
         [self animateEnabled:YES];
     }
     self.idleCount = 0;
@@ -141,16 +146,13 @@
     self.idleCount = 0;
 }
 
-- (void)cellClickedAtIndex:(NSInteger)index {
+- (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
     self.idleCount = 0;
     NSDictionary * selectedProduct = self.productsData[index];
-    NSManagedObjectContext * context = [self managedObjectContext];
-    ProductReview * productReview = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"ProductReview"
-                                      inManagedObjectContext:context];
-    
+    ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"];
+    productReview.productId = selectedProduct[@"Id"];
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 

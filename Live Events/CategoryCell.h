@@ -10,14 +10,10 @@
 #import "SwipeView.h"
 
 
-@protocol CategoryCellDelegate
-- (void)cellClickedAtIndex:(NSInteger)index;
-@end
-
 @interface CategoryCell : UIView<SwipeViewDataSource, SwipeViewDelegate>
 
 @property (strong) NSArray * dataArray;
-@property (strong) id<CategoryCellDelegate> delegate;
+@property (strong) id<SwipeViewDelegate> delegate;
 
 
 - (void)animateToNext;

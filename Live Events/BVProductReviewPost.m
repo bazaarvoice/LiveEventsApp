@@ -16,6 +16,8 @@
     if(self){
         self.productToReview = productReview;
         self.userNickname = productReview.nickname;
+        self.productId = productReview.productId;
+        self.userId = productReview.nickname;
         self.userEmail = productReview.email;
         self.rating = [productReview.rating intValue];
         self.reviewText = productReview.reviewText;
