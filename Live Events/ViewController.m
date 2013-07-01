@@ -153,6 +153,7 @@
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"];
     productReview.productId = selectedProduct[@"Id"];
+    productReview.productPageUrl = selectedProduct[@"ProductPageUrl"];
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 

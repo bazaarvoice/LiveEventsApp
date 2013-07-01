@@ -19,6 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 @property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
 
+@property (weak, nonatomic) IBOutlet UIView *emailView;
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailDone;
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailCancel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLink;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+
 @end
 
 @implementation ReviewViewController
@@ -48,6 +54,9 @@
     self.continueButton.borderColor = [UIColor BVDarkBlue];
     
     self.errorLabel.alpha = 0;
+    
+    self.emailDone.borderColor = [UIColor BVDarkBlue];
+    self.emailView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -104,6 +113,18 @@
     }
 }
 
+- (IBAction)emailClicked:(id)sender {
+    self.emailField.text = @"";
+    self.emailView.hidden = NO;
+}
+- (IBAction)emailCancelClicked:(id)sender {
+    self.emailView.hidden = YES;
+}
+- (IBAction)emailDoneClicked:(id)sender {
+    self.emailView.hidden = YES;
+    UIAlertView * submitted = [[UIAlertView alloc] initWithTitle:@"Email Sent!" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [submitted show];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -127,17 +148,6 @@
 }
 
 - (IBAction)backClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void)submit {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
-                                                    message:@"Your review has been submitted.  Thank you for your feedback."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-
     [self.navigationController popViewControllerAnimated:YES];
 }
 
