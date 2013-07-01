@@ -48,7 +48,7 @@
     [BVSettings instance].baseURL = @"dove.ugc.bazaarvoice.com";
     [BVSettings instance].staging = false;
 
-    [BVSettings instance].passKey = [BVSettings instance].staging ? @"a7mcnqr7i1a9ahgg48lknq351" : @"70idospb1wubvlbyzixo3elq9";
+    [BVSettings instance].passKey = [BVSettings instance].staging ? @"a7mcnqr7i1a9ahgg48lknq351" : @"opcgjwnks8z2roz2gm721615h";
     
 
     
