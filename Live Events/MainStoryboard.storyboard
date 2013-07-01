@@ -33,6 +33,10 @@
                                 <rect key="frame" x="0.0" y="971" width="768" height="53"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Light-Blue.png" id="7VL-W3-3gr">
+                                        <rect key="frame" x="0.0" y="-37" width="252" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="0be-kw-z8h">
                                         <rect key="frame" x="247" y="0.0" width="58" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,9 +46,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S8y-vM-Rr0">
-                                        <rect key="frame" x="53" y="16" width="137" height="21"/>
+                                        <rect key="frame" x="53" y="16" width="152" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -151,6 +155,10 @@
                                 <rect key="frame" x="0.0" y="971" width="768" height="53"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Light-Blue.png" id="TPq-KD-POC">
+                                        <rect key="frame" x="0.0" y="-37" width="260" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="yye-bV-RWi">
                                         <rect key="frame" x="247" y="0.0" width="58" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -160,9 +168,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rMh-P6-1JT">
-                                        <rect key="frame" x="53" y="16" width="137" height="21"/>
+                                        <rect key="frame" x="53" y="16" width="154" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -256,6 +264,10 @@
                                 <rect key="frame" x="0.0" y="971" width="768" height="53"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Light-Blue.png" id="geJ-rl-l8g">
+                                        <rect key="frame" x="296" y="-37" width="226" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="tsG-Hj-AjE">
                                         <rect key="frame" x="247" y="0.0" width="58" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -272,9 +284,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share your Thoughts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pZS-bD-Kd2">
-                                        <rect key="frame" x="316" y="16" width="159" height="21"/>
+                                        <rect key="frame" x="316" y="16" width="174" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -332,14 +344,14 @@
                                         <rect key="frame" x="62" y="284" width="315" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                        <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What do you like?  What can we do better?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kvd-FF-LEn">
                                         <rect key="frame" x="62" y="466" width="370" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                        <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" id="n9a-Vo-sFi" customClass="RoundedCornerView">
@@ -483,6 +495,10 @@
                                         <rect key="frame" x="0.0" y="971" width="768" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Light-Blue.png" id="KHc-e9-82Q">
+                                                <rect key="frame" x="518" y="-37" width="252" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A_Diagonals.png" id="61b-sQ-l1k">
                                                 <rect key="frame" x="247" y="0.0" width="58" height="53"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -506,9 +522,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BbK-uN-EtD">
-                                                <rect key="frame" x="634" y="16" width="56" height="21"/>
+                                                <rect key="frame" x="634" y="16" width="69" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -552,7 +568,7 @@
                                                 <rect key="frame" x="52" y="100" width="389" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                                <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="There is an error in this form." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RB4-Ln-qe1">
@@ -566,7 +582,7 @@
                                                 <rect key="frame" x="52" y="218" width="406" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                                                <color key="textColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="8hM-WY-v5t" customClass="RoundedCornerView">
@@ -674,6 +690,7 @@
     </scenes>
     <resources>
         <image name="A_Diagonals.png" width="54" height="42"/>
+        <image name="A_Light-Blue.png" width="262" height="43"/>
         <image name="A_Mail.png" width="41" height="27"/>
     </resources>
     <classes>
@@ -696,6 +713,7 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
