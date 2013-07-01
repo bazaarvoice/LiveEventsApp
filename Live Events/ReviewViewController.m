@@ -57,6 +57,7 @@
     
     self.emailDone.borderColor = [UIColor BVDarkBlue];
     self.emailView.hidden = YES;
+    self.emailLink.text = self.productToReview.productPageUrl;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

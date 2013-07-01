@@ -470,7 +470,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Send the link to this form" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dqY-ju-zDR">
-                                                <rect key="frame" x="12" y="25" width="370" height="46"/>
+                                                <rect key="frame" x="12" y="29" width="370" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -757,6 +757,97 @@
         <image name="A_Light-Blue.png" width="262" height="43"/>
         <image name="A_Mail.png" width="41" height="27"/>
     </resources>
+    <classes>
+        <class className="BackgroundView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BorderedBar" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BorderedBar.h"/>
+        </class>
+        <class className="CategoryCell" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryCell.h"/>
+        </class>
+        <class className="FadeLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FadeLabel.h"/>
+        </class>
+        <class className="GridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="PublishViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nicknameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nicknameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="RateView" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RateView.h"/>
+        </class>
+        <class className="ReviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="continueClicked:"/>
+                <relationship kind="action" name="emailCancelClicked:"/>
+                <relationship kind="action" name="emailClicked:"/>
+                <relationship kind="action" name="emailDoneClicked:"/>
+                <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
+                <relationship kind="outlet" name="emailCancel" candidateClass="RoundedCornerButton"/>
+                <relationship kind="outlet" name="emailDone" candidateClass="RoundedCornerButton"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailLink" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="productLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rateView" candidateClass="RateView"/>
+                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reviewTextView" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="RoundedCornerButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerButton.h"/>
+        </class>
+        <class className="RoundedCornerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerView.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="seeAllClicked:"/>
+                <relationship kind="outlet" name="bottomBar" candidateClass="BorderedBar"/>
+                <relationship kind="outlet" name="informOthers" candidateClass="FadeLabel"/>
+                <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="productsView" candidateClass="CategoryCell"/>
+                <relationship kind="outlet" name="rateAndReview" candidateClass="FadeLabel"/>
+                <relationship kind="outlet" name="seeAllButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
