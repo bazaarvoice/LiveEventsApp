@@ -9,6 +9,7 @@
 #import "PublishViewController.h"
 #import "UIColor+AppColors.h"
 #import "LEDataManager.h"
+#import "RoundedCornerButton.h"
 
 @interface PublishViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *doneButton;
 
 @end
 
@@ -46,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.errorLabel.alpha = 0;
+    self.doneButton.borderColor = [UIColor BVDarkBlue];
 }
 
 - (IBAction)backClicked:(id)sender {
