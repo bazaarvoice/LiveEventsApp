@@ -51,6 +51,13 @@
     self.doneButton.borderColor = [UIColor BVDarkBlue];
 }
 
+- (IBAction)shareYourThoughtsClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)chooseAProductClicked:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)backClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
