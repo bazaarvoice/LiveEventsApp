@@ -23,8 +23,4 @@
     return [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1.0];
 }
 
-+(UIColor *)BVMidnightBlueColor {
-    return [UIColor colorWithRed:(17.0/255) green:(24.0/255) blue:(115.0/255) alpha:1.0];
-}
-
 @end

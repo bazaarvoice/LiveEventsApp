@@ -14,6 +14,8 @@
 #import "MBProgressHUD.h"
 #import "LEDataManager.h"
 
+#define DEFAULT_SEARCH @"Fresh"
+
 @interface GridViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -38,12 +40,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"A_Search.png"]];
-    [self.searchTextField setLeftViewMode:UITextFieldViewModeAlways];
     CGRect frame = self.searchTextField.frame;
-    frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 10);
+    frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 15);
     self.searchTextField.frame = frame;
-    [self searchWithTerm:@"Fresh"];
+    [self searchWithTerm:DEFAULT_SEARCH];
+}
+
+- (IBAction)emptySearch:(id)sender {
+    self.searchTextField.text = @"";
+    [self searchWithTerm:DEFAULT_SEARCH];
 }
 
 - (void)searchWithTerm:(NSString *)term {
@@ -56,6 +61,7 @@
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
     getFresh.search = term;
     getFresh.limit = 100;
+    [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
     [getFresh sendRequestWithDelegate:self];
     
 }
@@ -71,6 +77,7 @@
 }
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
+    NSLog(@"%@", response);
     NSArray *results = [response objectForKey:@"Results"];
     self.dataArray = results;
     [self.collectionView reloadData];
@@ -100,7 +107,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
     NSDictionary *product = self.dataArray[index];
-    NSLog(@"%@", product);
     ReviewItemView * reviewItem = [[ReviewItemView alloc] init];
     reviewItem.index = index;
     reviewItem.productTitle.text = product[@"Name"];

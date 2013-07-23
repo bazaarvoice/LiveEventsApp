@@ -12,6 +12,13 @@
 #import "PublishViewController.h"
 #import "UIColor+AppColors.h"
 
+#define BOTTOM_SPACE 50
+#define KEYBOARD_PORTRAIT 264
+#define KEYBOARD_LANDSCAPE 352
+#define SCROLL_TO_BOTTOM_PORTRAIT 180
+#define SCROLL_TO_BOTTOM_LANSCAPE 430
+
+
 @interface ReviewViewController ()
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
@@ -24,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *emailCancel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLink;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -50,6 +58,8 @@
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.title = @"Write a Review";
+    
+    self.scrollView.bounces = NO;
     
     self.continueButton.borderColor = [UIColor BVDarkBlue];
     
@@ -121,6 +131,7 @@
     self.emailView.hidden = NO;
 }
 - (IBAction)emailCancelClicked:(id)sender {
+    [self.emailField resignFirstResponder];
     self.emailView.hidden = YES;
 }
 - (IBAction)emailDoneClicked:(id)sender {
@@ -138,20 +149,51 @@
     
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
+        // Put scrollview back
+        [self positionScrollView:NO orientation:self.interfaceOrientation];
         return NO;
     }
     
     return YES;
 }
 
+
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     if([textView.text isEqualToString:@"Tell Us What You Think"]){
         textView.text = @"";
     }
+    [self positionScrollView:YES orientation:self.interfaceOrientation];
+}
+
+-(void) positionScrollView:(BOOL)up orientation:(UIInterfaceOrientation)orientation {
+    float offset;
+    if(up) {
+        // Move scrollview up
+        if (UIDeviceOrientationIsLandscape(orientation))
+        {
+            self.bottomSpaceConstraint.constant = KEYBOARD_LANDSCAPE;
+            offset = SCROLL_TO_BOTTOM_LANSCAPE;
+        } else {
+            self.bottomSpaceConstraint.constant = KEYBOARD_PORTRAIT;
+            offset = SCROLL_TO_BOTTOM_PORTRAIT;
+        }
+    } else {
+        self.bottomSpaceConstraint.constant = BOTTOM_SPACE;
+        offset = 0;
+    }
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                         self.scrollView.contentOffset = CGPointMake(0, offset);
+                     }];
 }
 
 - (IBAction)backClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self positionScrollView:self.reviewTextView.isFirstResponder orientation:self.interfaceOrientation];
 }
 
 

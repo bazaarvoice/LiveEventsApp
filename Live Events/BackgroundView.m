@@ -39,14 +39,13 @@
 
 - (void)setup{
     // Initialization code
-    self.background = [UIImage imageNamed:@"A_Pattern.png"];
+    self.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"A_Pattern.png"]];
     self.logo = [self convertImageToGrayScale:[UIImage imageNamed:@"dove.jpg"]];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    [self.background drawInRect:rect blendMode:kCGBlendModeMultiply alpha:1];
     
     float imageWHRatio = self.logo.size.width / self.logo.size.height;
     float rectWHRatio = rect.size.width / rect.size.height;
@@ -94,6 +93,11 @@
     
     // Return the new grayscale image
     return newImage;
+}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    [self setNeedsDisplay];
 }
 
 @end

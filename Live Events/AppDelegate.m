@@ -23,6 +23,7 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     ViewController *controller = (ViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     return YES;}
 							

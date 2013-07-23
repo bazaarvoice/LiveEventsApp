@@ -39,13 +39,16 @@
 }
 
 - (void)setup{
-    SwipeView * swipeView = [[SwipeView alloc] initWithFrame:CGRectMake(0, 0, 768, 350)];
+    SwipeView * swipeView = [[SwipeView alloc] init];
+    swipeView.translatesAutoresizingMaskIntoConstraints = NO;
     swipeView.dataSource = self;
     swipeView.delegate = self;
     swipeView.wrapEnabled = YES;
     self.swipeView = swipeView;
     [self addSubview:swipeView];
     
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[swipeView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(swipeView)]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[swipeView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(swipeView)]];
 }
 
 - (void)reload{
@@ -90,7 +93,7 @@
 }
 
 - (void)animateToNext {
-    [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:2.0];
+    [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:3.0];
 }
 
 /*

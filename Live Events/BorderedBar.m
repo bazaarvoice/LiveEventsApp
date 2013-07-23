@@ -38,7 +38,6 @@
     
     // and now draw the Path!
     CGContextStrokePath(context);
-    
 }
 
 

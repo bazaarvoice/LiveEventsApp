@@ -17,8 +17,8 @@
 #import "UIColor+AppColors.h"
 #import "GridViewController.h"
 
-#define SLIDE_INTERVAL 2.0
-#define IDLE_INTERVAL 4.0
+#define SLIDE_INTERVAL 3.0
+#define IDLE_INTERVAL 6.0
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
@@ -43,7 +43,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.enabled = false;
     self.title = @"Dove";
     [BVSettings instance].baseURL = @"dove.ugc.bazaarvoice.com";
     [BVSettings instance].staging = false;
@@ -67,13 +66,16 @@
                                                       userInfo:nil
                                                        repeats:YES];
 
-    self.rateAndReview.secondaryColor = [UIColor BVMidnightBlueColor];
-    self.informOthers.secondaryColor = [UIColor BVMidnightBlueColor];
-    self.seeAllButton.titleLabel.textColor = [UIColor BVMidnightBlueColor];
+    self.rateAndReview.secondaryColor = [UIColor BVDarkBlue];
+    self.informOthers.secondaryColor = [UIColor BVDarkBlue];
+    self.seeAllButton.titleLabel.textColor = [UIColor BVDarkBlue];
     
     self.productsView.delegate = self;
+}
 
-    [self notEnabledValues];
+- (void)viewWillAppear:(BOOL)animated {
+    self.enabled = true;
+    [self enabledValues];
 }
 
 -(void)enabledValues {
@@ -87,7 +89,7 @@
 }
 
 -(void)notEnabledValues {
-    self.overlayView.alpha = 0.4;
+    self.overlayView.alpha = 1.0;
     self.productsView.alpha = 0.5;
     [self.informOthers showSecondaryColor:NO];
     [self.rateAndReview showSecondaryColor:NO];
@@ -120,7 +122,8 @@
         if(self.idleCount > (IDLE_INTERVAL / SLIDE_INTERVAL)) {
             [self animateEnabled:NO];
         }
-    } else {
+    } else if([self.navigationController visibleViewController] == self) {
+        // Animate to next if this is the VC in the foreground
         [self.productsView animateToNext];
     }
 }
@@ -128,7 +131,6 @@
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
     NSArray *results = [response objectForKey:@"Results"];
-    NSLog(@"%@", results);
     [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results];
     self.productsData = results;
     self.productsView.dataArray = self.productsData;
@@ -180,6 +182,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self.view setNeedsDisplay];
 }
 
 - (void)viewDidUnload {
