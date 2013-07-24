@@ -125,6 +125,9 @@
         pubVC.managedObjectContext = self.managedObjectContext;
     }
 }
+- (IBAction)reviewBGClicked:(id)sender {
+    [self.reviewTextView becomeFirstResponder];
+}
 
 - (IBAction)emailClicked:(id)sender {
     self.emailField.text = @"";

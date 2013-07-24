@@ -66,6 +66,14 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (IBAction)emailBGClicked:(id)sender {
+    [self.emailTextField becomeFirstResponder];
+}
+
+- (IBAction)nicknameBGClicked:(id)sender {
+    [self.nicknameTextField becomeFirstResponder];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if(textField == self.nicknameTextField){
         [textField resignFirstResponder];

@@ -169,7 +169,7 @@
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="CNG-Xr-ddA" secondAttribute="centerY" type="user" id="0os-Uz-jv9"/>
                             <constraint firstItem="2mr-hp-3e3" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" type="user" id="AdI-Qe-ZTL"/>
-                            <constraint firstItem="CNG-Xr-ddA" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" type="user" id="L6B-zn-kYB"/>
+                            <constraint firstItem="CNG-Xr-ddA" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" constant="-115" type="user" id="L6B-zn-kYB"/>
                             <constraint firstAttribute="trailing" secondItem="ap0-Fa-SCu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LZw-5Q-Pow"/>
                             <constraint firstItem="ya5-nU-pjy" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" type="user" id="Lc7-3N-mcH"/>
                             <constraint firstItem="ya5-nU-pjy" firstAttribute="trailing" secondItem="Jgz-vZ-dxk" secondAttribute="trailing" type="user" id="Lvh-FT-UjR"/>
@@ -499,9 +499,10 @@
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPM-vk-1ve">
                                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="392" id="14R-7f-KsZ"/>
+                                                            <constraint firstAttribute="width" constant="384" id="ZVN-PR-mja"/>
                                                             <constraint firstAttribute="height" constant="199" id="nzk-ba-Qqr"/>
                                                         </constraints>
+                                                        <inset key="scrollIndicatorInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -520,6 +521,7 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="221" type="user" id="Cd8-oD-1UI"/>
                                                     <constraint firstItem="LPM-vk-1ve" firstAttribute="top" secondItem="UIO-OW-6sC" secondAttribute="top" constant="9" id="UcJ-qb-x7p"/>
@@ -527,6 +529,9 @@
                                                     <constraint firstItem="gKq-ev-pBJ" firstAttribute="leading" secondItem="UIO-OW-6sC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ftk-Nw-u0N"/>
                                                     <constraint firstItem="gKq-ev-pBJ" firstAttribute="top" secondItem="UIO-OW-6sC" secondAttribute="top" type="default" id="kO1-L3-fMH"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="63j-E6-DQc" appends="YES" id="uRZ-U0-hft"/>
+                                                </connections>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIR-wn-8ke">
                                                 <constraints>
@@ -796,6 +801,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="bottom" secondItem="1JB-kV-Mix" secondAttribute="bottom" type="user" id="3QY-CR-Pb5"/>
                             <constraint firstAttribute="centerX" secondItem="w7W-cf-uWl" secondAttribute="centerX" type="user" id="4Ky-9U-RN9"/>
@@ -832,6 +838,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6E-xp-CSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="63j-E6-DQc">
+                    <connections>
+                        <action selector="reviewBGClicked:" destination="Wrs-s6-4xL" id="5Q5-rc-TXh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1901" y="-104"/>
         </scene>
@@ -933,6 +944,7 @@
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="emj-La-JzZ" firstAttribute="leading" secondItem="8hM-WY-v5t" secondAttribute="leading" constant="130" type="user" id="1tp-7E-dWN"/>
                                                     <constraint firstAttribute="height" constant="55" type="user" id="Vla-rC-dNC"/>
@@ -941,6 +953,9 @@
                                                     <constraint firstItem="MGS-Vn-wHN" firstAttribute="bottom" secondItem="emj-La-JzZ" secondAttribute="bottom" type="default" id="ib9-YQ-7f4"/>
                                                     <constraint firstItem="emj-La-JzZ" firstAttribute="top" secondItem="MGS-Vn-wHN" secondAttribute="top" type="default" id="zVy-ol-S4u"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="U31-qM-i7H" appends="YES" id="Xrd-cL-gix"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B15-VY-nZu" customClass="RoundedCornerView">
                                                 <subviews>
@@ -967,6 +982,7 @@
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="5jX-DC-cVG" firstAttribute="baseline" secondItem="o0C-gh-tID" secondAttribute="baseline" type="default" id="SXE-e8-yo8"/>
                                                     <constraint firstAttribute="trailing" secondItem="5jX-DC-cVG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="obZ-gk-Bql"/>
@@ -974,6 +990,9 @@
                                                     <constraint firstAttribute="height" constant="55" type="user" id="u2q-Tv-Rfq"/>
                                                     <constraint firstItem="o0C-gh-tID" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="top" constant="14" id="w56-Ef-Hoh"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="qXZ-re-lp0" appends="YES" id="YBl-M3-blR"/>
+                                                </connections>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3I0-fz-TxD" customClass="RoundedCornerButton">
                                                 <constraints>
@@ -1150,6 +1169,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIJ-IX-t3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qXZ-re-lp0">
+                    <connections>
+                        <action selector="emailBGClicked:" destination="l3K-fo-kwH" id="SpS-Zk-2So"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="U31-qM-i7H">
+                    <connections>
+                        <action selector="nicknameBGClicked:" destination="l3K-fo-kwH" id="KRS-et-CuD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3009" y="-99"/>
         </scene>
@@ -1198,6 +1227,8 @@
                 <relationship kind="action" name="cancelClicked:"/>
                 <relationship kind="action" name="chooseAProductClicked:"/>
                 <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="action" name="emailBGClicked:"/>
+                <relationship kind="action" name="nicknameBGClicked:"/>
                 <relationship kind="action" name="shareYourThoughtsClicked:"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
@@ -1220,6 +1251,7 @@
                 <relationship kind="action" name="emailCancelClicked:"/>
                 <relationship kind="action" name="emailClicked:"/>
                 <relationship kind="action" name="emailDoneClicked:"/>
+                <relationship kind="action" name="reviewBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailCancel" candidateClass="RoundedCornerButton"/>
@@ -1268,6 +1300,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mam-v7-Hcz"/>
+        <segue reference="8mQ-j2-cV5"/>
     </inferredMetricsTieBreakers>
 </document>
