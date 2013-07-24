@@ -39,7 +39,7 @@
 					<object class="IBUIImageView" id="671095490">
 						<reference key="NSNextResponder" ref="274649161"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, -1}, {250, 350}}</string>
+						<string key="NSFrameSize">{237, 348}</string>
 						<reference key="NSSuperview" ref="274649161"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="741894652"/>
@@ -58,13 +58,13 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">A_Product-Box.png</string>
+							<string key="NSResourceName">a_nf_Product-Box.png</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="741894652">
 						<reference key="NSNextResponder" ref="274649161"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{18, 20}, {212, 234}}</string>
+						<string key="NSFrame">{{18, 20}, {199, 222}}</string>
 						<reference key="NSSuperview" ref="274649161"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="546188199"/>
@@ -79,9 +79,10 @@
 					<object class="IBUILabel" id="546188199">
 						<reference key="NSNextResponder" ref="274649161"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 262}, {210, 68}}</string>
+						<string key="NSFrame">{{20, 262}, {197, 56}}</string>
 						<reference key="NSSuperview" ref="274649161"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -110,10 +111,10 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<double key="preferredMaxLayoutWidth">210</double>
+						<double key="preferredMaxLayoutWidth">197</double>
 					</object>
 				</array>
-				<string key="NSFrameSize">{250, 360}</string>
+				<string key="NSFrameSize">{237, 348}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="671095490"/>
@@ -260,8 +261,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">A_Product-Box.png</string>
-			<string key="NS.object.0">{279, 328}</string>
+			<string key="NS.key.0">a_nf_Product-Box.png</string>
+			<string key="NS.object.0">{237, 348}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

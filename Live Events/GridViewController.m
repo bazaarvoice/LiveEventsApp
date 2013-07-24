@@ -44,6 +44,10 @@
     frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 15);
     self.searchTextField.frame = frame;
     [self searchWithTerm:DEFAULT_SEARCH];
+    
+    UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    flow.itemSize = CGSizeMake(237, 348);
 }
 
 - (IBAction)emptySearch:(id)sender {
@@ -81,6 +85,7 @@
     NSArray *results = [response objectForKey:@"Results"];
     self.dataArray = results;
     [self.collectionView reloadData];
+    [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     [self.HUD hide:YES];
 }
 
@@ -153,14 +158,6 @@
 
 - (NSArray *)dataArray{
     return _dataArray;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(185, 350);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 60);
 }
 
 

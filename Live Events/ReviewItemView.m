@@ -11,7 +11,7 @@
 @implementation ReviewItemView
 
 - (id)init{
-    return [self initWithFrame:CGRectMake(0, 0, 250, 350)];
+    return [self initWithFrame:CGRectMake(0, 0, 237, 348)];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -38,5 +38,6 @@
 - (void)setup{
     [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"ReviewItem" owner:self options:nil] objectAtIndex:0]];
 }
+
 
 @end

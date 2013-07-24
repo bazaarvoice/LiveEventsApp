@@ -68,7 +68,6 @@
 
     self.rateAndReview.secondaryColor = [UIColor BVDarkBlue];
     self.informOthers.secondaryColor = [UIColor BVDarkBlue];
-    self.seeAllButton.titleLabel.textColor = [UIColor BVDarkBlue];
     
     self.productsView.delegate = self;
 }

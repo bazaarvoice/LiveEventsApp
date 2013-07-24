@@ -16,7 +16,7 @@
 #define KEYBOARD_PORTRAIT 264
 #define KEYBOARD_LANDSCAPE 352
 #define SCROLL_TO_BOTTOM_PORTRAIT 180
-#define SCROLL_TO_BOTTOM_LANSCAPE 430
+#define SCROLL_TO_BOTTOM_LANSCAPE 450
 
 
 @interface ReviewViewController ()
@@ -159,9 +159,6 @@
 
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-    if([textView.text isEqualToString:@"Tell Us What You Think"]){
-        textView.text = @"";
-    }
     [self positionScrollView:YES orientation:self.interfaceOrientation];
 }
 
