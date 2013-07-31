@@ -12,10 +12,9 @@
 #import "RoundedCornerButton.h"
 
 @interface PublishViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *doneButton;
 
@@ -70,15 +69,8 @@
     [self.emailTextField becomeFirstResponder];
 }
 
-- (IBAction)nicknameBGClicked:(id)sender {
-    [self.nicknameTextField becomeFirstResponder];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if(textField == self.nicknameTextField){
-        [textField resignFirstResponder];
-        [self.emailTextField becomeFirstResponder];
-    } else if(textField == self.emailTextField){
+    if(textField == self.emailTextField){
         [textField resignFirstResponder];
         [self doValidation];
     }
@@ -92,12 +84,6 @@
 
 - (void)doValidation {
     BOOL error = NO;
-    if(self.nicknameTextField.text.length == 0){
-        self.nicknameLabel.textColor = [UIColor BVBrightRed];
-        error = YES;
-    } else {
-        self.nicknameLabel.textColor = [UIColor BVVeryLightGray];
-    }
     
     if(![self validateEmailWithString:self.emailTextField.text]){
         self.emailLabel.textColor = [UIColor BVBrightRed];
@@ -110,7 +96,6 @@
         self.errorLabel.alpha = 1;
         return;
     } else {
-        self.productToReview.nickname = self.nicknameTextField.text;
         self.productToReview.email = self.emailTextField.text;
         [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] addOutstandingObjectToQueue];
         [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];

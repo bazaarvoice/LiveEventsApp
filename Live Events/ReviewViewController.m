@@ -20,17 +20,18 @@
 
 
 @interface ReviewViewController ()
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
-@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *productLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
-@property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
+@property (weak, nonatomic) IBOutlet RateView *rateView;
 
-@property (weak, nonatomic) IBOutlet UIView *emailView;
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailDone;
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailCancel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLink;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
+
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
@@ -64,10 +65,6 @@
     self.continueButton.borderColor = [UIColor BVDarkBlue];
     
     self.errorLabel.alpha = 0;
-    
-    self.emailDone.borderColor = [UIColor BVDarkBlue];
-    self.emailView.hidden = YES;
-    self.emailLink.text = self.productToReview.productPageUrl;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -97,50 +94,26 @@
         self.rateLabel.textColor = [UIColor BVVeryLightGray];
     }
     
-    if(self.reviewTextView.text.length == 0 || [self.reviewTextView.text isEqualToString:@"Tell Us What You Think"]) {
-        self.reviewLabel.textColor = [UIColor BVBrightRed];
+    if(self.nicknameTextField.text.length == 0) {
+        self.nicknameLabel.textColor = [UIColor BVBrightRed];
         error = YES;
     } else {
-        self.reviewLabel.textColor = [UIColor BVVeryLightGray];
+        self.nicknameLabel.textColor = [UIColor BVVeryLightGray];
     }
     
     if(!error){
         self.errorLabel.alpha = 0;
         self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
-        self.productToReview.reviewText = self.reviewTextView.text;
-        [self performSegueWithIdentifier:@"publish" sender:nil];
+        self.productToReview.nickname = self.nicknameTextField.text;
+        [self performSegueWithIdentifier:@"record" sender:nil];
     } else {
         self.errorLabel.alpha = 1;
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"publish"])
-    {
-        // Get reference to the destination view controller
-        PublishViewController *pubVC = [segue destinationViewController];
-        pubVC.productToReview = (ProductReview *)self.productToReview;
-        pubVC.managedObjectContext = self.managedObjectContext;
-    }
-}
-- (IBAction)reviewBGClicked:(id)sender {
-    [self.reviewTextView becomeFirstResponder];
-}
 
-- (IBAction)emailClicked:(id)sender {
-    self.emailField.text = @"";
-    self.emailView.hidden = NO;
-}
-- (IBAction)emailCancelClicked:(id)sender {
-    [self.emailField resignFirstResponder];
-    self.emailView.hidden = YES;
-}
-- (IBAction)emailDoneClicked:(id)sender {
-    self.emailView.hidden = YES;
-    UIAlertView * submitted = [[UIAlertView alloc] initWithTitle:@"Email Sent!" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [submitted show];
+- (IBAction)nicknameBGClicked:(id)sender {
+    [self.nicknameTextField becomeFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -148,20 +121,7 @@
     return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        // Put scrollview back
-        [self positionScrollView:NO orientation:self.interfaceOrientation];
-        return NO;
-    }
-    
-    return YES;
-}
-
-
--(void)textViewDidBeginEditing:(UITextView *)textView{
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
     [self positionScrollView:YES orientation:self.interfaceOrientation];
 }
 
@@ -193,7 +153,7 @@
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self positionScrollView:self.reviewTextView.isFirstResponder orientation:self.interfaceOrientation];
+    [self positionScrollView:self.nicknameTextField.isFirstResponder orientation:self.interfaceOrientation];
 }
 
 
