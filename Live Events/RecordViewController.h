@@ -9,9 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "ProductReview.h"
 
-@interface RecordViewController : UIViewController
+#import <Foundation/Foundation.h>
+#import <CoreMedia/CoreMedia.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
+@interface RecordViewController : UIViewController<AVCaptureFileOutputRecordingDelegate> {
+
+}
+
+@property (strong) AVCaptureSession * captureSession;
+@property (strong) AVCaptureMovieFileOutput * movieFileOutput;
+@property (strong) AVCaptureDeviceInput * videoInputDevice;
+@property (retain) AVCaptureVideoPreviewLayer *previewLayer;
+
+@property (assign) BOOL isRecording;
 @property (strong) ProductReview *productToReview;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
+- (void) CameraSetOutputProperties;
+- (AVCaptureDevice *) CameraWithPosition:(AVCaptureDevicePosition) Position;
+- (IBAction)StartStopButtonPressed:(id)sender;
+- (IBAction)CameraToggleButtonPressed:(id)sender;
 
 @end

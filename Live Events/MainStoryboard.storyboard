@@ -857,8 +857,8 @@
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ready?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rna-wu-eMG" customClass="FadeLabel">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="564" id="9i4-R1-gZO"/>
                                     <constraint firstAttribute="height" constant="91" id="RmG-uX-eBa"/>
-                                    <constraint firstAttribute="width" constant="564" id="rcR-7l-jVB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="70"/>
                                 <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -891,22 +891,56 @@
                                     <constraint firstItem="m5A-VF-gtR" firstAttribute="leading" secondItem="oRu-cO-1Gy" secondAttribute="leading" constant="7" id="ssK-Cd-JD0"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzj-7E-vui">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="a_vid_Record-Button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartStopButtonPressed:" destination="8Mq-NT-KtJ" eventType="touchUpInside" id="V5x-TK-ORA"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raV-20-ISb">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="640" type="user" id="A1h-p6-52l"/>
+                                    <constraint firstAttribute="height" constant="480" type="user" id="F8L-Dt-JNC"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="a_vid_Profile-Outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="uWy-3M-LwO">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" type="user" id="CZX-D8-lwl"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yzj-7E-vui" secondAttribute="bottom" constant="68" id="0je-Ez-FDj"/>
                             <constraint firstItem="ujB-EK-Lx7" firstAttribute="bottom" secondItem="15y-Zh-VWN" secondAttribute="bottom" type="default" id="43T-Wy-KO9"/>
-                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="centerX" secondItem="rna-wu-eMG" secondAttribute="centerX" type="default" id="CHm-38-Fh6"/>
+                            <constraint firstItem="uWy-3M-LwO" firstAttribute="centerX" secondItem="rna-wu-eMG" secondAttribute="centerX" type="default" id="BdS-Gz-TWh"/>
+                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="centerX" secondItem="rna-wu-eMG" secondAttribute="centerX" type="user" id="CHm-38-Fh6"/>
                             <constraint firstItem="ujB-EK-Lx7" firstAttribute="leading" secondItem="15y-Zh-VWN" secondAttribute="leading" type="default" id="Mpa-nb-OCM"/>
                             <constraint firstItem="ujB-EK-Lx7" firstAttribute="trailing" secondItem="15y-Zh-VWN" secondAttribute="trailing" type="default" id="RTt-pv-Mjo"/>
+                            <constraint firstItem="uWy-3M-LwO" firstAttribute="leading" secondItem="raV-20-ISb" secondAttribute="leading" type="default" id="SaF-3K-T23"/>
                             <constraint firstItem="rna-wu-eMG" firstAttribute="top" secondItem="15y-Zh-VWN" secondAttribute="top" constant="67" id="bvD-jK-RhR"/>
-                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="trailing" secondItem="15y-Zh-VWN" secondAttribute="trailing" type="default" id="fMe-OI-Ih0"/>
+                            <constraint firstItem="raV-20-ISb" firstAttribute="top" secondItem="15y-Zh-VWN" secondAttribute="top" constant="185" type="user" id="dm9-oS-u44"/>
+                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="trailing" secondItem="15y-Zh-VWN" secondAttribute="trailing" type="user" id="fMe-OI-Ih0"/>
+                            <constraint firstItem="yzj-7E-vui" firstAttribute="centerX" secondItem="ujB-EK-Lx7" secondAttribute="centerX" type="default" id="geV-cx-pvp"/>
                             <constraint firstItem="oRu-cO-1Gy" firstAttribute="top" secondItem="15y-Zh-VWN" secondAttribute="top" type="default" id="hfs-A6-p7Z"/>
-                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="leading" secondItem="15y-Zh-VWN" secondAttribute="leading" type="default" id="s30-wM-k09"/>
+                            <constraint firstItem="uWy-3M-LwO" firstAttribute="trailing" secondItem="raV-20-ISb" secondAttribute="trailing" type="default" id="iq5-u6-xIR"/>
+                            <constraint firstItem="oRu-cO-1Gy" firstAttribute="leading" secondItem="15y-Zh-VWN" secondAttribute="leading" type="user" id="s30-wM-k09"/>
+                            <constraint firstItem="uWy-3M-LwO" firstAttribute="top" secondItem="raV-20-ISb" secondAttribute="bottom" constant="-480" type="user" id="xHy-Od-Yd0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tCP-ne-YOP"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="recordStopButton" destination="yzj-7E-vui" id="InA-7F-6mj"/>
+                        <outlet property="videoContainer" destination="raV-20-ISb" id="kEx-tC-Te5"/>
                         <segue destination="l3K-fo-kwH" kind="push" identifier="publish" id="aMS-6v-Ai6"/>
                     </connections>
                 </viewController>
@@ -1176,6 +1210,8 @@
         <image name="A_Progress-Bar_Gray-Gray.png" width="768" height="43"/>
         <image name="a_nf_Search-Bar.png" width="9" height="88"/>
         <image name="a_nf_Search-Button.png" width="127" height="50"/>
+        <image name="a_vid_Profile-Outline.png" width="355" height="359"/>
+        <image name="a_vid_Record-Button.png" width="469" height="160"/>
     </resources>
     <classes>
         <class className="BackgroundView" superclassName="UIView">
@@ -1197,8 +1233,6 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="emptySearch:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
@@ -1209,12 +1243,6 @@
         <class className="PublishViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="doneClicked:"/>
-                <relationship kind="action" name="emailBGClicked:"/>
-                <relationship kind="action" name="shareYourThoughtsClicked:"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
@@ -1226,15 +1254,16 @@
         </class>
         <class className="RecordViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="CameraToggleButtonPressed:"/>
+                <relationship kind="action" name="StartStopButtonPressed:"/>
+                <relationship kind="outlet" name="recordStopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="videoContainer" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="ReviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="continueClicked:"/>
-                <relationship kind="action" name="nicknameBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
@@ -1255,9 +1284,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
