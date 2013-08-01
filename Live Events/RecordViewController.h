@@ -30,6 +30,5 @@
 - (void) CameraSetOutputProperties;
 - (AVCaptureDevice *) CameraWithPosition:(AVCaptureDevicePosition) Position;
 - (IBAction)StartStopButtonPressed:(id)sender;
-- (IBAction)CameraToggleButtonPressed:(id)sender;
 
 @end

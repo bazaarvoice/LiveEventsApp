@@ -9,7 +9,7 @@
 #import "ReviewViewController.h"
 #import "UIImageView+WebCache.h"
 #import "RoundedCornerButton.h"
-#import "PublishViewController.h"
+#import "RecordViewController.h"
 #import "UIColor+AppColors.h"
 
 #define BOTTOM_SPACE 50
@@ -111,6 +111,18 @@
     }
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"record"])
+    {
+        // Get reference to the destination view controller
+        RecordViewController *recVC = [segue destinationViewController];
+        recVC.productToReview = (ProductReview *)self.productToReview;
+        recVC.managedObjectContext = self.managedObjectContext;
+    }
+}
 
 - (IBAction)nicknameBGClicked:(id)sender {
     [self.nicknameTextField becomeFirstResponder];

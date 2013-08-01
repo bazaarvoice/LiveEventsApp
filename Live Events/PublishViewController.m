@@ -11,11 +11,15 @@
 #import "LEDataManager.h"
 #import "RoundedCornerButton.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
 @interface PublishViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UIView *videoFrame;
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *doneButton;
 
 @end
@@ -41,14 +45,33 @@
 }
 
 - (void)setup {
-    
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.errorLabel.alpha = 0;
     self.doneButton.borderColor = [UIColor BVDarkBlue];
+    
+    [self loadVideoPlayer];
 }
+
+- (void)loadVideoPlayer {
+    NSURL *url = [NSURL URLWithString:self.productToReview.localVideoPath];
+    ALAssetsLibrary *myAssetLib=[[ALAssetsLibrary alloc] init];
+    
+    [myAssetLib assetForURL:url
+                resultBlock:^(ALAsset *asset) {
+                    MPMoviePlayerController *player =
+                    [[MPMoviePlayerController alloc] initWithContentURL:[[asset defaultRepresentation]url]];
+                    [player prepareToPlay];
+                    [player.view setFrame: CGRectMake(0, 0, 480, 320)];
+                    [self.videoFrame addSubview: player.view];
+                }
+               failureBlock:^(NSError *error){NSLog(@"test:Fail");}];
+}
+
+
 
 - (IBAction)shareYourThoughtsClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

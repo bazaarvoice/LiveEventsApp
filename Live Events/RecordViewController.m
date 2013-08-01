@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *videoContainer;
 @property (weak, nonatomic) IBOutlet UIButton *recordStopButton;
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionText;
+@property (weak, nonatomic) IBOutlet UIImageView *arrow;
 
 @end
 
@@ -32,9 +35,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.arrow.hidden = YES;
+    [self setLabel];
     [self setUpCaptureSession];
 }
 
+- (void)setLabel {
+    const CGFloat fontSize = 13;
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
+    UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
+    NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys: regularFont, NSFontAttributeName, nil];
+    
+    NSDictionary *boldAttrs = [NSDictionary dictionaryWithObjectsAndKeys:boldFont, NSFontAttributeName, nil];
+    const NSRange boldRange = NSMakeRange(17,20); // range of " 2012/10/14 ". Ideally this should not be hardcoded
+    
+    NSString * text = @"Hello my name is Mike and I gave Men+Care extra fresh deodorant 3 stars because....";
+    
+    // Create the attributed string (text + attributes)
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text attributes:attrs];
+    [attributedText setAttributes:boldAttrs range:boldRange];
+    
+    // Set it in our UILabel and we are done!
+    self.descriptionText.attributedText = attributedText;
+}
 
 // Taken from http://www.ios-developer.net/iphone-ipad-programmer/development/camera/record-video-with-avcapturesession-2
 - (void)setUpCaptureSession {
@@ -118,7 +141,7 @@
 	//----- DISPLAY THE PREVIEW LAYER -----
 	//Display it full screen under out view controller existing controls
 	NSLog(@"Display the preview layer");
-    CGRect previewLayerBounds = CGRectMake(0, 0, 640, 480);
+    CGRect previewLayerBounds = CGRectMake(0, 0, 480, 360);
     [self.previewLayer setBounds:previewLayerBounds];
 	[self.previewLayer setPosition:CGPointMake(CGRectGetMidX(previewLayerBounds),
                                           CGRectGetMidY(previewLayerBounds))];
@@ -176,52 +199,6 @@
 	return nil;
 }
 
-
-
-//********** CAMERA TOGGLE **********
-- (IBAction)CameraToggleButtonPressed:(id)sender
-{
-	if ([[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] count] > 1)		//Only do if device has multiple cameras
-	{
-		NSLog(@"Toggle camera");
-		NSError *error;
-		//AVCaptureDeviceInput *videoInput = [self videoInput];
-		AVCaptureDeviceInput *NewVideoInput;
-		AVCaptureDevicePosition position = [[self.videoInputDevice device] position];
-		if (position == AVCaptureDevicePositionBack)
-		{
-			NewVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionFront] error:&error];
-		}
-		else if (position == AVCaptureDevicePositionFront)
-		{
-			NewVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionBack] error:&error];
-		}
-        
-		if (NewVideoInput != nil)
-		{
-			[self.captureSession beginConfiguration];		//We can now change the inputs and output configuration.  Use commitConfiguration to end
-			[self.captureSession removeInput:self.videoInputDevice];
-			if ([self.captureSession canAddInput:NewVideoInput])
-			{
-				[self.captureSession addInput:NewVideoInput];
-				self.videoInputDevice = NewVideoInput;
-			}
-			else
-			{
-				[self.captureSession addInput:self.videoInputDevice];
-			}
-			
-			//Set the connection properties again
-			[self CameraSetOutputProperties];
-			
-			
-			[self.captureSession commitConfiguration];
-		}
-	}
-}
-
-
-
 //********** START STOP RECORDING BUTTON **********
 - (IBAction)StartStopButtonPressed:(id)sender
 {
@@ -231,6 +208,8 @@
 		//----- START RECORDING -----
 		NSLog(@"START RECORDING");
 		self.isRecording = YES;
+        self.topLabel.text = @"Look at the camera";
+        self.arrow.hidden = NO;
         [self.recordStopButton setBackgroundImage:[UIImage imageNamed:@"a_vid_Stop-Button"] forState:UIControlStateNormal];
 		
 		//Create temporary URL to record to
@@ -246,7 +225,11 @@
 			}
 		}
 		//Start recording
-		[self.movieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+        @try {
+            [self.movieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+        } @catch (NSException * error){
+            NSLog(@"%@", error);
+        }
 	}
 	else
 	{
@@ -254,8 +237,6 @@
 		NSLog(@"STOP RECORDING");
 		self.isRecording = NO;
         [self.recordStopButton setBackgroundImage:[UIImage imageNamed:@"a_vid_Record-Button"] forState:UIControlStateNormal];
-
-        
 		[self.movieFileOutput stopRecording];
 	}
 }
@@ -293,9 +274,13 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
                  if (error)
                  {
                      
+                 } else {
+                     self.productToReview.localVideoPath = assetURL.absoluteString;
+                     [self performSegueWithIdentifier:@"publish" sender:nil];
                  }
              }];
 		}
+
 	}
 }
 

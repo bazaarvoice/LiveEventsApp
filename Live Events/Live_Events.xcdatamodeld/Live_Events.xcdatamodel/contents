@@ -3,6 +3,7 @@
     <entity name="ProductReview" representedClassName="ProductReview">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localVideoPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String">
             <userInfo/>
         </attribute>
@@ -11,13 +12,14 @@
         <attribute name="productPageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploadedVideoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="ProductsResponse" representedClassName="ProductsResponse" syncable="YES">
         <attribute name="response" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ProductReview" positionX="-11252" positionY="-4435" width="128" height="165"/>
+        <element name="ProductReview" positionX="-11252" positionY="-4482" width="128" height="195"/>
         <element name="ProductsResponse" positionX="-11252" positionY="-4257" width="128" height="60"/>
     </elements>
 </model>
