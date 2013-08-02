@@ -65,9 +65,15 @@
     self.continueButton.borderColor = [UIColor BVDarkBlue];
     
     self.errorLabel.alpha = 0;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideHandler:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     self.productLabel.text = self.productToReview.name;
     [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
 }
@@ -128,10 +134,20 @@
     [self.nicknameTextField becomeFirstResponder];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+
+- (void) keyboardWillHideHandler:(NSNotification *)notification {
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
     return YES;
 }
+
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     [self positionScrollView:YES orientation:self.interfaceOrientation];
