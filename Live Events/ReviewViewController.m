@@ -68,9 +68,16 @@
     self.emailDone.borderColor = [UIColor BVDarkBlue];
     self.emailView.hidden = YES;
     self.emailLink.text = self.productToReview.productPageUrl;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideHandler:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     self.productLabel.text = self.productToReview.name;
     [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
 }
@@ -143,17 +150,16 @@
     [submitted show];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
+
+- (void) keyboardWillHideHandler:(NSNotification *)notification {
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
 }
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
-        // Put scrollview back
-        [self positionScrollView:NO orientation:self.interfaceOrientation];
         return NO;
     }
     
