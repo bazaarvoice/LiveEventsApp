@@ -58,7 +58,7 @@
     // Set it in our UILabel and we are done!
     self.descriptionText.attributedText = attributedText;
 }
-
+	
 // Taken from http://www.ios-developer.net/iphone-ipad-programmer/development/camera/record-video-with-avcapturesession-2
 - (void)setUpCaptureSession {
     //---------------------------------
@@ -168,7 +168,7 @@
 	//Set landscape (if required)
 	if ([CaptureConnection isVideoOrientationSupported])
 	{
-		AVCaptureVideoOrientation orientation = AVCaptureVideoOrientationLandscapeRight;		//<<<<<SET VIDEO ORIENTATION IF LANDSCAPE
+		AVCaptureVideoOrientation orientation = AVCaptureVideoOrientationPortrait;
 		[CaptureConnection setVideoOrientation:orientation];
 	}
 	
@@ -297,6 +297,11 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     }
 }
 
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    
+}
+
+-(
 
 - (void)didReceiveMemoryWarning
 {

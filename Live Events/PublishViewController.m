@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UIView *videoFrame;
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *doneButton;
+@property (strong, nonatomic) IBOutlet MPMoviePlayerController *videoController;
+
 
 @end
 
@@ -62,13 +64,14 @@
     
     [myAssetLib assetForURL:url
                 resultBlock:^(ALAsset *asset) {
-                    MPMoviePlayerController *player =
-                    [[MPMoviePlayerController alloc] initWithContentURL:[[asset defaultRepresentation]url]];
-                    [player prepareToPlay];
-                    [player.view setFrame: CGRectMake(0, 0, 480, 320)];
-                    [self.videoFrame addSubview: player.view];
+                    NSURL * url = [[asset defaultRepresentation]url];
+                    NSLog(@"%@", url);
+                    self.videoController = [[MPMoviePlayerController alloc] initWithContentURL:[[asset defaultRepresentation]url]];
+                    [self.videoController prepareToPlay];
+                    [self.videoController.view setFrame: CGRectMake(0, 0, 480, 320)];
+                    [self.videoFrame addSubview: self.videoController.view];
                 }
-               failureBlock:^(NSError *error){NSLog(@"test:Fail");}];
+                failureBlock:^(NSError *error){NSLog(@"test:Fail");}];
 }
 
 
