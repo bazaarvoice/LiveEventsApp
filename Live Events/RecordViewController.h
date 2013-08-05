@@ -22,6 +22,7 @@
 @property (strong) AVCaptureMovieFileOutput * movieFileOutput;
 @property (strong) AVCaptureDeviceInput * videoInputDevice;
 @property (retain) AVCaptureVideoPreviewLayer *previewLayer;
+@property (strong) AVCaptureConnection * captureConnection;
 
 @property (assign) BOOL isRecording;
 @property (strong) ProductReview *productToReview;

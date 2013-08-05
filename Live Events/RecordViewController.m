@@ -32,7 +32,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     self.arrow.hidden = YES;
@@ -41,24 +41,37 @@
 }
 
 - (void)setLabel {
-    const CGFloat fontSize = 13;
+    const CGFloat fontSize = 17;
     UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
     UIFont *regularFont = [UIFont systemFontOfSize:fontSize];
     NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys: regularFont, NSFontAttributeName, nil];
     
     NSDictionary *boldAttrs = [NSDictionary dictionaryWithObjectsAndKeys:boldFont, NSFontAttributeName, nil];
-    const NSRange boldRange = NSMakeRange(17,20); // range of " 2012/10/14 ". Ideally this should not be hardcoded
+    const NSRange boldRange = NSMakeRange(17,4);
+    const NSRange boldRange2 = NSMakeRange(64,7);
     
     NSString * text = @"Hello my name is Mike and I gave Men+Care extra fresh deodorant 3 stars because....";
     
     // Create the attributed string (text + attributes)
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text attributes:attrs];
     [attributedText setAttributes:boldAttrs range:boldRange];
+    [attributedText setAttributes:boldAttrs range:boldRange2];
+
     
     // Set it in our UILabel and we are done!
     self.descriptionText.attributedText = attributedText;
 }
-	
+
+
+- (IBAction)backClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)chooseAProductClicked:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 // Taken from http://www.ios-developer.net/iphone-ipad-programmer/development/camera/record-video-with-avcapturesession-2
 - (void)setUpCaptureSession {
     //---------------------------------
@@ -102,7 +115,7 @@
 	NSLog(@"Adding video preview layer");
 	self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
 	[self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-	
+	self.previewLayer.connection.videoOrientation = [self orientationForInterfaceOrientation:[[UIDevice currentDevice] orientation]];
 	
 	//ADD MOVIE FILE OUTPUT
 	NSLog(@"Adding movie file output");
@@ -163,26 +176,20 @@
 - (void) CameraSetOutputProperties
 {
 	//SET THE CONNECTION PROPERTIES (output properties)
-	AVCaptureConnection *CaptureConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-	
-	//Set landscape (if required)
-	if ([CaptureConnection isVideoOrientationSupported])
-	{
-		AVCaptureVideoOrientation orientation = AVCaptureVideoOrientationPortrait;
-		[CaptureConnection setVideoOrientation:orientation];
-	}
+	self.captureConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
+    self.captureConnection.videoOrientation = [self orientationForInterfaceOrientation:[[UIDevice currentDevice] orientation]];;
 	
 	//Set frame rate (if requried)
-	CMTimeShow(CaptureConnection.videoMinFrameDuration);
-	CMTimeShow(CaptureConnection.videoMaxFrameDuration);
+	CMTimeShow(self.captureConnection.videoMinFrameDuration);
+	CMTimeShow(self.captureConnection.videoMaxFrameDuration);
 	
-	if (CaptureConnection.supportsVideoMinFrameDuration)
-		CaptureConnection.videoMinFrameDuration = CMTimeMake(1, CAPTURE_FRAMES_PER_SECOND);
-	if (CaptureConnection.supportsVideoMaxFrameDuration)
-		CaptureConnection.videoMaxFrameDuration = CMTimeMake(1, CAPTURE_FRAMES_PER_SECOND);
+	if (self.captureConnection.supportsVideoMinFrameDuration)
+		self.captureConnection.videoMinFrameDuration = CMTimeMake(1, CAPTURE_FRAMES_PER_SECOND);
+	if (self.captureConnection.supportsVideoMaxFrameDuration)
+		self.captureConnection.videoMaxFrameDuration = CMTimeMake(1, CAPTURE_FRAMES_PER_SECOND);
 	
-	CMTimeShow(CaptureConnection.videoMinFrameDuration);
-	CMTimeShow(CaptureConnection.videoMaxFrameDuration);
+	CMTimeShow(self.captureConnection.videoMinFrameDuration);
+	CMTimeShow(self.captureConnection.videoMaxFrameDuration);
 }
 
 //********** GET CAMERA IN SPECIFIED POSITION IF IT EXISTS **********
@@ -297,11 +304,21 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     }
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    
+-(AVCaptureVideoOrientation)orientationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
+    if(orientation == UIInterfaceOrientationLandscapeLeft) {
+        return AVCaptureVideoOrientationLandscapeLeft;
+    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+        return AVCaptureVideoOrientationLandscapeRight;
+    }
+    return AVCaptureVideoOrientationLandscapeLeft;
 }
 
--(
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if(!self.isRecording){
+        self.captureConnection.videoOrientation = [self orientationForInterfaceOrientation:toInterfaceOrientation];
+        self.previewLayer.connection.videoOrientation = [self orientationForInterfaceOrientation:toInterfaceOrientation];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

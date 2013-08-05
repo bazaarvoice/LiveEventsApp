@@ -66,6 +66,11 @@
     
     self.errorLabel.alpha = 0;
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowHandler:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHideHandler:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
@@ -84,12 +89,13 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)chooseAProductClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)cancelClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (IBAction)continueClicked:(id)sender {
     BOOL error = NO;
     
@@ -134,23 +140,17 @@
     [self.nicknameTextField becomeFirstResponder];
 }
 
+- (void) keyboardWillShowHandler:(NSNotification *)notification {
+    [self positionScrollView:YES orientation:self.interfaceOrientation];
+}
 
 - (void) keyboardWillHideHandler:(NSNotification *)notification {
     [self positionScrollView:NO orientation:self.interfaceOrientation];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    return YES;
-}
-
-
--(void)textFieldDidBeginEditing:(UITextField *)textField {
-    [self positionScrollView:YES orientation:self.interfaceOrientation];
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return true;
 }
 
 -(void) positionScrollView:(BOOL)up orientation:(UIInterfaceOrientation)orientation {

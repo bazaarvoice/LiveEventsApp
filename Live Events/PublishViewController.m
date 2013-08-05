@@ -14,6 +14,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#define INITIAL_OFFSET 42
+#define KEYBOARD_HEIGHT 352
+
 @interface PublishViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -22,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIView *videoFrame;
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *doneButton;
 @property (strong, nonatomic) IBOutlet MPMoviePlayerController *videoController;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topPosition;
 
 
 @end
@@ -56,6 +61,16 @@
     self.doneButton.borderColor = [UIColor BVDarkBlue];
     
     [self loadVideoPlayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowHandler:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideHandler:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)loadVideoPlayer {
@@ -81,6 +96,10 @@
 }
 - (IBAction)chooseAProductClicked:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)prepClicked:(id)sender {
+    [self.navigationController popToViewController:(UIViewController *)self.navigationController.viewControllers[self.navigationController.viewControllers.count - 3] animated:YES];
 }
 
 - (IBAction)backClicked:(id)sender {
@@ -142,6 +161,29 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:email];
 }
+
+- (void) keyboardWillShowHandler:(NSNotification *)notification {
+    [self positionScrollView:YES orientation:self.interfaceOrientation];
+}
+
+- (void) keyboardWillHideHandler:(NSNotification *)notification {
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
+}
+
+-(void) positionScrollView:(BOOL)up orientation:(UIInterfaceOrientation)orientation {
+    if(up) {
+        // Move scrollview up
+        self.topPosition.constant = INITIAL_OFFSET - KEYBOARD_HEIGHT;
+    } else {
+        self.topPosition.constant = INITIAL_OFFSET;
+    }
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
+
+
 
 
 - (void)didReceiveMemoryWarning
