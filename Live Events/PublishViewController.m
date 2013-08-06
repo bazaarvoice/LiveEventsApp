@@ -59,9 +59,7 @@
     [super viewDidLoad];
     self.errorLabel.alpha = 0;
     self.doneButton.borderColor = [UIColor BVDarkBlue];
-    
-    [self loadVideoPlayer];
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShowHandler:)
                                                  name:UIKeyboardWillShowNotification
@@ -71,6 +69,10 @@
                                              selector:@selector(keyboardWillHideHandler:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadVideoPlayer];
 }
 
 - (void)loadVideoPlayer {

@@ -56,7 +56,6 @@
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text attributes:attrs];
     [attributedText setAttributes:boldAttrs range:boldRange];
     [attributedText setAttributes:boldAttrs range:boldRange2];
-
     
     // Set it in our UILabel and we are done!
     self.descriptionText.attributedText = attributedText;
@@ -74,17 +73,10 @@
 
 // Taken from http://www.ios-developer.net/iphone-ipad-programmer/development/camera/record-video-with-avcapturesession-2
 - (void)setUpCaptureSession {
-    //---------------------------------
-	//----- SETUP CAPTURE SESSION -----
-	//---------------------------------
-	NSLog(@"Setting up capture session");
-	self.captureSession = [[AVCaptureSession alloc] init];
+   self.captureSession = [[AVCaptureSession alloc] init];
 	
-	//----- ADD INPUTS -----
-	NSLog(@"Adding video input");
-	
-	//ADD VIDEO INPUT
-	NSError *error;
+	// Add video input
+    NSError *error;
     self.videoInputDevice = [[AVCaptureDeviceInput alloc] initWithDevice:[self CameraWithPosition:AVCaptureDevicePositionFront] error:&error];
     if (!error)
     {
@@ -98,9 +90,8 @@
         NSLog(@"Couldn't create video input");
     }
 	
-	//ADD AUDIO INPUT
-	NSLog(@"Adding audio input");
-	AVCaptureDevice *audioCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+	// Add audio input
+    AVCaptureDevice *audioCaptureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
 	error = nil;
 	AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioCaptureDevice error:&error];
 	if (audioInput)
@@ -108,35 +99,29 @@
 		[self.captureSession addInput:audioInput];
 	}
 	
-	
-	//----- ADD OUTPUTS -----
-	
-	//ADD VIDEO PREVIEW LAYER
-	NSLog(@"Adding video preview layer");
+	// Add video preview layer
 	self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
 	[self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-	self.previewLayer.connection.videoOrientation = [self orientationForInterfaceOrientation:[[UIDevice currentDevice] orientation]];
+	self.previewLayer.connection.videoOrientation = [self getCaptureOrientationFromDeviceOrientation];
 	
-	//ADD MOVIE FILE OUTPUT
-	NSLog(@"Adding movie file output");
+	// Add movie file output
+    NSLog(@"Adding movie file output");
 	self.movieFileOutput = [[AVCaptureMovieFileOutput alloc] init];
 	
 	Float64 TotalSeconds = 60;			//Total seconds
 	int32_t preferredTimeScale = 30;	//Frames per second
-	CMTime maxDuration = CMTimeMakeWithSeconds(TotalSeconds, preferredTimeScale);	//<<SET MAX DURATION
+	CMTime maxDuration = CMTimeMakeWithSeconds(TotalSeconds, preferredTimeScale);
 	self.movieFileOutput.maxRecordedDuration = maxDuration;
 	
-	self.movieFileOutput.minFreeDiskSpaceLimit = 1024 * 1024;						//<<SET MIN FREE SPACE IN BYTES FOR RECORDING TO CONTINUE ON A VOLUME
+	self.movieFileOutput.minFreeDiskSpaceLimit = 1024 * 1024;
 	
 	if ([self.captureSession canAddOutput:self.movieFileOutput])
 		[self.captureSession addOutput:self.movieFileOutput];
     
-	//SET THE CONNECTION PROPERTIES (output properties)
-	[self CameraSetOutputProperties];			//(We call a method as it also has to be done after changing camera)
-    
+	[self CameraSetOutputProperties];
     
 	
-	//----- SET THE IMAGE QUALITY / RESOLUTION -----
+	//----- Image quality / resolution
 	//Options:
 	//	AVCaptureSessionPresetHigh - Highest recording quality (varies per device)
 	//	AVCaptureSessionPresetMedium - Suitable for WiFi sharing (actual values may change)
@@ -144,40 +129,27 @@
 	//	AVCaptureSessionPreset640x480 - 640x480 VGA (check its supported before setting it)
 	//	AVCaptureSessionPreset1280x720 - 1280x720 720p HD (check its supported before setting it)
 	//	AVCaptureSessionPresetPhoto - Full photo resolution (not supported for video output)
-	NSLog(@"Setting image quality");
 	[self.captureSession setSessionPreset:AVCaptureSessionPresetMedium];
 	if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset640x480])		//Check size based configs are supported before setting them
 		[self.captureSession setSessionPreset:AVCaptureSessionPreset640x480];
-    
-    
-	
-	//----- DISPLAY THE PREVIEW LAYER -----
-	//Display it full screen under out view controller existing controls
-	NSLog(@"Display the preview layer");
+
+	//Display preview layer
     CGRect previewLayerBounds = CGRectMake(0, 0, 480, 360);
     [self.previewLayer setBounds:previewLayerBounds];
 	[self.previewLayer setPosition:CGPointMake(CGRectGetMidX(previewLayerBounds),
                                           CGRectGetMidY(previewLayerBounds))];
-	//[[[self view] layer] addSublayer:[[self CaptureManager] previewLayer]];
-	//We use this instead so it goes on a layer behind our UI controls (avoids us having to manually bring each control to the front):
 	UIView *CameraView = [[UIView alloc] init];
     CameraView.translatesAutoresizingMaskIntoConstraints = NO;
-	//[ addSubview:CameraView];
-	//[self.view sendSubviewToBack:CameraView];
-	
-	//[[CameraView layer] addSublayer:self.previewLayer];
+
 	[self.videoContainer.layer addSublayer:self.previewLayer];
 	
-	//----- START THE CAPTURE SESSION RUNNING -----
-	[self.captureSession startRunning];
+    [self.captureSession startRunning];
 }
 
-//********** CAMERA SET OUTPUT PROPERTIES **********
 - (void) CameraSetOutputProperties
 {
-	//SET THE CONNECTION PROPERTIES (output properties)
 	self.captureConnection = [self.movieFileOutput connectionWithMediaType:AVMediaTypeVideo];
-    self.captureConnection.videoOrientation = [self orientationForInterfaceOrientation:[[UIDevice currentDevice] orientation]];;
+    self.captureConnection.videoOrientation = [self getCaptureOrientationFromDeviceOrientation];
 	
 	//Set frame rate (if requried)
 	CMTimeShow(self.captureConnection.videoMinFrameDuration);
@@ -192,7 +164,6 @@
 	CMTimeShow(self.captureConnection.videoMaxFrameDuration);
 }
 
-//********** GET CAMERA IN SPECIFIED POSITION IF IT EXISTS **********
 - (AVCaptureDevice *) CameraWithPosition:(AVCaptureDevicePosition) Position
 {
 	NSArray *Devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
@@ -206,14 +177,11 @@
 	return nil;
 }
 
-//********** START STOP RECORDING BUTTON **********
 - (IBAction)StartStopButtonPressed:(id)sender
 {
 	
 	if (!self.isRecording)
 	{
-		//----- START RECORDING -----
-		NSLog(@"START RECORDING");
 		self.isRecording = YES;
         self.topLabel.text = @"Look at the camera";
         self.arrow.hidden = NO;
@@ -241,23 +209,17 @@
 	else
 	{
 		//----- STOP RECORDING -----
-		NSLog(@"STOP RECORDING");
 		self.isRecording = NO;
         [self.recordStopButton setBackgroundImage:[UIImage imageNamed:@"a_vid_Record-Button"] forState:UIControlStateNormal];
 		[self.movieFileOutput stopRecording];
 	}
 }
 
-
-//********** DID FINISH RECORDING TO OUTPUT FILE AT URL **********
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput
 didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
 	  fromConnections:(NSArray *)connections
 				error:(NSError *)error
 {
-    
-	NSLog(@"didFinishRecordingToOutputFileAtURL - enter");
-	
     BOOL RecordedSuccessfully = YES;
     if ([error code] != noErr)
 	{
@@ -270,8 +232,6 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     }
 	if (RecordedSuccessfully)
 	{
-		//----- RECORDED SUCESSFULLY -----
-        NSLog(@"didFinishRecordingToOutputFileAtURL - success");
 		ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
 		if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:outputFileURL])
 		{
@@ -304,19 +264,20 @@ didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL
     }
 }
 
--(AVCaptureVideoOrientation)orientationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    if(orientation == UIInterfaceOrientationLandscapeLeft) {
-        return AVCaptureVideoOrientationLandscapeLeft;
-    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+-(AVCaptureVideoOrientation)getCaptureOrientationFromDeviceOrientation {
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    if(orientation == UIDeviceOrientationLandscapeLeft) {
         return AVCaptureVideoOrientationLandscapeRight;
+    } else if (orientation == UIDeviceOrientationLandscapeRight) {
+        return AVCaptureVideoOrientationLandscapeLeft;
     }
     return AVCaptureVideoOrientationLandscapeLeft;
 }
 
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     if(!self.isRecording){
-        self.captureConnection.videoOrientation = [self orientationForInterfaceOrientation:toInterfaceOrientation];
-        self.previewLayer.connection.videoOrientation = [self orientationForInterfaceOrientation:toInterfaceOrientation];
+        self.captureConnection.videoOrientation = [self getCaptureOrientationFromDeviceOrientation];
+        self.previewLayer.connection.videoOrientation = [self getCaptureOrientationFromDeviceOrientation];
     }
 }
 
