@@ -22,6 +22,8 @@
 		6F43243F1778DAB5006C93A0 /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */; };
 		6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324411778E40A006C93A0 /* LEDataManager.m */; };
 		6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324441778F010006C93A0 /* BVProductReviewPost.m */; };
+		6F4BC90D17B15E6700D206FE /* BVProductMediaPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4BC90C17B15E6700D206FE /* BVProductMediaPost.m */; };
+		6F4BC90F17B17D6800D206FE /* BVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4BC90E17B17D6700D206FE /* BVSDK.framework */; };
 		6F542E7D1779F62700A36849 /* ProductsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E7C1779F62700A36849 /* ProductsResponse.m */; };
 		6F542E7F1779FA2F00A36849 /* dove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F542E7E1779FA2F00A36849 /* dove.jpg */; };
 		6F542E82177A12EB00A36849 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E81177A12EB00A36849 /* GridViewController.m */; };
@@ -93,7 +95,6 @@
 		6FF78333177380B300F3A4E2 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7832C177380B300F3A4E2 /* SDWebImageManager.m */; };
 		6FF78334177380B300F3A4E2 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF7832F177380B300F3A4E2 /* UIImageView+WebCache.m */; };
 		6FF7833B177380C500F3A4E2 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF78338177380C500F3A4E2 /* RateView.m */; };
-		6FF7833D177380DB00F3A4E2 /* BVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF7833C177380DB00F3A4E2 /* BVSDK.framework */; };
 		6FF783431773AB1E00F3A4E2 /* RoundedCornerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,9 @@
 		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
 		6F4324431778F010006C93A0 /* BVProductReviewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductReviewPost.h; sourceTree = "<group>"; };
 		6F4324441778F010006C93A0 /* BVProductReviewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductReviewPost.m; sourceTree = "<group>"; };
+		6F4BC90B17B15E6700D206FE /* BVProductMediaPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductMediaPost.h; sourceTree = "<group>"; };
+		6F4BC90C17B15E6700D206FE /* BVProductMediaPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductMediaPost.m; sourceTree = "<group>"; };
+		6F4BC90E17B17D6700D206FE /* BVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BVSDK.framework; sourceTree = "<group>"; };
 		6F542E7B1779F62700A36849 /* ProductsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsResponse.h; sourceTree = "<group>"; };
 		6F542E7C1779F62700A36849 /* ProductsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsResponse.m; sourceTree = "<group>"; };
 		6F542E7E1779FA2F00A36849 /* dove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dove.jpg; sourceTree = "<group>"; };
@@ -216,7 +220,6 @@
 		6FF7832F177380B300F3A4E2 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		6FF78337177380C500F3A4E2 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RateView.h; path = RateView/RateView.h; sourceTree = "<group>"; };
 		6FF78338177380C500F3A4E2 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RateView.m; path = RateView/RateView.m; sourceTree = "<group>"; };
-		6FF7833C177380DB00F3A4E2 /* BVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BVSDK.framework; sourceTree = "<group>"; };
 		6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedCornerView.h; sourceTree = "<group>"; };
 		6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedCornerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,7 +237,7 @@
 				6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */,
 				6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */,
 				6F5F2D5017737EE1002E899B /* CoreData.framework in Frameworks */,
-				6FF7833D177380DB00F3A4E2 /* BVSDK.framework in Frameworks */,
+				6F4BC90F17B17D6800D206FE /* BVSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +274,10 @@
 		6F5F2D4817737EE1002E899B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F4BC90E17B17D6700D206FE /* BVSDK.framework */,
 				6FB6A98E17A98A3C00361016 /* AssetsLibrary.framework */,
 				6FB6A98C17A98A1800361016 /* CoreMedia.framework */,
 				6FB6A98A17A989F900361016 /* AVFoundation.framework */,
-				6FF7833C177380DB00F3A4E2 /* BVSDK.framework */,
 				6F5F2D4917737EE1002E899B /* UIKit.framework */,
 				6F5F2D4B17737EE1002E899B /* Foundation.framework */,
 				6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */,
@@ -332,6 +335,8 @@
 				6F542E84177B7C3400A36849 /* MBProgressHUD.m */,
 				6F4324431778F010006C93A0 /* BVProductReviewPost.h */,
 				6F4324441778F010006C93A0 /* BVProductReviewPost.m */,
+				6F4BC90B17B15E6700D206FE /* BVProductMediaPost.h */,
+				6F4BC90C17B15E6700D206FE /* BVProductMediaPost.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
 			);
 			path = "Live Events";
@@ -564,6 +569,7 @@
 				6F542E85177B7C3500A36849 /* MBProgressHUD.m in Sources */,
 				6FB6A97117A8672900361016 /* RecordViewController.m in Sources */,
 				6FB6A99917AAD07300361016 /* ProductReview.m in Sources */,
+				6F4BC90D17B15E6700D206FE /* BVProductMediaPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

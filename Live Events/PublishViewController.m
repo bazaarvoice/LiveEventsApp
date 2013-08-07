@@ -85,8 +85,13 @@
                     NSLog(@"%@", url);
                     self.videoController = [[MPMoviePlayerController alloc] initWithContentURL:[[asset defaultRepresentation]url]];
                     [self.videoController prepareToPlay];
-                    [self.videoController.view setFrame: CGRectMake(0, 0, 480, 320)];
-                    [self.videoFrame addSubview: self.videoController.view];
+                    self.videoController.view.translatesAutoresizingMaskIntoConstraints = NO;
+                    UIView * videoView = self.videoController.view;
+                    [self.videoFrame addSubview:videoView];
+
+                    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[videoView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(videoView)]];
+                    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[videoView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(videoView)]];
+
                 }
                 failureBlock:^(NSError *error){NSLog(@"test:Fail");}];
 }

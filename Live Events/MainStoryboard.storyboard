@@ -185,11 +185,11 @@
                             <constraint firstAttribute="trailing" secondItem="ap0-Fa-SCu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LZw-5Q-Pow"/>
                             <constraint firstItem="ya5-nU-pjy" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" type="user" id="Lc7-3N-mcH"/>
                             <constraint firstItem="ya5-nU-pjy" firstAttribute="trailing" secondItem="Jgz-vZ-dxk" secondAttribute="trailing" type="user" id="Lvh-FT-UjR"/>
-                            <constraint firstItem="ya5-nU-pjy" firstAttribute="top" secondItem="2mr-hp-3e3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="OpG-Bh-03k"/>
-                            <constraint firstItem="2mr-hp-3e3" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" constant="-50" id="PWd-Os-szQ"/>
+                            <constraint firstItem="2mr-hp-3e3" firstAttribute="bottom" secondItem="Jgz-vZ-dxk" secondAttribute="bottom" type="default" id="Q1X-QL-Mum"/>
                             <constraint firstAttribute="bottom" secondItem="ap0-Fa-SCu" secondAttribute="bottom" constant="135" id="QCk-Yy-fK1"/>
                             <constraint firstItem="2mr-hp-3e3" firstAttribute="trailing" secondItem="Jgz-vZ-dxk" secondAttribute="trailing" type="default" id="XRO-CK-bkd"/>
                             <constraint firstItem="2mr-hp-3e3" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" type="default" id="aqZ-tb-TOD"/>
+                            <constraint firstItem="2mr-hp-3e3" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" type="default" id="d2g-75-OK3"/>
                             <constraint firstItem="gg7-to-bys" firstAttribute="top" secondItem="Jgz-vZ-dxk" secondAttribute="top" constant="36" id="dYB-eU-s18"/>
                             <constraint firstItem="gg7-to-bys" firstAttribute="leading" secondItem="Jgz-vZ-dxk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gdk-Ym-th6"/>
                             <constraint firstItem="ya5-nU-pjy" firstAttribute="bottom" secondItem="Jgz-vZ-dxk" secondAttribute="bottom" type="user" id="hhr-GL-Je1"/>
@@ -764,6 +764,7 @@
                     <navigationItem key="navigationItem" id="k0j-yU-bDU"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="bottomSpaceConstraint" destination="psr-s1-0bb" id="q0x-OW-Rrq"/>
                         <outlet property="continueButton" destination="jp4-ul-5IL" id="blL-XV-KBZ"/>
                         <outlet property="errorLabel" destination="bXu-Xx-HJY" id="Ka9-Zg-k6o"/>
                         <outlet property="nicknameLabel" destination="4A8-zg-4m9" id="Hei-AA-iKx"/>
@@ -1147,6 +1148,10 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSL-Jb-hrF">
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="320" type="user" id="8ou-ak-fJs"/>
+                                                    <constraint firstAttribute="width" constant="450" type="user" id="AVX-Uj-RXc"/>
+                                                </constraints>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="There is an error in this form." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="389" translatesAutoresizingMaskIntoConstraints="NO" id="agn-lZ-kn8">
                                                 <constraints>
@@ -1162,23 +1167,21 @@
                                         <constraints>
                                             <constraint firstItem="Knj-Fn-ycp" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="464" id="1N7-UQ-RDt"/>
                                             <constraint firstItem="B15-VY-nZu" firstAttribute="leading" secondItem="3e8-Mi-x77" secondAttribute="leading" constant="45" id="1sY-UU-mUN"/>
-                                            <constraint firstAttribute="trailing" secondItem="OEj-nq-lxl" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3EM-iM-dD6"/>
                                             <constraint firstItem="OEj-nq-lxl" firstAttribute="leading" secondItem="3e8-Mi-x77" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="699-hG-W7n"/>
+                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="centerX" secondItem="OEj-nq-lxl" secondAttribute="centerX" type="default" id="9Rz-bu-ddA"/>
                                             <constraint firstItem="agn-lZ-kn8" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="441" id="CdH-NX-Tle"/>
-                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="leading" secondItem="3e8-Mi-x77" secondAttribute="leading" constant="62" id="KJT-kH-hAF"/>
-                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="109" id="MB9-kc-WtE"/>
+                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="centerX" secondItem="B15-VY-nZu" secondAttribute="centerX" type="default" id="HvY-9H-WGh"/>
                                             <constraint firstItem="Knj-Fn-ycp" firstAttribute="leading" secondItem="agn-lZ-kn8" secondAttribute="leading" type="default" id="MRF-8c-e0I"/>
-                                            <constraint firstAttribute="bottom" secondItem="tSL-Jb-hrF" secondAttribute="bottom" constant="511" id="OJZ-sT-1nj"/>
-                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="centerX" secondItem="OEj-nq-lxl" secondAttribute="centerX" type="default" id="P6N-hS-hJH"/>
-                                            <constraint firstItem="OEj-nq-lxl" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="12" id="PKF-bK-1G7"/>
+                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="111" id="R8V-up-Add"/>
                                             <constraint firstAttribute="height" constant="940" type="user" id="XFA-8J-xVf"/>
+                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="top" secondItem="OEj-nq-lxl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YeC-yV-OFW"/>
+                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="centerX" secondItem="3e8-Mi-x77" secondAttribute="centerX" type="default" id="ZEv-KI-O5X"/>
                                             <constraint firstItem="agn-lZ-kn8" firstAttribute="leading" secondItem="3e8-Mi-x77" secondAttribute="leading" constant="53" id="ZcH-Nk-qwn"/>
                                             <constraint firstItem="B15-VY-nZu" firstAttribute="top" secondItem="Knj-Fn-ycp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bLP-9h-oOZ"/>
                                             <constraint firstAttribute="width" constant="604" type="user" id="g8t-2f-DrG"/>
                                             <constraint firstItem="3I0-fz-TxD" firstAttribute="bottom" secondItem="SjA-ha-uIU" secondAttribute="bottom" type="default" id="iew-3k-dxF"/>
                                             <constraint firstAttribute="trailing" secondItem="SjA-ha-uIU" secondAttribute="trailing" constant="202" id="lTi-w2-dRE"/>
                                             <constraint firstItem="3I0-fz-TxD" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pd8-h5-Jb3"/>
-                                            <constraint firstItem="tSL-Jb-hrF" firstAttribute="centerX" secondItem="B15-VY-nZu" secondAttribute="centerX" type="default" id="u0P-Le-GAO"/>
                                             <constraint firstItem="SjA-ha-uIU" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vgb-ni-PX4"/>
                                             <constraint firstAttribute="trailing" secondItem="3I0-fz-TxD" secondAttribute="trailing" constant="34" id="xkb-20-DOG"/>
                                         </constraints>
@@ -1371,8 +1374,6 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="emptySearch:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
@@ -1410,11 +1411,6 @@
         <class className="ReviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="continueClicked:"/>
-                <relationship kind="action" name="nicknameBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>

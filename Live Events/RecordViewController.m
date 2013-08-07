@@ -208,10 +208,11 @@
 	}
 	else
 	{
-		//----- STOP RECORDING -----
+        [self.movieFileOutput stopRecording];
 		self.isRecording = NO;
+        self.topLabel.text = @"Ready?";
+        self.arrow.hidden = YES;
         [self.recordStopButton setBackgroundImage:[UIImage imageNamed:@"a_vid_Record-Button"] forState:UIControlStateNormal];
-		[self.movieFileOutput stopRecording];
 	}
 }
 

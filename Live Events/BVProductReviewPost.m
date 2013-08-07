@@ -21,6 +21,7 @@
         self.userEmail = productReview.email;
         self.rating = [productReview.rating intValue];
         self.reviewText = productReview.reviewText;
+        [self addVideoUrl:productReview.uploadedVideoUrl withCaption:@""];
         self.action = BVActionPreview;
     }
     return self;

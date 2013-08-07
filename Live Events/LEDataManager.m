@@ -8,6 +8,7 @@
 
 #import "LEDataManager.h"
 #import "BVProductReviewPost.h"
+#import "BVProductMediaPost.h"
 #import "ProductsResponse.h"
 
 @interface LEDataManager()
@@ -77,8 +78,13 @@
     [fetchRequest setEntity:entity];
     NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (ProductReview *product in productsToSend) {
-        BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
-        [postReview sendRequestWithDelegate:self];
+        if(product.uploadedVideoUrl) {
+            BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
+            [postReview sendRequestWithDelegate:self];
+        } else {
+            BVProductMediaPost *postVideo = [[BVProductMediaPost alloc] initWithProductToPost:product];
+            [postVideo sendRequestWithDelegate:self];
+        }
     }
 }
 
@@ -137,10 +143,18 @@
 
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
-    
-    BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
-    if(![self hasErrors:response]){
-        [self.managedObjectContext deleteObject:theRequest.productToReview];
+    NSLog(@"%@", response);
+    if([request isKindOfClass:[BVProductReviewPost class]]){
+        BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
+        if(![self hasErrors:response]){
+            [self.managedObjectContext deleteObject:theRequest.productToReview];
+        }
+    } else if([request isKindOfClass:[BVMediaPost class]]) {
+        if(![self hasErrors:response]){
+            BVProductMediaPost * theRequest = (BVProductMediaPost *)request;
+            BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:theRequest.productToPost];
+            [postReview sendRequestWithDelegate:self];
+        }
     }
 }
 
