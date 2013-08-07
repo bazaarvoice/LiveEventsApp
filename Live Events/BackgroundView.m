@@ -40,7 +40,7 @@
 - (void)setup{
     // Initialization code
     self.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"A_Pattern.png"]];
-    self.logo = [self convertImageToGrayScale:[UIImage imageNamed:@"dove.jpg"]];
+    self.logo = [self convertImageToGrayScale:[UIImage imageNamed:@"walmart.jpg"]];
 }
 
 - (void)drawRect:(CGRect)rect
