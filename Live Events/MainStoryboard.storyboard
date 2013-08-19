@@ -51,7 +51,7 @@
                                             <constraint firstAttribute="width" constant="109" id="xLs-LH-cM3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-Pr-2z5">
@@ -59,7 +59,7 @@
                                             <constraint firstAttribute="width" constant="188" id="k7b-xK-bfz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.1333333333" green="0.44705882349999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Product" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-wf-pWH">
@@ -110,7 +110,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="See all Dove products  >">
-                                    <color key="titleColor" red="0.19607843458652496" green="0.30980393290519714" blue="0.5215686559677124" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -140,7 +140,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.1873757499" green="0.34190716739999999" blue="0.66292649869999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" type="user" id="2Qd-1Z-blY"/>
                                             <constraint firstItem="1dL-hL-nJx" firstAttribute="centerY" secondItem="vde-V7-mGX" secondAttribute="centerY" type="default" id="IfX-kv-qGg"/>
@@ -221,7 +221,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="&lt; Back">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -408,7 +408,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="&lt; Choose a Product">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -568,7 +568,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Continue">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -749,7 +749,7 @@
                                             <constraint firstAttribute="width" constant="109" id="J6B-CC-EdS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.1333333333" green="0.44705882349999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-4g-ueo">
@@ -864,7 +864,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="&lt; Share Your Thoughts">
-                                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -1000,7 +1000,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="Done">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -1051,7 +1051,6 @@
                                             <constraint firstItem="SjA-ha-uIU" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vgb-ni-PX4"/>
                                             <constraint firstItem="z9u-Vm-Sv5" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="26" id="xHz-nj-0KJ"/>
                                             <constraint firstAttribute="trailing" secondItem="3I0-fz-TxD" secondAttribute="trailing" constant="34" id="xkb-20-DOG"/>
-                                            <constraint firstItem="SjA-ha-uIU" firstAttribute="baseline" secondItem="3I0-fz-TxD" secondAttribute="baseline" type="default" id="y22-NF-02s"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-52-FRZ" customClass="BorderedBar">
@@ -1211,8 +1210,6 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="emptySearch:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
@@ -1223,13 +1220,6 @@
         <class className="PublishViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="doneClicked:"/>
-                <relationship kind="action" name="emailBGClicked:"/>
-                <relationship kind="action" name="nicknameBGClicked:"/>
-                <relationship kind="action" name="shareYourThoughtsClicked:"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
@@ -1244,14 +1234,6 @@
         <class className="ReviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="continueClicked:"/>
-                <relationship kind="action" name="emailCancelClicked:"/>
-                <relationship kind="action" name="emailClicked:"/>
-                <relationship kind="action" name="emailDoneClicked:"/>
-                <relationship kind="action" name="reviewBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailCancel" candidateClass="RoundedCornerButton"/>
@@ -1277,9 +1259,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>

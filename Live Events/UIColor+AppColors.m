@@ -11,8 +11,8 @@
 @implementation UIColor (AppColors)
 
 
-+(UIColor *)BVDarkBlue {
-    return [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
++(UIColor *)BVBrightBlue {
+    return [UIColor colorWithRed:34/255.0 green:114/255.0 blue:185/255.0 alpha:1.0];
 }
 
 +(UIColor *)BVBrightRed {
@@ -22,5 +22,11 @@
 +(UIColor *)BVVeryLightGray {
     return [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1.0];
 }
+
+
++(UIColor *)BVDarkBlue {
+    return [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
+}
+
 
 @end

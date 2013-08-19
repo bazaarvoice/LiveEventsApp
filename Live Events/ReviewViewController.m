@@ -61,11 +61,11 @@
     
     self.scrollView.bounces = NO;
     
-    self.continueButton.borderColor = [UIColor BVDarkBlue];
+    self.continueButton.borderColor = [UIColor BVBrightBlue];
     
     self.errorLabel.alpha = 0;
     
-    self.emailDone.borderColor = [UIColor BVDarkBlue];
+    self.emailDone.borderColor = [UIColor BVBrightBlue];
     self.emailView.hidden = YES;
     self.emailLink.text = self.productToReview.productPageUrl;
     

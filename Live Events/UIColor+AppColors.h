@@ -10,7 +10,7 @@
 
 @interface UIColor (AppColors)
 
-+(UIColor *)BVDarkBlue;
++(UIColor *)BVBrightBlue;
 +(UIColor *)BVBrightRed;
 +(UIColor *)BVVeryLightGray;
 

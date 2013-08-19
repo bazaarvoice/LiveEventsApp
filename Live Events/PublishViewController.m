@@ -48,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.errorLabel.alpha = 0;
-    self.doneButton.borderColor = [UIColor BVDarkBlue];
+    self.doneButton.borderColor = [UIColor BVBrightBlue];
 }
 
 - (IBAction)shareYourThoughtsClicked:(id)sender {

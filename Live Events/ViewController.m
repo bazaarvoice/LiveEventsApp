@@ -66,8 +66,8 @@
                                                       userInfo:nil
                                                        repeats:YES];
 
-    self.rateAndReview.secondaryColor = [UIColor BVDarkBlue];
-    self.informOthers.secondaryColor = [UIColor BVDarkBlue];
+    self.rateAndReview.secondaryColor = [UIColor BVBrightBlue];
+    self.informOthers.secondaryColor = [UIColor BVBrightBlue];
     
     self.productsView.delegate = self;
 }
