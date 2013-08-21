@@ -1374,9 +1374,14 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="emptySearch:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
+        </class>
+        <class className="MPMoviePlayerController" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPMoviePlayerController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -1401,16 +1406,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordViewController.h"/>
             <relationships>
                 <relationship kind="action" name="StartStopButtonPressed:"/>
-                <relationship kind="outlet" name="arrow" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="descriptionText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="recordStopButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="videoContainer" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="ReviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="chooseAProductClicked:"/>
+                <relationship kind="action" name="continueClicked:"/>
+                <relationship kind="action" name="nicknameBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
