@@ -21,7 +21,7 @@
         self.userEmail = productReview.email;
         self.rating = [productReview.rating intValue];
         self.reviewText = productReview.reviewText;
-        self.action = BVActionPreview;
+        self.action = BVActionSubmit;
     }
     return self;
 }

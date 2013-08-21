@@ -82,17 +82,21 @@
     }
 }
 
-- (NSArray *)getCachedProducts {
-    // Look up the ProductResponse
+- (NSArray *)getCachedProductsForTerm:(NSString *)term{
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductsResponse"
         inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSArray *response = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    ProductsResponse * productResponse;
+    for(ProductsResponse * currProductResponse in response){
+        if([currProductResponse.term isEqualToString:term]){
+            productResponse = currProductResponse;
+        }
+    }
     
-    
-    if(response.count == 0){
+    if(!productResponse){
         // If it doesn't exist yet, just return nil
         return nil;
     } else {
@@ -106,7 +110,7 @@
 }
 
 
-- (BOOL)setCachedProducts:(NSArray *)products {
+- (BOOL)setCachedProducts:(NSArray *)products forTerm:(NSString *)term {
     // Look up the existing ProductResponse
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -116,16 +120,22 @@
     NSArray *response = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     ProductsResponse * productResponse;
-    if(response.count == 0){
+    for(ProductsResponse * currProductResponse in response){
+        if([currProductResponse.term isEqualToString:term]){
+            productResponse = currProductResponse;
+        }
+    }
+    
+    if(!productResponse){
         // If it doesn't exist, create a new one
         productResponse = [NSEntityDescription
                                          insertNewObjectForEntityForName:@"ProductsResponse"
                                          inManagedObjectContext:self.managedObjectContext];
-    } else {
-        // Otherwise, pull out the old one
-        productResponse = response[0];
     }
-
+    
+    // Set term
+    productResponse.term = term;
+    
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:products forKey:@"response"];

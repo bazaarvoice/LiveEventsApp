@@ -14,7 +14,7 @@
 #import "MBProgressHUD.h"
 #import "LEDataManager.h"
 
-#define DEFAULT_SEARCH @"Fresh"
+#define DEFAULT_SEARCH @""
 
 @interface GridViewController ()
 
@@ -43,7 +43,13 @@
     CGRect frame = self.searchTextField.frame;
     frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 15);
     self.searchTextField.frame = frame;
-    [self searchWithTerm:DEFAULT_SEARCH];
+    self.dataArray = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:PRODUCT_SEARCH];
+
+    if(!self.dataArray){
+        [self searchWithTerm:DEFAULT_SEARCH];
+    } else {
+        [self reload];
+    }
     
     UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -52,6 +58,8 @@
 
 - (IBAction)emptySearch:(id)sender {
     self.searchTextField.text = @"";
+    //TODO: remove
+    return;
     [self searchWithTerm:DEFAULT_SEARCH];
 }
 
@@ -63,7 +71,12 @@
     self.HUD = HUD;
     
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
-    getFresh.search = term;
+    if(term.length > 0){
+        getFresh.search = term;
+    } else {
+        [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:@"24221406,24062803,24787040,26012799,24062801,23583145,24221406,23583145,24934982,24062802,23583146,,24413346,24625659,23268060,26678596,26095121,25634445,25139301,26095120,24413346,24625659,24857338,21129050,24761805,24413375,26827376,27101953,27101945,24857302,,20968683,26095134,25246425,25863343,25863298,26975619,21151440,24430386,24761803,22726173,20863046,24857337,24857361,24857359,24857366,26354605,23764195,24017186,,,25246420,26680901,25539929,25634553,16671381,25246401,26354616,25246400,25440895,25246420,26680901,27130737,23991159,27130731,24017198,24501961,22018255,22018267,25710579,23001149,24633531,24244654,26464937,24511209,2451120"];
+        
+    }
     getFresh.limit = 100;
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
     [getFresh sendRequestWithDelegate:self];
@@ -87,6 +100,7 @@
     [self.collectionView reloadData];
     [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     [self.HUD hide:YES];
+    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forTerm:PRODUCT_SEARCH];
 }
 
 -(void)didFailToReceiveResponse:(NSError *)err forRequest:(id)request {
@@ -102,7 +116,7 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    return self.tempDataArray.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -111,7 +125,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
-    NSDictionary *product = self.dataArray[index];
+    NSDictionary *product = self.tempDataArray[index];
     ReviewItemView * reviewItem = [[ReviewItemView alloc] init];
     reviewItem.index = index;
     reviewItem.productTitle.text = product[@"Name"];
@@ -121,7 +135,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
-    NSDictionary * selectedProduct = self.dataArray[index];
+    NSDictionary * selectedProduct = self.tempDataArray[index];
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"];
@@ -129,8 +143,33 @@
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 
+-(void)pruneResults {
+    if([self.searchTextField.text isEqual: @""]){
+        self.tempDataArray = self.dataArray;
+        return;
+    }
+    NSMutableArray * newResults = [[NSMutableArray alloc] init];
+    for (NSDictionary * product in self.dataArray){
+        NSString * name = product[@"Name"];
+        if ([name.lowercaseString rangeOfString:self.searchTextField.text.lowercaseString].location == NSNotFound) {
+        
+        } else {
+            [newResults addObject:product];
+        }
+    }
+    self.tempDataArray = newResults;
+}
+
+
+- (IBAction)textFieldChanged:(id)sender {
+    [self pruneResults];
+    [self reload];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    // TODO: remove later
+    return NO;
     [self searchWithTerm:self.searchTextField.text];
     return NO;
 }
@@ -153,6 +192,7 @@
 
 - (void)setDataArray:(NSArray *)dataArray{
     _dataArray = dataArray;
+    [self pruneResults];
     [self reload];
 }
 

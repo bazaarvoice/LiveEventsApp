@@ -43,19 +43,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.title = @"Dove";
-    [BVSettings instance].baseURL = @"dove.ugc.bazaarvoice.com";
+    self.title = @"Walmart";
+    [BVSettings instance].baseURL = @"reviews.walmart.com";
     [BVSettings instance].staging = false;
 
-    [BVSettings instance].passKey = [BVSettings instance].staging ? @"a7mcnqr7i1a9ahgg48lknq351" : @"opcgjwnks8z2roz2gm721615h";
+    [BVSettings instance].passKey = [BVSettings instance].staging ? @"ey25dkemibncqvekcw3c8yonm" : @"6qatcf1tf41yzhumpt6nx3e53";
     
 
     
-    self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProducts];
+    self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:INITIAL_SEARCH];
     self.productsView.dataArray = self.productsData;
     
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
-    getFresh.search = @"extra fresh";
+    [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:@"24221406,24062803,24787040,26012799,24062801,23583145,24221406,23583145,24934982,24062802,23583146,,24413346,24625659,23268060,26678596,26095121,25634445,25139301,26095120,24413346,24625659,24857338,21129050,24761805,24413375,26827376,27101953,27101945,24857302,,20968683,26095134,25246425,25863343,25863298,26975619,21151440,24430386,24761803,22726173,20863046,24857337,24857361,24857359,24857366,26354605,23764195,24017186,,,25246420,26680901,25539929,25634553,16671381,25246401,26354616,25246400,25440895,25246420,26680901,27130737,23991159,27130731,24017198,24501961,22018255,22018267,25710579,23001149,24633531,24244654,26464937,24511209,2451120"];
     getFresh.limit = 100;
     [getFresh addStatsOn:BVIncludeStatsTypeReviews];
     [getFresh sendRequestWithDelegate:self];
@@ -130,7 +130,7 @@
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
     NSArray *results = [response objectForKey:@"Results"];
-    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results];
+    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forTerm:INITIAL_SEARCH];
     self.productsData = results;
     self.productsView.dataArray = self.productsData;
 }

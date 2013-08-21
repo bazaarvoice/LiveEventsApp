@@ -106,10 +106,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-Fa-SCu">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="FPX-vU-J3r"/>
-                                    <constraint firstAttribute="width" constant="264" id="snt-hQ-Be5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="See all Dove products  >">
+                                <state key="normal" title="See all Walmart products  >">
                                     <color key="titleColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -336,6 +335,7 @@
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
+                                    <action selector="textFieldChanged:" destination="Wcb-Hk-ATf" eventType="editingChanged" id="ljg-oZ-xnu"/>
                                     <outlet property="delegate" destination="Wcb-Hk-ATf" id="NaN-za-5KR"/>
                                 </connections>
                             </textField>
@@ -533,7 +533,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="63j-E6-DQc" appends="YES" id="uRZ-U0-hft"/>
                                                 </connections>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIR-wn-8ke">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIR-wn-8ke">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="1My-UY-uWy"/>
                                                     <constraint firstAttribute="width" constant="49" id="tEA-CV-5US"/>
@@ -1210,6 +1210,9 @@
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="emptySearch:"/>
+                <relationship kind="action" name="textFieldChanged:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
             </relationships>
@@ -1220,6 +1223,13 @@
         <class className="PublishViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="chooseAProductClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="action" name="emailBGClicked:"/>
+                <relationship kind="action" name="nicknameBGClicked:"/>
+                <relationship kind="action" name="shareYourThoughtsClicked:"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
@@ -1234,6 +1244,14 @@
         <class className="ReviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="chooseAProductClicked:"/>
+                <relationship kind="action" name="continueClicked:"/>
+                <relationship kind="action" name="emailCancelClicked:"/>
+                <relationship kind="action" name="emailClicked:"/>
+                <relationship kind="action" name="emailDoneClicked:"/>
+                <relationship kind="action" name="reviewBGClicked:"/>
                 <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailCancel" candidateClass="RoundedCornerButton"/>
@@ -1259,6 +1277,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>

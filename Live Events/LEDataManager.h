@@ -10,14 +10,17 @@
 #import "ProductReview.h"
 #import <BVSDK/BVSDK.h>
 
+#define INITIAL_SEARCH @"LEDataManagerInitialSearch"
+#define PRODUCT_SEARCH @"LEDataManagerProductSearch"
+
 @interface LEDataManager : NSObject<BVDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 +(id)sharedInstanceWithContext:(NSManagedObjectContext *) managedObjectContext;
 
-- (NSArray *)getCachedProducts;
-- (BOOL)setCachedProducts:(NSArray *)products;
+- (NSArray *)getCachedProductsForTerm:(NSString *)term;
+- (BOOL)setCachedProducts:(NSArray *)products forTerm:(NSString *)term;
 
 -(ProductReview *)getNewProductReview;
 -(BOOL)addOutstandingObjectToQueue;

@@ -2,7 +2,7 @@
 //  ProductsResponse.m
 //  Live Events
 //
-//  Created by Alex Medearis on 6/25/13.
+//  Created by Alex Medearis on 8/21/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -12,5 +12,6 @@
 @implementation ProductsResponse
 
 @dynamic response;
+@dynamic term;
 
 @end

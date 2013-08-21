@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <BVSDK/BVSDK.h>
 
-@interface GridViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BVDelegate>
+@interface GridViewController : UIViewController <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BVDelegate>
 
 @property (strong) NSArray *dataArray;
+@property (strong) NSArray *tempDataArray;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
