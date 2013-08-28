@@ -14,10 +14,13 @@
 -(id)initWithProductReview:(ProductReview *)productReview {
     self = [super initWithType:BVPostTypeReview];
     if(self){
+        NSString * nicknameString = productReview.nickname;
+        if(nicknameString.length > 24)
+            nicknameString = [productReview.nickname substringWithRange:NSMakeRange(0, 24)];
         self.productToReview = productReview;
-        self.userNickname = productReview.nickname;
+        self.userNickname = nicknameString;
         self.productId = productReview.productId;
-        self.userId = productReview.nickname;
+        self.userId = nicknameString;
         self.userEmail = productReview.email;
         self.rating = [productReview.rating intValue];
         self.reviewText = productReview.reviewText;

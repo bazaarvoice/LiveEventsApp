@@ -25,7 +25,6 @@
 		6F542E7F1779FA2F00A36849 /* dove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F542E7E1779FA2F00A36849 /* dove.jpg */; };
 		6F542E82177A12EB00A36849 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E81177A12EB00A36849 /* GridViewController.m */; };
 		6F542E85177B7C3500A36849 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E84177B7C3400A36849 /* MBProgressHUD.m */; };
-		6F542E8B1781E70300A36849 /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E8A1781E70300A36849 /* ProductReview.m */; };
 		6F5E8B6A17B29F9500CC69DC /* walmart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F5E8B6917B29F9500CC69DC /* walmart.jpg */; };
 		6F5E8B8017B2A0DF00CC69DC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */; };
 		6F5E8B8117B2A0DF00CC69DC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */; };
@@ -56,6 +55,8 @@
 		6F5F2D8E17737FD0002E899B /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8B17737FD0002E899B /* BackgroundView.m */; };
 		6F5F2D8F17737FD0002E899B /* BorderedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8D17737FD0002E899B /* BorderedBar.m */; };
 		6F65A65A17A033A800322BFA /* a_nf_Product-Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F65A65917A033A800322BFA /* a_nf_Product-Box.png */; };
+		6F7034EA17CE6AF100D094D7 /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7034E917CE6AF100D094D7 /* ProductReview.m */; };
+		6F7034ED17CE741D00D094D7 /* ManageReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */; };
 		6FEEDFF117C51C1100FBA26B /* ProductsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */; };
 		6FF78316177380A500F3A4E2 /* A_Aarow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7830A177380A500F3A4E2 /* A_Aarow.png */; };
 		6FF78317177380A500F3A4E2 /* A_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF7830B177380A500F3A4E2 /* A_Arrow.png */; };
@@ -103,8 +104,6 @@
 		6F542E81177A12EB00A36849 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		6F542E83177B7C3400A36849 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		6F542E84177B7C3400A36849 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		6F542E891781E70200A36849 /* ProductReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReview.h; sourceTree = "<group>"; };
-		6F542E8A1781E70300A36849 /* ProductReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReview.m; sourceTree = "<group>"; };
 		6F5E8B6917B29F9500CC69DC /* walmart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = walmart.jpg; sourceTree = "<group>"; };
 		6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -147,6 +146,10 @@
 		6F5F2D8C17737FD0002E899B /* BorderedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderedBar.h; sourceTree = "<group>"; };
 		6F5F2D8D17737FD0002E899B /* BorderedBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderedBar.m; sourceTree = "<group>"; };
 		6F65A65917A033A800322BFA /* a_nf_Product-Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a_nf_Product-Box.png"; sourceTree = "<group>"; };
+		6F7034E817CE6AF100D094D7 /* ProductReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReview.h; sourceTree = "<group>"; };
+		6F7034E917CE6AF100D094D7 /* ProductReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReview.m; sourceTree = "<group>"; };
+		6F7034EB17CE741D00D094D7 /* ManageReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageReviewsViewController.h; sourceTree = "<group>"; };
+		6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageReviewsViewController.m; sourceTree = "<group>"; };
 		6FEEDFEF17C51C1100FBA26B /* ProductsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsResponse.h; sourceTree = "<group>"; };
 		6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsResponse.m; sourceTree = "<group>"; };
 		6FF7830A177380A500F3A4E2 /* A_Aarow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = A_Aarow.png; path = Resources/A_Aarow.png; sourceTree = "<group>"; };
@@ -253,10 +256,10 @@
 				6F5F2D7917737FBD002E899B /* CategoryCell.h */,
 				6F5F2D7A17737FBD002E899B /* SwipeView.h */,
 				6F5F2D7B17737FBD002E899B /* SwipeView.m */,
-				6F542E891781E70200A36849 /* ProductReview.h */,
-				6F542E8A1781E70300A36849 /* ProductReview.m */,
 				6FEEDFEF17C51C1100FBA26B /* ProductsResponse.h */,
 				6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */,
+				6F7034E817CE6AF100D094D7 /* ProductReview.h */,
+				6F7034E917CE6AF100D094D7 /* ProductReview.m */,
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
 				6F43243D1778DA85006C93A0 /* UIColor+AppColors.m */,
 				6F43243E1778DAB0006C93A0 /* UIColor+AppColors.h */,
@@ -280,6 +283,8 @@
 				6F4324431778F010006C93A0 /* BVProductReviewPost.h */,
 				6F4324441778F010006C93A0 /* BVProductReviewPost.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
+				6F7034EB17CE741D00D094D7 /* ManageReviewsViewController.h */,
+				6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */,
 			);
 			path = "Live Events";
 			sourceTree = "<group>";
@@ -480,8 +485,9 @@
 				6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */,
 				6F542E82177A12EB00A36849 /* GridViewController.m in Sources */,
 				6F542E85177B7C3500A36849 /* MBProgressHUD.m in Sources */,
-				6F542E8B1781E70300A36849 /* ProductReview.m in Sources */,
 				6FEEDFF117C51C1100FBA26B /* ProductsResponse.m in Sources */,
+				6F7034EA17CE6AF100D094D7 /* ProductReview.m in Sources */,
+				6F7034ED17CE741D00D094D7 /* ManageReviewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

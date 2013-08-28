@@ -58,6 +58,7 @@
 -(BOOL)addOutstandingObjectToQueue {
     // Make sure that the object is saved, allow creation of new objects
     NSError *error;
+    self.outstandingProductReview.status = @"Pending";
     BOOL success = [self.managedObjectContext save:&error];
     self.outstandingProductReview = nil;
     return success;
@@ -77,7 +78,29 @@
     [fetchRequest setEntity:entity];
     NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (ProductReview *product in productsToSend) {
+        if([product.status isEqualToString:@"Submitted"]){
+            continue;
+        }
         BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
+        
+        if(postReview.userNickname.length > 15)
+            postReview.userNickname = [postReview.userNickname substringWithRange:NSMakeRange(0, 15)];
+        
+        NSString *alphabet  = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZY";
+        NSMutableString *s = [NSMutableString stringWithCapacity:6];
+        for (NSUInteger i = 0U; i < 6; i++) {
+            u_int32_t r = arc4random() % [alphabet length];
+            unichar c = [alphabet characterAtIndex:r];
+            [s appendFormat:@"%C", c];
+        }
+        
+        postReview.userNickname = [NSString stringWithFormat:@"%@%@", postReview.userNickname, s];
+        postReview.userNickname = [postReview.userNickname stringByReplacingOccurrencesOfString:@" " withString:@""];
+        postReview.userId = postReview.userNickname;
+        
+        postReview.campaignId = @"kidschoice2013";
+        
+        [postReview setContextDataValue:@"kidschoice2013" value:@"true"];
         [postReview sendRequestWithDelegate:self];
     }
 }
@@ -101,7 +124,6 @@
         return nil;
     } else {
         // Otherwise, return the response as an array -- it is stored as data in the ProductResponse, so we need to convert it
-        ProductsResponse * productResponse = response[0];
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:productResponse.response];
         NSArray *cachedResponse = [unarchiver decodeObjectForKey:@"response"];
         [unarchiver finishDecoding];
@@ -150,12 +172,48 @@
     
     BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
     if(![self hasErrors:response]){
-        [self.managedObjectContext deleteObject:theRequest.productToReview];
+        theRequest.productToReview.status = @"Submitted";
+        // Uncomment to delete on submission
+        //[self.managedObjectContext deleteObject:theRequest.productToReview];
+    } else {
+        theRequest.productToReview.status = [self getErrorFromResponse:response];
     }
+    NSError *error;
+    [self.managedObjectContext save:&error];
+}
+
+- (NSString *)getErrorFromResponse:(NSDictionary *)response {
+    NSString * errorMessage;
+    NSDictionary *errors = [response objectForKey:@"Errors"];
+    NSDictionary *formErrors = [response objectForKey:@"FormErrors"];
+    if(errors && errors.count > 0)
+    {
+        NSDictionary * anError = [[response objectForKey:@"Errors"] objectAtIndex:0];
+        errorMessage = [anError objectForKey:@"Message"];
+    }
+    else if(formErrors && formErrors.count > 0)
+    {
+        NSDictionary * fieldErrors = [[formErrors allValues] objectAtIndex:0];
+        if(fieldErrors.count > 0)
+        {
+            NSDictionary * anError = [[fieldErrors allValues] objectAtIndex:0];
+            errorMessage = [anError objectForKey:@"Message"];
+        } else {
+            errorMessage = @"An Error Occurred";
+        }
+    }
+    else
+    {
+        errorMessage = @"An Error Occurred";
+    }
+    return errorMessage;
 }
 
 - (void) didFailToReceiveResponse:(NSError*)err forRequest:(id)request {
-    
+    BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
+    theRequest.productToReview.status = @"Network Error";
+    NSError *error;
+    [self.managedObjectContext save:&error];
 }
 
 - (BOOL) hasErrors:(NSDictionary *)response {

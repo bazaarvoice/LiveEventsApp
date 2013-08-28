@@ -79,10 +79,9 @@
 					<object class="IBUILabel" id="546188199">
 						<reference key="NSNextResponder" ref="274649161"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 262}, {197, 56}}</string>
+						<string key="NSFrame">{{20, 255}, {197, 73}}</string>
 						<reference key="NSSuperview" ref="274649161"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -100,7 +99,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<bool key="IBUIEnabled">NO</bool>
-						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUINumberOfLines">4</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">1</int>
 							<double key="pointSize">15</double>

@@ -232,12 +232,16 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.93798471719999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="zEg-cT-Odd" firstAttribute="leading" secondItem="y8K-YV-mIz" secondAttribute="leading" constant="6" id="L0w-20-w4w"/>
                                     <constraint firstItem="zEg-cT-Odd" firstAttribute="top" secondItem="y8K-YV-mIz" secondAttribute="top" type="default" id="XZg-4w-D40"/>
                                     <constraint firstItem="zEg-cT-Odd" firstAttribute="bottom" secondItem="y8K-YV-mIz" secondAttribute="bottom" type="default" id="ldB-DE-jtH"/>
                                     <constraint firstAttribute="height" constant="42" type="user" id="ngq-vF-9Fy"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="b0G-e6-pvP" appends="YES" id="cz3-lP-4nu"/>
+                                </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-vS-VWS">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -385,11 +389,75 @@
                         <outlet property="collectionView" destination="KrW-vS-VWS" id="8Ln-am-kLc"/>
                         <outlet property="searchTextField" destination="0QQ-yl-9LT" id="n4c-fK-FHB"/>
                         <segue destination="Wrs-s6-4xL" kind="push" identifier="rate" id="mam-v7-Hcz"/>
+                        <segue destination="le2-vI-WbA" kind="push" identifier="manageReviews" id="QsU-rV-dfI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GX5-yO-dCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="b0G-e6-pvP">
+                    <connections>
+                        <action selector="secretButtonClicked:" destination="Wcb-Hk-ATf" id="OBP-fU-gcX"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1907" y="-1641"/>
+        </scene>
+        <!--Manage Reviews View Controller-->
+        <scene sceneID="viL-Ch-mr9">
+            <objects>
+                <viewController id="le2-vI-WbA" customClass="ManageReviewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HVm-RZ-yjQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="a_nf_Search-Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ibT-g4-UuT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Kc4-RT-zyc"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jp-v7-YDz" customClass="BorderedBar">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-4K-wih">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="CjY-T1-cAG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="&lt; Back">
+                                            <color key="titleColor" red="0.1333333333" green="0.44705882349999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backClicked:" destination="le2-vI-WbA" eventType="touchUpInside" id="DgO-YW-sce"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.93798471719999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="pvc-4K-wih" firstAttribute="top" secondItem="0Jp-v7-YDz" secondAttribute="top" type="default" id="bSB-Fe-wjb"/>
+                                    <constraint firstItem="pvc-4K-wih" firstAttribute="bottom" secondItem="0Jp-v7-YDz" secondAttribute="bottom" type="default" id="syt-d4-OaX"/>
+                                    <constraint firstAttribute="height" constant="42" type="user" id="uaw-AU-dwk"/>
+                                    <constraint firstItem="pvc-4K-wih" firstAttribute="leading" secondItem="0Jp-v7-YDz" secondAttribute="leading" constant="6" id="xoT-UA-fCn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ibT-g4-UuT" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" constant="40" id="15V-vT-bp5"/>
+                            <constraint firstItem="0Jp-v7-YDz" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="default" id="Aeu-J4-AB1"/>
+                            <constraint firstItem="0Jp-v7-YDz" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="BaF-u2-FuZ"/>
+                            <constraint firstItem="ibT-g4-UuT" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="XSX-9w-Vd4"/>
+                            <constraint firstItem="0Jp-v7-YDz" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" type="default" id="ZCH-2b-ijx"/>
+                            <constraint firstItem="ibT-g4-UuT" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="default" id="nWh-r6-yez"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cHZ-wd-P5Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQr-A7-xFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2992" y="-1661"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="FK1-QP-oho">
@@ -1212,9 +1280,16 @@
             <relationships>
                 <relationship kind="action" name="backClicked:"/>
                 <relationship kind="action" name="emptySearch:"/>
+                <relationship kind="action" name="secretButtonClicked:"/>
                 <relationship kind="action" name="textFieldChanged:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ManageReviewsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManageReviewsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backClicked:"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -1300,6 +1375,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8mQ-j2-cV5"/>
+        <segue reference="mam-v7-Hcz"/>
     </inferredMetricsTieBreakers>
 </document>
