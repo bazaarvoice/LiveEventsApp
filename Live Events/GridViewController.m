@@ -19,8 +19,8 @@
 
 @interface GridViewController ()
 
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
-
 @property (strong) MBProgressHUD *HUD;
 
 @end
@@ -184,8 +184,7 @@
         ReviewViewController *rateVC = [segue destinationViewController];
         rateVC.productToReview = (ProductReview *)sender;
         rateVC.managedObjectContext = self.managedObjectContext;
-    } else if ([[segue identifier] isEqualToString:@"manageReviews"])
-    {
+    } else if ([[segue identifier] isEqualToString:@"manageReviews"]) {
         // Get reference to the destination view controller
         ManageReviewsViewController *manageVC = [segue destinationViewController];
         manageVC.managedObjectContext = self.managedObjectContext;
@@ -209,7 +208,9 @@
 }
 
 - (IBAction)secretButtonClicked:(id)sender {
-    [self performSegueWithIdentifier:@"manageReviews" sender:self];
+    if(self.longPressRecognizer.state == UIGestureRecognizerStateRecognized){
+        [self performSegueWithIdentifier:@"manageReviews" sender:self];        
+    }
 }
 
 @end

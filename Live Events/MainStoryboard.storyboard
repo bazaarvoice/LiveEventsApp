@@ -409,11 +409,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="a_nf_Search-Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ibT-g4-UuT">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Kc4-RT-zyc"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jp-v7-YDz" customClass="BorderedBar">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-4K-wih">
@@ -445,12 +440,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ibT-g4-UuT" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" constant="40" id="15V-vT-bp5"/>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="default" id="Aeu-J4-AB1"/>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="BaF-u2-FuZ"/>
-                            <constraint firstItem="ibT-g4-UuT" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="XSX-9w-Vd4"/>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" type="default" id="ZCH-2b-ijx"/>
-                            <constraint firstItem="ibT-g4-UuT" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="default" id="nWh-r6-yez"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHZ-wd-P5Y"/>
@@ -467,6 +459,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yb0-dP-Zt2">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="604" type="user" id="4aa-54-ix8"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-02-oiC" customClass="BorderedBar">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dN-ct-AKf">
@@ -768,12 +766,12 @@
                                             <constraint firstItem="Bba-wW-NdX" firstAttribute="leading" secondItem="6wT-hE-mFx" secondAttribute="leading" constant="56" id="RV7-oD-lw8"/>
                                             <constraint firstItem="Bba-wW-NdX" firstAttribute="top" secondItem="6wT-hE-mFx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="SUd-Nz-gOX"/>
                                             <constraint firstItem="ZSZ-AR-YvZ" firstAttribute="centerX" secondItem="6wT-hE-mFx" secondAttribute="centerX" type="user" id="Vvb-GM-g0k"/>
-                                            <constraint firstAttribute="bottom" secondItem="dYw-u6-Kmd" secondAttribute="bottom" constant="93" id="WtJ-wp-8Kx"/>
                                             <constraint firstItem="sIR-wn-8ke" firstAttribute="top" secondItem="6wT-hE-mFx" secondAttribute="top" constant="15" id="Y23-VU-6nh"/>
                                             <constraint firstItem="n9a-Vo-sFi" firstAttribute="trailing" secondItem="sIR-wn-8ke" secondAttribute="trailing" type="user" id="ZuT-4W-1dL"/>
                                             <constraint firstItem="dYw-u6-Kmd" firstAttribute="bottom" secondItem="jp4-ul-5IL" secondAttribute="bottom" type="user" id="aaK-iH-iL3"/>
                                             <constraint firstItem="ENH-Jy-BNJ" firstAttribute="centerX" secondItem="ZSZ-AR-YvZ" secondAttribute="centerX" type="default" id="agW-c2-9kV"/>
                                             <constraint firstItem="1T8-wk-lAK" firstAttribute="trailing" secondItem="dYw-u6-Kmd" secondAttribute="trailing" type="default" id="dxM-Vb-l6y"/>
+                                            <constraint firstAttribute="height" constant="910" id="fz5-y8-f8D"/>
                                             <constraint firstAttribute="bottom" secondItem="kvd-FF-LEn" secondAttribute="bottom" constant="358" id="iL2-X9-OCt"/>
                                             <constraint firstItem="uem-ij-CZX" firstAttribute="top" secondItem="6wT-hE-mFx" secondAttribute="top" constant="217" id="j6e-Lx-a6L"/>
                                             <constraint firstAttribute="bottom" secondItem="ENH-Jy-BNJ" secondAttribute="bottom" constant="450" id="jtU-sq-WMt"/>
@@ -786,11 +784,10 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="6wT-hE-mFx" firstAttribute="leading" secondItem="w7W-cf-uWl" secondAttribute="leading" type="user" id="1CU-8R-RWh"/>
-                                    <constraint firstAttribute="width" constant="604" type="user" id="371-Eb-t9H"/>
-                                    <constraint firstItem="6wT-hE-mFx" firstAttribute="trailing" secondItem="w7W-cf-uWl" secondAttribute="trailing" type="default" id="D3B-oh-ex4"/>
+                                    <constraint firstAttribute="trailing" secondItem="6wT-hE-mFx" secondAttribute="trailing" constant="82" id="KlM-7u-082"/>
+                                    <constraint firstItem="6wT-hE-mFx" firstAttribute="centerX" secondItem="w7W-cf-uWl" secondAttribute="centerX" type="default" id="YTs-aj-aVp"/>
                                     <constraint firstAttribute="bottom" secondItem="6wT-hE-mFx" secondAttribute="bottom" constant="29" id="dqE-2E-Acv"/>
                                     <constraint firstItem="6wT-hE-mFx" firstAttribute="top" secondItem="w7W-cf-uWl" secondAttribute="top" type="user" id="ooK-dv-eLA"/>
                                 </constraints>
@@ -872,15 +869,19 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="bottom" secondItem="1JB-kV-Mix" secondAttribute="bottom" type="user" id="3QY-CR-Pb5"/>
-                            <constraint firstAttribute="centerX" secondItem="w7W-cf-uWl" secondAttribute="centerX" type="user" id="4Ky-9U-RN9"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="bottom" secondItem="1JB-kV-Mix" secondAttribute="bottom" type="user" id="5XJ-Ax-cva"/>
                             <constraint firstItem="w7W-cf-uWl" firstAttribute="top" secondItem="1JB-kV-Mix" secondAttribute="top" constant="43" type="user" id="7OC-Yz-HfM"/>
-                            <constraint firstAttribute="bottom" secondItem="w7W-cf-uWl" secondAttribute="bottom" constant="42" type="user" id="Kxv-QT-dam"/>
+                            <constraint firstAttribute="bottom" secondItem="w7W-cf-uWl" secondAttribute="bottom" constant="40" type="user" id="Kxv-QT-dam"/>
                             <constraint firstItem="PJU-02-oiC" firstAttribute="top" secondItem="1JB-kV-Mix" secondAttribute="top" type="user" id="LiJ-mR-C0f"/>
+                            <constraint firstItem="yb0-dP-Zt2" firstAttribute="top" secondItem="1JB-kV-Mix" secondAttribute="top" type="user" id="PgG-tg-ZNv"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="leading" secondItem="1JB-kV-Mix" secondAttribute="leading" type="user" id="QHl-Pt-zVj"/>
+                            <constraint firstItem="yb0-dP-Zt2" firstAttribute="bottom" secondItem="1JB-kV-Mix" secondAttribute="bottom" type="default" id="TL8-M4-yTq"/>
                             <constraint firstItem="PJU-02-oiC" firstAttribute="trailing" secondItem="1JB-kV-Mix" secondAttribute="trailing" type="user" id="TSy-PH-KA0"/>
                             <constraint firstItem="PJU-02-oiC" firstAttribute="leading" secondItem="1JB-kV-Mix" secondAttribute="leading" type="user" id="a9r-td-BxB"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="trailing" secondItem="1JB-kV-Mix" secondAttribute="trailing" type="user" id="hmf-GZ-GVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="w7W-cf-uWl" secondAttribute="trailing" type="user" id="lb2-nO-lCG"/>
+                            <constraint firstItem="w7W-cf-uWl" firstAttribute="leading" secondItem="1JB-kV-Mix" secondAttribute="leading" type="user" id="oQF-Wl-HKS"/>
+                            <constraint firstItem="yb0-dP-Zt2" firstAttribute="centerX" secondItem="w7W-cf-uWl" secondAttribute="centerX" type="user" id="og8-Ts-chK"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="leading" secondItem="1JB-kV-Mix" secondAttribute="leading" type="user" id="rCL-5p-401"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="trailing" secondItem="1JB-kV-Mix" secondAttribute="trailing" type="user" id="tRa-T9-Vkc"/>
                         </constraints>
@@ -888,6 +889,7 @@
                     <navigationItem key="navigationItem" id="k0j-yU-bDU"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="bottomSpaceConstraint" destination="Kxv-QT-dam" id="Oy7-qP-Ss5"/>
                         <outlet property="continueButton" destination="jp4-ul-5IL" id="blL-XV-KBZ"/>
                         <outlet property="emailCancel" destination="S8e-zq-Utd" id="qCw-zQ-3Ci"/>
                         <outlet property="emailDone" destination="Mkg-t5-tXc" id="Qeq-2L-VpU"/>
@@ -1283,13 +1285,22 @@
                 <relationship kind="action" name="secretButtonClicked:"/>
                 <relationship kind="action" name="textFieldChanged:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="longPressRecognizer" candidateClass="UILongPressGestureRecognizer"/>
                 <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MDSpreadView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MDSpreadView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
             </relationships>
         </class>
         <class className="ManageReviewsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ManageReviewsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backClicked:"/>
+                <relationship kind="outlet" name="spreadView" candidateClass="MDSpreadView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

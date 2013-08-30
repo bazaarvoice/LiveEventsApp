@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MDSpreadViewClasses.h"
 
-@interface ManageReviewsViewController : UIViewController
+@interface ManageReviewsViewController : UIViewController<MDSpreadViewDelegate, MDSpreadViewDataSource>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 

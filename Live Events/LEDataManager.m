@@ -64,6 +64,22 @@
     return success;
 }
 
+-(NSArray *)getAllProductReviews {
+    // If we have a product outstanding, but try to purge the queue before saving, delete the outstanding product review
+    NSError *error;
+    if(self.outstandingProductReview != nil){
+        [self.managedObjectContext deleteObject:self.outstandingProductReview];
+        [self.managedObjectContext save:&error];
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductReview"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    return productsToSend;
+}
+
 -(void)purgeQueue {
     // If we have a product outstanding, but try to purge the queue before saving, delete the outstanding product review
     NSError *error;

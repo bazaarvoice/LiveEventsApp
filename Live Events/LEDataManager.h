@@ -25,5 +25,6 @@
 -(ProductReview *)getNewProductReview;
 -(BOOL)addOutstandingObjectToQueue;
 -(void)purgeQueue;
+-(NSArray *)getAllProductReviews;
 
 @end

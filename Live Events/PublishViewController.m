@@ -113,7 +113,8 @@
         self.productToReview.nickname = self.nicknameTextField.text;
         self.productToReview.email = self.emailTextField.text;
         [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] addOutstandingObjectToQueue];
-        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
+        // Don't purge here anymore...
+        //[[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Success!"
                                                           message:@"Your review has been submitted. Thank you for your feedback."
                                                          delegate:self

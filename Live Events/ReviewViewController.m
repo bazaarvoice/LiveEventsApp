@@ -12,7 +12,7 @@
 #import "PublishViewController.h"
 #import "UIColor+AppColors.h"
 
-#define BOTTOM_SPACE 50
+#define BOTTOM_SPACE 42
 #define KEYBOARD_PORTRAIT 264
 #define KEYBOARD_LANDSCAPE 352
 #define SCROLL_TO_BOTTOM_PORTRAIT 180
