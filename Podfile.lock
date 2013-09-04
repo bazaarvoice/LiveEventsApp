@@ -1,0 +1,13 @@
+PODS:
+  - MBProgressHUD (0.7)
+  - MDSpreadView (0.7)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 0.7)
+  - MDSpreadView
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  MDSpreadView: 877fd57820c972854f0a38033ccd167bc534c464
+
+COCOAPODS: 0.23.0
