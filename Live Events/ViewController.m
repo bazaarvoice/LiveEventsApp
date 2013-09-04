@@ -47,7 +47,7 @@
     [BVSettings instance].baseURL = @"reviews.walmart.com";
     [BVSettings instance].staging = true;
 
-    [BVSettings instance].passKey = [BVSettings instance].staging ? @"ey25dkemibncqvekcw3c8yonm" : @"6qatcf1tf41yzhumpt6nx3e53";
+    [BVSettings instance].passKey = [BVSettings instance].staging ? @"ey25dkemibncqvekcw3c8yonm" : @"";
     
 
     

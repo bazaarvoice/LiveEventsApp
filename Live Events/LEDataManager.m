@@ -66,7 +66,14 @@
 -(BOOL)addOutstandingObjectToQueue {
     // Make sure that the object is saved, allow creation of new objects
     NSError *error;
+    // Set as pending
     self.outstandingProductReview.status = @"Pending";
+    // Get current time string
+    NSDateFormatter *formatter;
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    self.outstandingProductReview.created = [formatter stringFromDate:[NSDate date]];
+
     BOOL success = [self.managedObjectContext save:&error];
     self.outstandingProductReview = nil;
     return success;
@@ -216,6 +223,7 @@
     BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
     if(![self hasErrors:response]){
         theRequest.productToReview.status = @"Submitted";
+        theRequest.productToReview.submissionId = response[@"SubmissionId"];
         // Uncomment to delete on submission
         //[self.managedObjectContext deleteObject:theRequest.productToReview];
     } else {

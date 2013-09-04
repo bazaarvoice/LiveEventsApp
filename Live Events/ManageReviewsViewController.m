@@ -18,7 +18,7 @@
 @implementation ManageReviewsViewController
 
 -(void)viewDidLoad {
-    self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Review Text", @"ReviewId"];
+    self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Review Text", @"SubmissionId"];
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];
 }
@@ -63,7 +63,9 @@
 - (IBAction)sendClicked:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
+        LEDataManager * dataManager = [LEDataManager sharedInstanceWithContext:self.managedObjectContext];
+        dataManager.delegate = self;
+        [dataManager purgeQueue];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
@@ -116,7 +118,7 @@
     } else if(columnPath.column == 4){
         text = currProductReview.reviewText;
     } else if(columnPath.column == 5){
-        text = currProductReview.reviewId;
+        text = currProductReview.submissionId;
     }
     
     return text;
@@ -138,7 +140,7 @@
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection
 {
-    return self.columns[columnSection];
+    return rowSection == 0 ? @"" : self.columns[columnSection];
 }
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath
@@ -148,7 +150,7 @@
 
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath
 {
-    return [NSString stringWithFormat:@"%i", rowPath.row];
+    return [NSString stringWithFormat:@"%i", rowPath.row + 1];
 }
 
 - (id)spreadView:(MDSpreadView *)aSpreadView objectValueForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath
