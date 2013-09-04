@@ -7,7 +7,7 @@
 //
 
 #import "ManageReviewsViewController.h"
-#import "LEDataManager.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ManageReviewsViewController ()
 @property (weak, nonatomic) IBOutlet MDSpreadView *spreadView;
@@ -19,6 +19,11 @@
 
 -(void)viewDidLoad {
     self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Review Text", @"ReviewId"];
+    self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
+    [self.spreadView reloadData];
+}
+
+-(void)receivedResponse {
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];
 }
@@ -55,31 +60,45 @@
     return 1;
 }
 
-#pragma mark Heights
-/*
-// Comment these out to use normal values (see MDSpreadView.h)
-- (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowAtIndexPath:(MDIndexPath *)indexPath
-{
-    return 25+indexPath.row;
+- (IBAction)sendClicked:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
-- (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowHeaderInSection:(NSInteger)rowSection
-{
-    //    if (rowSection == 2) return 0; // uncomment to hide this header!
-    return 22+rowSection;
-}
+#pragma mark Heights
+/*
+ // Comment these out to use normal values (see MDSpreadView.h)
+ - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowAtIndexPath:(MDIndexPath *)indexPath
+ {
+ return 25+indexPath.row;
+ }
+ 
+ - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowHeaderInSection:(NSInteger)rowSection
+ {
+ //    if (rowSection == 2) return 0; // uncomment to hide this header!
+ return 22+rowSection;
+ }
+ 
+ - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnHeaderInSection:(NSInteger)columnSection
+ {
+ //    if (columnSection == 2) return 0; // uncomment to hide this header!
+ return 110+columnSection*5;
+ }
+ */
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnAtIndexPath:(MDIndexPath *)indexPath
 {
-    return 220+indexPath.column*5;
+    if(indexPath.column == 0 || indexPath.column == 4) {
+        return 420;
+    } else {
+        return 220;
+    }
 }
-
-- (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnHeaderInSection:(NSInteger)columnSection
-{
-    //    if (columnSection == 2) return 0; // uncomment to hide this header!
-    return 110+columnSection*5;
-}
-*/
 
 
 -(NSString *)textForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath {

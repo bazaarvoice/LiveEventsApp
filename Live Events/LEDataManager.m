@@ -10,10 +10,17 @@
 #import "BVProductReviewPost.h"
 #import "ProductsResponse.h"
 
+#define CONCURRRENT_REQUESTS 2
+
 @interface LEDataManager()
 
 @property (strong) NSMutableDictionary * outstandingReviews;
 @property (strong) ProductReview * outstandingProductReview;
+// Semaphore for ensuring only CONCURRENT_REQUESTS requests are outstanding at a time
+
+@property (strong) NSCondition *outstandingCondition;
+@property (assign) int outstandingRequests;
+
 
 @end
 
@@ -35,6 +42,7 @@
     if (self) {
         self.outstandingReviews = [[NSMutableDictionary alloc] init];
         self.outstandingProductReview = nil;
+        self.outstandingCondition = [[NSCondition alloc] init];
     }
     return self;
 }
@@ -97,6 +105,14 @@
         if([product.status isEqualToString:@"Submitted"]){
             continue;
         }
+        
+        // Ensure that only CONCURRENT_REQUESTS can be dispatched at a time
+        [self.outstandingCondition lock];
+        while(self.outstandingRequests >= CONCURRRENT_REQUESTS)
+            [self.outstandingCondition wait];
+        self.outstandingRequests++;
+        [self.outstandingCondition unlock];
+        
         BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
         
         if(postReview.userNickname.length > 15)
@@ -119,6 +135,12 @@
         [postReview setContextDataValue:@"kidschoice2013" value:@"true"];
         [postReview sendRequestWithDelegate:self];
     }
+    
+    // Ensure that we only proceed when no requests are outstanding
+    [self.outstandingCondition lock];
+    while(self.outstandingRequests > 0)
+        [self.outstandingCondition wait];
+    [self.outstandingCondition unlock];
 }
 
 - (NSArray *)getCachedProductsForTerm:(NSString *)term{
@@ -185,6 +207,11 @@
 
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
+    // Mark received response
+    [self.outstandingCondition lock];
+    self.outstandingRequests--;
+    [self.outstandingCondition signal];
+    [self.outstandingCondition unlock];
     
     BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
     if(![self hasErrors:response]){
@@ -196,6 +223,10 @@
     }
     NSError *error;
     [self.managedObjectContext save:&error];
+    
+    if(self.delegate) {
+        [self.delegate receivedResponse];
+    }
 }
 
 - (NSString *)getErrorFromResponse:(NSDictionary *)response {
@@ -226,10 +257,20 @@
 }
 
 - (void) didFailToReceiveResponse:(NSError*)err forRequest:(id)request {
+    // Mark received response
+    [self.outstandingCondition lock];
+    self.outstandingRequests--;
+    [self.outstandingCondition unlock];
+    
     BVProductReviewPost * theRequest = (BVProductReviewPost *)request;
     theRequest.productToReview.status = @"Network Error";
     NSError *error;
     [self.managedObjectContext save:&error];
+    
+    
+    if(self.delegate) {
+        [self.delegate receivedResponse];
+    }
 }
 
 - (BOOL) hasErrors:(NSDictionary *)response {

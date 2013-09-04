@@ -387,6 +387,7 @@
                     <navigationItem key="navigationItem" id="u2t-Ff-3uR"/>
                     <connections>
                         <outlet property="collectionView" destination="KrW-vS-VWS" id="8Ln-am-kLc"/>
+                        <outlet property="longPressRecognizer" destination="b0G-e6-pvP" id="7pv-xY-iu8"/>
                         <outlet property="searchTextField" destination="0QQ-yl-9LT" id="n4c-fK-FHB"/>
                         <segue destination="Wrs-s6-4xL" kind="push" identifier="rate" id="mam-v7-Hcz"/>
                         <segue destination="le2-vI-WbA" kind="push" identifier="manageReviews" id="QsU-rV-dfI"/>
@@ -427,25 +428,58 @@
                                             <action selector="backClicked:" destination="le2-vI-WbA" eventType="touchUpInside" id="DgO-YW-sce"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhH-9c-Znj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="hdV-dS-aq7"/>
+                                            <constraint firstAttribute="width" constant="73" id="kHb-jB-q1C"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendClicked:" destination="le2-vI-WbA" eventType="touchUpInside" id="wRd-sE-4bX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.93798471719999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="YhH-9c-Znj" firstAttribute="centerY" secondItem="pvc-4K-wih" secondAttribute="centerY" type="default" id="arg-mM-ctU"/>
                                     <constraint firstItem="pvc-4K-wih" firstAttribute="top" secondItem="0Jp-v7-YDz" secondAttribute="top" type="default" id="bSB-Fe-wjb"/>
-                                    <constraint firstItem="pvc-4K-wih" firstAttribute="bottom" secondItem="0Jp-v7-YDz" secondAttribute="bottom" type="default" id="syt-d4-OaX"/>
+                                    <constraint firstAttribute="trailing" secondItem="YhH-9c-Znj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mAB-eB-vkn"/>
+                                    <constraint firstItem="pvc-4K-wih" firstAttribute="bottom" secondItem="0Jp-v7-YDz" secondAttribute="bottom" type="default" id="mc4-BP-kzq"/>
                                     <constraint firstAttribute="height" constant="42" type="user" id="uaw-AU-dwk"/>
                                     <constraint firstItem="pvc-4K-wih" firstAttribute="leading" secondItem="0Jp-v7-YDz" secondAttribute="leading" constant="6" id="xoT-UA-fCn"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1v4-kp-DDc" customClass="MDSpreadView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="le2-vI-WbA" id="eXb-ZK-DDy"/>
+                                    <outlet property="delegate" destination="le2-vI-WbA" id="yex-Va-5Ro"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="default" id="Aeu-J4-AB1"/>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="BaF-u2-FuZ"/>
+                            <constraint firstItem="1v4-kp-DDc" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" constant="42" id="Byr-9N-u3g"/>
+                            <constraint firstItem="1v4-kp-DDc" firstAttribute="leading" secondItem="HVm-RZ-yjQ" secondAttribute="leading" type="default" id="JcQ-B2-9A5"/>
+                            <constraint firstItem="1v4-kp-DDc" firstAttribute="bottom" secondItem="HVm-RZ-yjQ" secondAttribute="bottom" type="default" id="X8Q-OI-DVR"/>
                             <constraint firstItem="0Jp-v7-YDz" firstAttribute="top" secondItem="HVm-RZ-yjQ" secondAttribute="top" type="default" id="ZCH-2b-ijx"/>
+                            <constraint firstItem="1v4-kp-DDc" firstAttribute="trailing" secondItem="HVm-RZ-yjQ" secondAttribute="trailing" type="user" id="aWX-rQ-oHr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHZ-wd-P5Y"/>
+                    <connections>
+                        <outlet property="spreadView" destination="1v4-kp-DDc" id="7At-bk-07a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQr-A7-xFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1300,6 +1334,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ManageReviewsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backClicked:"/>
+                <relationship kind="action" name="sendClicked:"/>
                 <relationship kind="outlet" name="spreadView" candidateClass="MDSpreadView"/>
             </relationships>
         </class>
@@ -1309,13 +1344,6 @@
         <class className="PublishViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="doneClicked:"/>
-                <relationship kind="action" name="emailBGClicked:"/>
-                <relationship kind="action" name="nicknameBGClicked:"/>
-                <relationship kind="action" name="shareYourThoughtsClicked:"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>

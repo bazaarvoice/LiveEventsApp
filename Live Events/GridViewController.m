@@ -208,7 +208,7 @@
 }
 
 - (IBAction)secretButtonClicked:(id)sender {
-    if(self.longPressRecognizer.state == UIGestureRecognizerStateRecognized){
+    if(self.longPressRecognizer.state == UIGestureRecognizerStateBegan){
         [self performSegueWithIdentifier:@"manageReviews" sender:self];        
     }
 }

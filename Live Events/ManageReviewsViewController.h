@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MDSpreadViewClasses.h"
+#import "LEDataManager.h"
 
-@interface ManageReviewsViewController : UIViewController<MDSpreadViewDelegate, MDSpreadViewDataSource>
+@interface ManageReviewsViewController : UIViewController<MDSpreadViewDelegate, MDSpreadViewDataSource, LEDDataManagerDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 

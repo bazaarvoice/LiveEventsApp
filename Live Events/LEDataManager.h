@@ -13,9 +13,14 @@
 #define INITIAL_SEARCH @"LEDataManagerInitialSearch"
 #define PRODUCT_SEARCH @"LEDataManagerProductSearch"
 
+@protocol LEDDataManagerDelegate
+-(void)receivedResponse;
+@end
+
 @interface LEDataManager : NSObject<BVDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (weak) id<LEDDataManagerDelegate> delegate;
 
 +(id)sharedInstanceWithContext:(NSManagedObjectContext *) managedObjectContext;
 
