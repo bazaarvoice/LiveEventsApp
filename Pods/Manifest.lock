@@ -1,12 +1,15 @@
 PODS:
+  - Bazaarvoice (2.1.5)
   - MBProgressHUD (0.7)
   - MDSpreadView (0.7)
 
 DEPENDENCIES:
+  - Bazaarvoice
   - MBProgressHUD (~> 0.7)
   - MDSpreadView
 
 SPEC CHECKSUMS:
+  Bazaarvoice: 6c8e54efc376714e2dc28eb47a289e7312252430
   MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
   MDSpreadView: 877fd57820c972854f0a38033ccd167bc534c464
 

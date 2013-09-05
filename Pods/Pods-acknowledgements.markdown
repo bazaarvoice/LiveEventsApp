@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Bazaarvoice
+
+See http://developer.bazaarvoice.com/API_Terms_of_Use
+
 ## MBProgressHUD
 
 Copyright (c) 2013 Matej Bukovinski

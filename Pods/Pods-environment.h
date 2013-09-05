@@ -6,6 +6,12 @@
 // project.
 
 
+// Bazaarvoice
+#define COCOAPODS_POD_AVAILABLE_Bazaarvoice
+#define COCOAPODS_VERSION_MAJOR_Bazaarvoice 2
+#define COCOAPODS_VERSION_MINOR_Bazaarvoice 1
+#define COCOAPODS_VERSION_PATCH_Bazaarvoice 5
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
