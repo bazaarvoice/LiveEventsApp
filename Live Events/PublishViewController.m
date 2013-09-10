@@ -7,9 +7,9 @@
 //
 
 #import "PublishViewController.h"
-#import "UIColor+AppColors.h"
 #import "LEDataManager.h"
 #import "RoundedCornerButton.h"
+#import "AppConfig.h"
 
 @interface PublishViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
@@ -48,7 +48,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.errorLabel.alpha = 0;
-    self.doneButton.borderColor = [UIColor BVBrightBlue];
+    self.doneButton.borderColor = [AppConfig primaryColor];
+    [self.doneButton setTitleColor:[AppConfig primaryColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)shareYourThoughtsClicked:(id)sender {
@@ -93,17 +94,17 @@
 - (void)doValidation {
     BOOL error = NO;
     if(self.nicknameTextField.text.length == 0){
-        self.nicknameLabel.textColor = [UIColor BVBrightRed];
+        self.nicknameLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.nicknameLabel.textColor = [UIColor BVVeryLightGray];
+        self.nicknameLabel.textColor = [AppConfig disabledColor];
     }
     
     if(![self validateEmailWithString:self.emailTextField.text]){
-        self.emailLabel.textColor = [UIColor BVBrightRed];
+        self.emailLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.emailLabel.textColor = [UIColor BVVeryLightGray];
+        self.emailLabel.textColor = [AppConfig disabledColor];
     }
     
     if(error) {

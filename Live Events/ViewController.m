@@ -14,8 +14,8 @@
 #import "ProductReview.h"
 #import "ReviewViewController.h"
 #import "LEDataManager.h"
-#import "UIColor+AppColors.h"
 #import "GridViewController.h"
+#import "AppConfig.h"
 
 #define SLIDE_INTERVAL 3.0
 #define IDLE_INTERVAL 6.0
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet FadeLabel *rateAndReview;
 @property (weak, nonatomic) IBOutlet CategoryCell *productsView;
 @property (weak, nonatomic) IBOutlet BorderedBar *bottomBar;
+@property (weak, nonatomic) IBOutlet UIView *startBar;
 
 @property (assign) int idleCount;
 
@@ -43,13 +44,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.title = @"Walmart";
-    [BVSettings instance].baseURL = @"reviews.walmart.com";
+    self.title = [AppConfig title];
+    [BVSettings instance].baseURL = [AppConfig apiEndpoint];
     [BVSettings instance].staging = true;
-
-    [BVSettings instance].passKey = [BVSettings instance].staging ? @"ey25dkemibncqvekcw3c8yonm" : @"";
-    
-
+    [BVSettings instance].passKey = [AppConfig apiKey];
     
     self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:INITIAL_SEARCH];
     self.productsView.dataArray = self.productsData;
@@ -67,10 +65,14 @@
                                                       userInfo:nil
                                                        repeats:YES];
 
-    self.rateAndReview.secondaryColor = [UIColor BVBrightBlue];
-    self.informOthers.secondaryColor = [UIColor BVBrightBlue];
+    self.rateAndReview.secondaryColor = [AppConfig primaryColor];
+    self.informOthers.secondaryColor = [AppConfig primaryColor];
     
     self.productsView.delegate = self;
+    
+    self.startBar.backgroundColor = [AppConfig primaryColor];
+    
+    self.seeAllButton.titleLabel.text = [NSString stringWithFormat:@"See all %@ products >", [AppConfig title]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

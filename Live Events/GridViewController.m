@@ -14,6 +14,7 @@
 #import "MBProgressHUD.h"
 #import "LEDataManager.h"
 #import "ManageReviewsViewController.h"
+#import "HuedUIImageView.h"
 
 #define DEFAULT_SEARCH @""
 
@@ -21,6 +22,7 @@
 
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (strong) MBProgressHUD *HUD;
 
 @end
@@ -55,6 +57,9 @@
     UICollectionViewFlowLayout *flow = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     flow.itemSize = CGSizeMake(237, 348);
+    
+    HuedUIImageView *clearSearchButton = [[HuedUIImageView alloc] initWithImage:[UIImage imageNamed:@"a_nf_Search-Button.png"]];
+    [self.clearSearchButton setBackgroundImage:clearSearchButton.image forState:UIControlStateNormal];
 }
 
 - (IBAction)emptySearch:(id)sender {
@@ -130,7 +135,11 @@
     ReviewItemView * reviewItem = [[ReviewItemView alloc] init];
     reviewItem.index = index;
     reviewItem.productTitle.text = product[@"Name"];
-    [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]]];
+    if(product[@"ImageUrl"] && product[@"ImageUrl"] != [NSNull null]) {
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]]];
+    } else {
+        reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
+    }
     return reviewItem;
 }
 

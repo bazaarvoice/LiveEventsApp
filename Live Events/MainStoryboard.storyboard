@@ -41,12 +41,12 @@
                                             <constraint firstAttribute="height" constant="42" type="user" id="suW-8f-wVc"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="UZW-cB-APj">
+                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="UZW-cB-APj" customClass="HuedUIImageView">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" type="user" id="QRA-NV-cTt"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-Al-RM3">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-Al-RM3" customClass="HuedUILabel">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="xLs-LH-cM3"/>
                                         </constraints>
@@ -54,7 +54,7 @@
                                         <color key="textColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-Pr-2z5">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-Pr-2z5" customClass="HuedUILabel">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="k7b-xK-bfz"/>
                                         </constraints>
@@ -103,7 +103,7 @@
                                 <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-Fa-SCu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ap0-Fa-SCu" customClass="HuedUIButton">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="FPX-vU-J3r"/>
                                 </constraints>
@@ -196,6 +196,7 @@
                         <outlet property="productsView" destination="CNG-Xr-ddA" id="6Yu-aD-khL"/>
                         <outlet property="rateAndReview" destination="6rb-U1-ibD" id="E7W-da-59t"/>
                         <outlet property="seeAllButton" destination="ap0-Fa-SCu" id="JbA-e9-kg7"/>
+                        <outlet property="startBar" destination="vde-V7-mGX" id="ePL-Mm-4Tf"/>
                         <segue destination="Wrs-s6-4xL" kind="push" identifier="rate" id="8mQ-j2-cV5"/>
                         <segue destination="Wcb-Hk-ATf" kind="push" identifier="seeall" id="6GO-Fe-htw"/>
                     </connections>
@@ -214,7 +215,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8K-YV-mIz" customClass="BorderedBar">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEg-cT-Odd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEg-cT-Odd" customClass="HuedUIButton">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="ex3-dc-t23"/>
                                         </constraints>
@@ -272,12 +273,12 @@
                                             <constraint firstAttribute="height" constant="42" type="user" id="BAo-hl-fEg"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="6sX-SI-m5d">
+                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="6sX-SI-m5d" customClass="HuedUIImageView">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" type="user" id="cpX-oy-9kD"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-i8-eLk">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-i8-eLk" customClass="HuedUILabel">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="48O-MQ-32E"/>
                                         </constraints>
@@ -285,7 +286,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVx-BR-ELa">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVx-BR-ELa" customClass="HuedUILabel">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="fxW-ec-4td"/>
                                         </constraints>
@@ -325,7 +326,7 @@
                                     <constraint firstItem="rAD-bQ-XXy" firstAttribute="leading" secondItem="6sX-SI-m5d" secondAttribute="trailing" constant="-67" type="user" id="xXl-mH-QLY"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="a_nf_Search-Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="6x1-EB-ljO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="a_nf_Search-Bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="6x1-EB-ljO" customClass="HuedUIImageView">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="R8z-Pc-AJK"/>
                                 </constraints>
@@ -386,6 +387,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u2t-Ff-3uR"/>
                     <connections>
+                        <outlet property="clearSearchButton" destination="k7G-fT-aTe" id="Hyd-SB-p6Z"/>
                         <outlet property="collectionView" destination="KrW-vS-VWS" id="8Ln-am-kLc"/>
                         <outlet property="longPressRecognizer" destination="b0G-e6-pvP" id="7pv-xY-iu8"/>
                         <outlet property="searchTextField" destination="0QQ-yl-9LT" id="n4c-fK-FHB"/>
@@ -412,7 +414,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jp-v7-YDz" customClass="BorderedBar">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-4K-wih">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-4K-wih" customClass="HuedUIButton">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="CjY-T1-cAG"/>
                                         </constraints>
@@ -501,7 +503,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-02-oiC" customClass="BorderedBar">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dN-ct-AKf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dN-ct-AKf" customClass="HuedUIButton">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="215" id="8if-iu-7wQ"/>
                                             <constraint firstAttribute="height" constant="42" id="bqc-Yf-zaP"/>
@@ -833,17 +835,17 @@
                                             <constraint firstAttribute="height" constant="42" type="user" id="EV9-6U-xsS"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="hjB-ma-kMW">
+                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="hjB-ma-kMW" customClass="HuedUIImageView">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" type="user" id="OLd-Ck-hlN"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-ly-Eqx">
+                                    <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="dsK-ly-Eqx" customClass="HuedUIImageView">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" type="user" id="qCl-dv-7dr"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-r3-779">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-r3-779" customClass="HuedUILabel">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="J6B-CC-EdS"/>
                                         </constraints>
@@ -962,7 +964,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAy-5A-ab3" customClass="BorderedBar">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywt-8r-EFG">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywt-8r-EFG" customClass="HuedUIButton">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="259" id="Eyg-9p-uvx"/>
                                                 </constraints>
@@ -1159,17 +1161,17 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-52-FRZ" customClass="BorderedBar">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="c28-cX-0ck">
+                                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="c28-cX-0ck" customClass="HuedUIImageView">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" type="user" id="nO2-fP-sgO"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="pnp-ye-S5I">
+                                            <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="pnp-ye-S5I" customClass="HuedUIImageView">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" type="user" id="OIe-0X-LGH"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="o67-Ot-bSE">
+                                            <imageView userInteractionEnabled="NO" contentMode="topRight" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="o67-Ot-bSE" customClass="HuedUIImageView">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="42" type="user" id="g1I-Tb-9Bg"/>
                                                 </constraints>
@@ -1294,120 +1296,6 @@
         <image name="a_nf_Search-Bar.png" width="9" height="88"/>
         <image name="a_nf_Search-Button.png" width="127" height="50"/>
     </resources>
-    <classes>
-        <class className="BackgroundView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="BorderedBar" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BorderedBar.h"/>
-        </class>
-        <class className="CategoryCell" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryCell.h"/>
-        </class>
-        <class className="FadeLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FadeLabel.h"/>
-        </class>
-        <class className="GridViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="emptySearch:"/>
-                <relationship kind="action" name="secretButtonClicked:"/>
-                <relationship kind="action" name="textFieldChanged:"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="longPressRecognizer" candidateClass="UILongPressGestureRecognizer"/>
-                <relationship kind="outlet" name="searchTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MDSpreadView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MDSpreadView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="ManageReviewsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManageReviewsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="sendClicked:"/>
-                <relationship kind="outlet" name="spreadView" candidateClass="MDSpreadView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PublishViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PublishViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="doneButton" candidateClass="RoundedCornerButton"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nicknameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nicknameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="RateView" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RateView.h"/>
-        </class>
-        <class className="ReviewViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backClicked:"/>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="chooseAProductClicked:"/>
-                <relationship kind="action" name="continueClicked:"/>
-                <relationship kind="action" name="emailCancelClicked:"/>
-                <relationship kind="action" name="emailClicked:"/>
-                <relationship kind="action" name="emailDoneClicked:"/>
-                <relationship kind="action" name="reviewBGClicked:"/>
-                <relationship kind="outlet" name="bottomSpaceConstraint" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="continueButton" candidateClass="RoundedCornerButton"/>
-                <relationship kind="outlet" name="emailCancel" candidateClass="RoundedCornerButton"/>
-                <relationship kind="outlet" name="emailDone" candidateClass="RoundedCornerButton"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailLink" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="productImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="productLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rateView" candidateClass="RateView"/>
-                <relationship kind="outlet" name="reviewLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reviewTextView" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="RoundedCornerButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerButton.h"/>
-        </class>
-        <class className="RoundedCornerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundedCornerView.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="seeAllClicked:"/>
-                <relationship kind="outlet" name="bottomBar" candidateClass="BorderedBar"/>
-                <relationship kind="outlet" name="informOthers" candidateClass="FadeLabel"/>
-                <relationship kind="outlet" name="overlayView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="productsView" candidateClass="CategoryCell"/>
-                <relationship kind="outlet" name="rateAndReview" candidateClass="FadeLabel"/>
-                <relationship kind="outlet" name="seeAllButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -76,7 +76,11 @@
     }
     reviewItem.index = index;
     reviewItem.productTitle.text = self.dataArray[index][@"Name"];
-    [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]]];
+    if(self.dataArray[index][@"ImageUrl"] && self.dataArray[index][@"ImageUrl"] != [NSNull null]) {
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]]];
+    } else {
+        reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
+    }
     return reviewItem;
 }
 

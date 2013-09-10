@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "RoundedCornerButton.h"
 #import "PublishViewController.h"
-#import "UIColor+AppColors.h"
+#import "AppConfig.h"
 
 #define BOTTOM_SPACE 42
 #define KEYBOARD_PORTRAIT 264
@@ -61,11 +61,13 @@
     
     self.scrollView.bounces = NO;
     
-    self.continueButton.borderColor = [UIColor BVBrightBlue];
+    self.continueButton.borderColor = [AppConfig primaryColor];
+    [self.continueButton setTitleColor:[AppConfig primaryColor] forState:UIControlStateNormal];
+
     
     self.errorLabel.alpha = 0;
     
-    self.emailDone.borderColor = [UIColor BVBrightBlue];
+    self.emailDone.borderColor = [AppConfig primaryColor];
     self.emailView.hidden = YES;
     self.emailLink.text = self.productToReview.productPageUrl;
     
@@ -79,6 +81,13 @@
     [self positionScrollView:NO orientation:self.interfaceOrientation];
     [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     self.productLabel.text = self.productToReview.name;
+    
+    if(self.productToReview.imageUrl && self.productToReview.imageUrl !=(id)[NSNull null]) {
+        [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
+    } else {
+        self.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
+    }
+
     [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
 }
 
@@ -98,17 +107,16 @@
     BOOL error = NO;
     
     if(self.rateView.rating == 0) {
-        self.rateLabel.textColor = [UIColor BVBrightRed];
+        self.rateLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.rateLabel.textColor = [UIColor BVVeryLightGray];
-    }
+        self.rateLabel.textColor = [AppConfig disabledColor];    }
     
     if(self.reviewTextView.text.length == 0 || [self.reviewTextView.text isEqualToString:@"Tell Us What You Think"]) {
-        self.reviewLabel.textColor = [UIColor BVBrightRed];
+        self.reviewLabel.textColor = [AppConfig primaryColor];
         error = YES;
     } else {
-        self.reviewLabel.textColor = [UIColor BVVeryLightGray];
+        self.reviewLabel.textColor = [AppConfig disabledColor];
     }
     
     if(!error){

@@ -1,14 +1,14 @@
 //
-//  UIColor_AppColors.h
+//  AppConfig.m
 //  Live Events
 //
-//  Created by Alex Medearis on 6/24/13.
+//  Created by Alex Medearis on 9/10/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AppConfig.h"
 
-@implementation UIColor (AppColors)
+@implementation AppConfig
 
 
 +(UIColor *)BVBrightBlue {
@@ -28,5 +28,30 @@
     return [UIColor colorWithRed:50/255.0 green:79/255.0 blue:133/255.0 alpha:1.0];
 }
 
+
++(UIColor *)primaryColor {
+    return [AppConfig BVDarkBlue];
+}
+
++(UIColor *)errorColor {
+    return [AppConfig BVBrightRed];
+}
+
++(UIColor *)disabledColor {
+    return [AppConfig BVVeryLightGray];
+}
+
+
++(NSString *)apiKey {
+    return @"reviews.walmart.com";
+}
+
++(NSString *)apiEndpoint {
+    return @"ey25dkemibncqvekcw3c8yonm";
+}
+
++(NSString *)title {
+    return @"Nissan";
+}
 
 @end

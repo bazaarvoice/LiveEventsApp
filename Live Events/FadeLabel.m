@@ -41,7 +41,6 @@
     self.boldLabel = boldLabel;
     self.boldLabel.text = self.text;
     self.boldLabel.font = self.font;
-    self.boldLabel.textColor = [UIColor blueColor];
     self.boldLabel.backgroundColor = [UIColor clearColor];
     [self showSecondaryColor:NO];
 }
