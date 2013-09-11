@@ -17,5 +17,6 @@
 +(NSString *)apiKey;
 +(NSString *)apiEndpoint;
 +(NSString *)title;
++(NSString *)backgroundImage;
 
 @end

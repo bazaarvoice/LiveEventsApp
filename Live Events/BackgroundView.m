@@ -8,6 +8,7 @@
 
 #import "BackgroundView.h"
 #import "RoundedCornerButton.h"
+#import "AppConfig.h"
 
 @interface BackgroundView()
 
@@ -40,7 +41,7 @@
 - (void)setup{
     // Initialization code
     self.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"A_Pattern.png"]];
-    self.logo = [self convertImageToGrayScale:[UIImage imageNamed:@"walmart.jpg"]];
+    self.logo = [self convertImageToGrayScale:[UIImage imageNamed:[AppConfig backgroundImage]]];
 }
 
 - (void)drawRect:(CGRect)rect

@@ -54,4 +54,8 @@
     return @"Nissan";
 }
 
++(NSString *)backgroundImage {
+    return @"walmart.jpg";
+}
+
 @end

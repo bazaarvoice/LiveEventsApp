@@ -101,13 +101,13 @@
 		6F542E80177A12EB00A36849 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		6F542E81177A12EB00A36849 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		6F5E8B6917B29F9500CC69DC /* walmart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = walmart.jpg; sourceTree = "<group>"; };
-		6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
-		6F5E8B7B17B2A0DF00CC69DC /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		6F5E8B7C17B2A0DF00CC69DC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		6F5E8B7D17B2A0DF00CC69DC /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		6F5E8B7E17B2A0DF00CC69DC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		6F5E8B7F17B2A0DF00CC69DC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Live Events/Icon-72.png"; sourceTree = "<group>"; };
+		6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Live Events/Icon-72@2x.png"; sourceTree = "<group>"; };
+		6F5E8B7B17B2A0DF00CC69DC /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Live Events/Icon-Small-50.png"; sourceTree = "<group>"; };
+		6F5E8B7C17B2A0DF00CC69DC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Live Events/Icon-Small.png"; sourceTree = "<group>"; };
+		6F5E8B7D17B2A0DF00CC69DC /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Live Events/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		6F5E8B7E17B2A0DF00CC69DC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "Live Events/Icon.png"; sourceTree = "<group>"; };
+		6F5E8B7F17B2A0DF00CC69DC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Live Events/Icon@2x.png"; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -192,6 +192,13 @@
 		6F5F2D3D17737EE1002E899B = {
 			isa = PBXGroup;
 			children = (
+				6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */,
+				6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */,
+				6F5E8B7B17B2A0DF00CC69DC /* Icon-Small-50.png */,
+				6F5E8B7C17B2A0DF00CC69DC /* Icon-Small.png */,
+				6F5E8B7D17B2A0DF00CC69DC /* Icon-Small@2x.png */,
+				6F5E8B7E17B2A0DF00CC69DC /* Icon.png */,
+				6F5E8B7F17B2A0DF00CC69DC /* Icon@2x.png */,
 				6F5F2D5117737EE1002E899B /* Live Events */,
 				6F5F2D4817737EE1002E899B /* Frameworks */,
 				6F5F2D4717737EE1002E899B /* Products */,
@@ -244,13 +251,6 @@
 				6FF1C40217DF74FA00214D83 /* HuedUIImageView.m */,
 				6FF1C40417DF851800214D83 /* HuedUILabel.h */,
 				6FF1C40517DF851900214D83 /* HuedUILabel.m */,
-				6F5E8B7917B2A0DF00CC69DC /* Icon-72.png */,
-				6F5E8B7A17B2A0DF00CC69DC /* Icon-72@2x.png */,
-				6F5E8B7B17B2A0DF00CC69DC /* Icon-Small-50.png */,
-				6F5E8B7C17B2A0DF00CC69DC /* Icon-Small.png */,
-				6F5E8B7D17B2A0DF00CC69DC /* Icon-Small@2x.png */,
-				6F5E8B7E17B2A0DF00CC69DC /* Icon.png */,
-				6F5E8B7F17B2A0DF00CC69DC /* Icon@2x.png */,
 				6F4324401778E40A006C93A0 /* LEDataManager.h */,
 				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
