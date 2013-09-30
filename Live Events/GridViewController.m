@@ -2,7 +2,7 @@
 //  GridViewController.m
 //  Mockup
 //
-//  Created by Alex Medearis on 5/23/13.
+//  Created by Bazaarvoice Engineering on 5/23/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -21,9 +21,9 @@
 @interface GridViewController ()
 
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 @property (strong) MBProgressHUD *HUD;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @end
 
@@ -154,14 +154,15 @@
 }
 
 -(void)pruneResults {
-    if([self.searchTextField.text isEqual: @""]){
+    NSString * text = self.searchTextField.text;
+    if(text == nil || [text isEqual: @""]){
         self.tempDataArray = self.dataArray;
         return;
     }
     NSMutableArray * newResults = [[NSMutableArray alloc] init];
     for (NSDictionary * product in self.dataArray){
         NSString * name = product[@"Name"];
-        if ([name.lowercaseString rangeOfString:self.searchTextField.text.lowercaseString].location == NSNotFound) {
+        if ([name.lowercaseString rangeOfString:text].location == NSNotFound) {
         
         } else {
             [newResults addObject:product];

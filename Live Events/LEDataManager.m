@@ -2,7 +2,7 @@
 //  LEDataManager.m
 //  Live Events
 //
-//  Created by Alex Medearis on 6/24/13.
+//  Created by Bazaarvoice Engineering on 6/24/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -121,25 +121,6 @@
         [self.outstandingCondition unlock];
         
         BVProductReviewPost *postReview = [[BVProductReviewPost alloc] initWithProductReview:product];
-        
-        if(postReview.userNickname.length > 15)
-            postReview.userNickname = [postReview.userNickname substringWithRange:NSMakeRange(0, 15)];
-        
-        NSString *alphabet  = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXZY";
-        NSMutableString *s = [NSMutableString stringWithCapacity:6];
-        for (NSUInteger i = 0U; i < 6; i++) {
-            u_int32_t r = arc4random() % [alphabet length];
-            unichar c = [alphabet characterAtIndex:r];
-            [s appendFormat:@"%C", c];
-        }
-        
-        postReview.userNickname = [NSString stringWithFormat:@"%@%@", postReview.userNickname, s];
-        postReview.userNickname = [postReview.userNickname stringByReplacingOccurrencesOfString:@" " withString:@""];
-        postReview.userId = postReview.userNickname;
-        
-        postReview.campaignId = @"kidschoice2013";
-        
-        [postReview setContextDataValue:@"kidschoice2013" value:@"true"];
         [postReview sendRequestWithDelegate:self];
     }
     

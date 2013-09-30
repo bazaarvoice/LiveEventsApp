@@ -2,15 +2,16 @@
 //  ReviewViewController.h
 //  Mockup
 //
-//  Created by Alex Medearis on 5/23/13.
+//  Created by Bazaarvoice Engineering on 5/23/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "RateView.h"
 #import "ProductReview.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ReviewViewController : UIViewController<UITextViewDelegate>
+@interface ReviewViewController : UIViewController<UITextViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
 @property (weak, nonatomic) IBOutlet UILabel *productLabel;
 @property (weak, nonatomic) IBOutlet RateView *rateView;

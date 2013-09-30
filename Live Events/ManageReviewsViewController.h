@@ -2,7 +2,7 @@
 //  ManageReviewsViewController.h
 //  Live Events
 //
-//  Created by Alex Medearis on 8/28/13.
+//  Created by Bazaarvoice Engineering on 8/28/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 

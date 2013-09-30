@@ -2,7 +2,7 @@
 //  ManageReviewsViewController.m
 //  Live Events
 //
-//  Created by Alex Medearis on 8/28/13.
+//  Created by Bazaarvoice Engineering on 8/28/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -18,6 +18,8 @@
 @implementation ManageReviewsViewController
 
 -(void)viewDidLoad {
+    self.title = @"Review Submission Dashboard";
+    
     self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Review Text", @"SubmissionId"];
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];

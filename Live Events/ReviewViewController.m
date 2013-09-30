@@ -2,7 +2,7 @@
 //  ReviewViewController.m
 //  Mockup
 //
-//  Created by Alex Medearis on 5/23/13.
+//  Created by Bazaarvoice Engineering on 5/23/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -26,11 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 @property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
 
-@property (weak, nonatomic) IBOutlet UIView *emailView;
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailDone;
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *emailCancel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLink;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
@@ -66,10 +61,6 @@
 
     
     self.errorLabel.alpha = 0;
-    
-    self.emailDone.borderColor = [AppConfig primaryColor];
-    self.emailView.hidden = YES;
-    self.emailLink.text = self.productToReview.productPageUrl;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHideHandler:)
@@ -110,13 +101,13 @@
         self.rateLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.rateLabel.textColor = [AppConfig disabledColor];    }
+        self.rateLabel.textColor = [AppConfig secondaryActionColor];    }
     
     if(self.reviewTextView.text.length == 0 || [self.reviewTextView.text isEqualToString:@"Tell Us What You Think"]) {
         self.reviewLabel.textColor = [AppConfig primaryColor];
         error = YES;
     } else {
-        self.reviewLabel.textColor = [AppConfig disabledColor];
+        self.reviewLabel.textColor = [AppConfig secondaryActionColor];
     }
     
     if(!error){
@@ -145,19 +136,40 @@
 }
 
 - (IBAction)emailClicked:(id)sender {
-    self.emailField.text = @"";
-    self.emailView.hidden = NO;
-}
-- (IBAction)emailCancelClicked:(id)sender {
-    [self.emailField resignFirstResponder];
-    self.emailView.hidden = YES;
-}
-- (IBAction)emailDoneClicked:(id)sender {
-    self.emailView.hidden = YES;
-    UIAlertView * submitted = [[UIAlertView alloc] initWithTitle:@"Email Sent!" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [submitted show];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer setSubject:[NSString stringWithFormat:@"Please review %@", self.productToReview.name]];
+        NSString *emailBody = [NSString stringWithFormat:@"<a href=\"%@\">%@</a> <br /><br /> %@", self.productToReview.productPageUrl, self.productToReview.productPageUrl, [AppConfig emailText]];
+        [mailer setMessageBody:emailBody isHTML:YES];
+        mailer.modalPresentationStyle = UIModalPresentationPageSheet;
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support the composer sheet"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    if(result == MFMailComposeResultSent) {
+        NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+        UIAlertView * submitted = [[UIAlertView alloc] initWithTitle:@"Sent!" message:@"Thanks!  You should receive an email shortly." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [submitted show];
+    } else if (result == MFMailComposeResultFailed) {
+        UIAlertView * error = [[UIAlertView alloc] initWithTitle:@"Whoops!" message:@"Something went wrong.  Please double check your email configuration and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [error show];
+    }
+    // Remove the mail view
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void) keyboardWillHideHandler:(NSNotification *)notification {
     [self positionScrollView:NO orientation:self.interfaceOrientation];

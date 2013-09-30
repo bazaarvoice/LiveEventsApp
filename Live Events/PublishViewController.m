@@ -2,7 +2,7 @@
 //  PublishViewController.m
 //  Live Events
 //
-//  Created by Alex Medearis on 6/24/13.
+//  Created by Bazaarvoice Engineering on 6/24/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -97,14 +97,14 @@
         self.nicknameLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.nicknameLabel.textColor = [AppConfig disabledColor];
+        self.nicknameLabel.textColor = [AppConfig secondaryActionColor];
     }
     
     if(![self validateEmailWithString:self.emailTextField.text]){
         self.emailLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.emailLabel.textColor = [AppConfig disabledColor];
+        self.emailLabel.textColor = [AppConfig secondaryActionColor];
     }
     
     if(error) {

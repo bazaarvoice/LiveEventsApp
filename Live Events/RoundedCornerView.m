@@ -2,7 +2,7 @@
 //  RoundedCornerView.m
 //  RoundedCornerDemo
 //
-//  Created by Alex Medearis on 11/5/12.
+//  Created by Bazaarvoice Engineering on 11/5/12.
 //  Copyright (c) 2012 Aliston Software. All rights reserved.
 //
 

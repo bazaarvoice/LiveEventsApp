@@ -2,7 +2,7 @@
 //  CategoryCell.h
 //  Mockup
 //
-//  Created by Alex Medearis on 5/16/13.
+//  Created by Bazaarvoice Engineering on 5/16/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  BackgroundView.m
 //  Live Events
 //
-//  Created by Alex Medearis on 6/19/13.
+//  Created by Bazaarvoice Engineering on 6/19/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -75,7 +75,7 @@
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
     
     // Create bitmap content with current image size and grayscale colorspace
-    CGContextRef context = CGBitmapContextCreate(nil, image.size.width, image.size.height, 8, 0, colorSpace, kCGImageAlphaNone);
+    CGContextRef context = CGBitmapContextCreate(nil, image.size.width, image.size.height, 8, 0, colorSpace, (CGBitmapInfo)kCGImageAlphaNone);
     
     // Draw image into current context, with specified rectangle
     // using previously defined context (with grayscale colorspace)
