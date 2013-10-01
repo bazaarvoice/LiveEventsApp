@@ -16,14 +16,23 @@
 #define KEYBOARD_PORTRAIT 264
 #define KEYBOARD_LANDSCAPE 352
 #define SCROLL_TO_BOTTOM_PORTRAIT 180
-#define SCROLL_TO_BOTTOM_LANSCAPE 450
+#define SCROLL_TO_BOTTOM_LANSCAPE 475
 
 
 @interface ReviewViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet UILabel *productLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+
+@property (weak, nonatomic) IBOutlet RateView *rateView;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
 @property (weak, nonatomic) IBOutlet UIButton *termsButton;
 
@@ -104,10 +113,20 @@
         self.rateLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
-        self.rateLabel.textColor = [AppConfig secondaryActionColor];    }
+        self.rateLabel.textColor = [AppConfig secondaryActionColor];
+    
+    
+    }
+    
+    if(self.titleTextField.text.length == 0) {
+        self.titleLabel.textColor = [AppConfig errorColor];
+        error = YES;
+    } else {
+        self.titleLabel.textColor = [AppConfig secondaryActionColor];
+    }
     
     if(self.reviewTextView.text.length == 0 || [self.reviewTextView.text isEqualToString:@"Tell Us What You Think"]) {
-        self.reviewLabel.textColor = [AppConfig primaryColor];
+        self.reviewLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
         self.reviewLabel.textColor = [AppConfig secondaryActionColor];
@@ -116,6 +135,7 @@
     if(!error){
         self.errorLabel.alpha = 0;
         self.productToReview.rating = [NSNumber numberWithFloat:self.rateView.rating];
+        self.productToReview.title = self.titleTextField.text;
         self.productToReview.reviewText = self.reviewTextView.text;
         [self performSegueWithIdentifier:@"publish" sender:nil];
     } else {
@@ -178,6 +198,13 @@
     [self positionScrollView:NO orientation:self.interfaceOrientation];
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    [self positionScrollView:YES orientation:self.interfaceOrientation];
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    [self positionScrollView:YES orientation:self.interfaceOrientation];
+}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -189,9 +216,9 @@
     return YES;
 }
 
-
--(void)textViewDidBeginEditing:(UITextView *)textView{
-    [self positionScrollView:YES orientation:self.interfaceOrientation];
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(void) positionScrollView:(BOOL)up orientation:(UIInterfaceOrientation)orientation {

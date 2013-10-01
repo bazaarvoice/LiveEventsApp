@@ -11,11 +11,7 @@
 #import "ProductReview.h"
 #import <MessageUI/MessageUI.h>
 
-@interface ReviewViewController : UIViewController<UITextViewDelegate, MFMailComposeViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *productImage;
-@property (weak, nonatomic) IBOutlet UILabel *productLabel;
-@property (weak, nonatomic) IBOutlet RateView *rateView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
+@interface ReviewViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong) ProductReview *productToReview;
 

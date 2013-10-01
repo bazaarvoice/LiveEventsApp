@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1D0FB417FB46A9005B957F /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1D0FB317FB46A9005B957F /* ProductReview.m */; };
 		6F26ECC017971596003BCE01 /* A_Progress-Bar_Blue-Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F26ECBC17971596003BCE01 /* A_Progress-Bar_Blue-Blue@2x.png */; };
 		6F26ECC117971596003BCE01 /* A_Progress-Bar_Blue-Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F26ECBD17971596003BCE01 /* A_Progress-Bar_Blue-Gray@2x.png */; };
 		6F26ECC317971596003BCE01 /* A_Progress-Bar_Gray-Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F26ECBF17971596003BCE01 /* A_Progress-Bar_Gray-Gray@2x.png */; };
@@ -54,7 +55,6 @@
 		6F5F2D8F17737FD0002E899B /* BorderedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8D17737FD0002E899B /* BorderedBar.m */; };
 		6F65A65A17A033A800322BFA /* a_nf_Product-Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F65A65917A033A800322BFA /* a_nf_Product-Box.png */; };
 		6F7034ED17CE741D00D094D7 /* ManageReviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */; };
-		6FA3471717D7AD59001BAFDA /* ProductReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA3471617D7AD59001BAFDA /* ProductReview.m */; };
 		6FEEDFF117C51C1100FBA26B /* ProductsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */; };
 		6FF1C3FA17DF71C400214D83 /* noimage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FF1C3F917DF71C400214D83 /* noimage.jpeg */; };
 		6FF1C3FD17DF741900214D83 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1C3FC17DF741900214D83 /* AppConfig.m */; };
@@ -82,6 +82,8 @@
 /* Begin PBXFileReference section */
 		1CB792B5A0D94AFF94C147F5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D6C593EEC04C9388F51865 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		6F1D0FB217FB46A9005B957F /* ProductReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReview.h; sourceTree = "<group>"; };
+		6F1D0FB317FB46A9005B957F /* ProductReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReview.m; sourceTree = "<group>"; };
 		6F26ECBC17971596003BCE01 /* A_Progress-Bar_Blue-Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_Progress-Bar_Blue-Blue@2x.png"; sourceTree = "<group>"; };
 		6F26ECBD17971596003BCE01 /* A_Progress-Bar_Blue-Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_Progress-Bar_Blue-Gray@2x.png"; sourceTree = "<group>"; };
 		6F26ECBF17971596003BCE01 /* A_Progress-Bar_Gray-Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A_Progress-Bar_Gray-Gray@2x.png"; sourceTree = "<group>"; };
@@ -147,8 +149,6 @@
 		6F65A65917A033A800322BFA /* a_nf_Product-Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a_nf_Product-Box.png"; sourceTree = "<group>"; };
 		6F7034EB17CE741D00D094D7 /* ManageReviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageReviewsViewController.h; sourceTree = "<group>"; };
 		6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageReviewsViewController.m; sourceTree = "<group>"; };
-		6FA3471517D7AD59001BAFDA /* ProductReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductReview.h; sourceTree = "<group>"; };
-		6FA3471617D7AD59001BAFDA /* ProductReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductReview.m; sourceTree = "<group>"; };
 		6FEEDFEF17C51C1100FBA26B /* ProductsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsResponse.h; sourceTree = "<group>"; };
 		6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsResponse.m; sourceTree = "<group>"; };
 		6FF1C3F917DF71C400214D83 /* noimage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpeg; sourceTree = "<group>"; };
@@ -264,11 +264,11 @@
 				6F4324401778E40A006C93A0 /* LEDataManager.h */,
 				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
+				6F1D0FB217FB46A9005B957F /* ProductReview.h */,
+				6F1D0FB317FB46A9005B957F /* ProductReview.m */,
 				6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */,
 				6F7034EB17CE741D00D094D7 /* ManageReviewsViewController.h */,
 				6F7034EC17CE741D00D094D7 /* ManageReviewsViewController.m */,
-				6FA3471517D7AD59001BAFDA /* ProductReview.h */,
-				6FA3471617D7AD59001BAFDA /* ProductReview.m */,
 				6FEEDFEF17C51C1100FBA26B /* ProductsResponse.h */,
 				6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */,
 				6F4324391778B877006C93A0 /* PublishViewController.h */,
@@ -502,9 +502,9 @@
 				6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */,
 				6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */,
 				6F542E82177A12EB00A36849 /* GridViewController.m in Sources */,
+				6F1D0FB417FB46A9005B957F /* ProductReview.m in Sources */,
 				6FEEDFF117C51C1100FBA26B /* ProductsResponse.m in Sources */,
 				6F7034ED17CE741D00D094D7 /* ManageReviewsViewController.m in Sources */,
-				6FA3471717D7AD59001BAFDA /* ProductReview.m in Sources */,
 				6FF1C3FD17DF741900214D83 /* AppConfig.m in Sources */,
 				6FF1C40317DF74FA00214D83 /* HuedUIImageView.m in Sources */,
 				6FF1C40617DF851900214D83 /* HuedUILabel.m in Sources */,

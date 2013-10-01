@@ -20,7 +20,7 @@
 -(void)viewDidLoad {
     self.title = @"Review Submission Dashboard";
     
-    self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Review Text", @"SubmissionId"];
+    self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Title", @"Review Text", @"SubmissionId"];
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];
 }
@@ -118,8 +118,10 @@
     } else if(columnPath.column == 3){
         text = currProductReview.productId;
     } else if(columnPath.column == 4){
-        text = currProductReview.reviewText;
+        text = currProductReview.title;
     } else if(columnPath.column == 5){
+        text = currProductReview.reviewText;
+    } else if(columnPath.column == 6){
         text = currProductReview.submissionId;
     }
     

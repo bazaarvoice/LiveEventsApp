@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ProductReview" representedClassName="ProductReview">
         <attribute name="created" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +14,7 @@
         <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="submissionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="ProductsResponse" representedClassName="ProductsResponse" syncable="YES">
@@ -21,7 +22,7 @@
         <attribute name="term" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ProductReview" positionX="-11252" positionY="-4581" width="128" height="210"/>
+        <element name="ProductReview" positionX="-11252" positionY="-4581" width="128" height="225"/>
         <element name="ProductsResponse" positionX="-11252" positionY="-4257" width="128" height="75"/>
     </elements>
 </model>

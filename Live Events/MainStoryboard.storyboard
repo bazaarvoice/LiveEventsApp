@@ -680,7 +680,7 @@
                                                         </connections>
                                                     </textView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Review:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="gKq-ev-pBJ">
-                                                        <rect key="frame" x="20" y="0.0" width="95" height="57"/>
+                                                        <rect key="frame" x="19" y="0.0" width="95" height="57"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="57" id="39p-Xc-V0l"/>
                                                             <constraint firstAttribute="width" constant="95" id="XpQ-Vd-ihb"/>
@@ -696,7 +696,7 @@
                                                     <constraint firstAttribute="height" constant="221" id="Cd8-oD-1UI"/>
                                                     <constraint firstItem="LPM-vk-1ve" firstAttribute="top" secondItem="UIO-OW-6sC" secondAttribute="top" constant="9" id="UcJ-qb-x7p"/>
                                                     <constraint firstAttribute="trailing" secondItem="LPM-vk-1ve" secondAttribute="trailing" constant="20" symbolic="YES" id="cJC-4D-pWW"/>
-                                                    <constraint firstItem="gKq-ev-pBJ" firstAttribute="leading" secondItem="UIO-OW-6sC" secondAttribute="leading" constant="20" symbolic="YES" id="ftk-Nw-u0N"/>
+                                                    <constraint firstItem="gKq-ev-pBJ" firstAttribute="leading" secondItem="UIO-OW-6sC" secondAttribute="leading" constant="19" id="ftk-Nw-u0N"/>
                                                     <constraint firstItem="gKq-ev-pBJ" firstAttribute="top" secondItem="UIO-OW-6sC" secondAttribute="top" id="kO1-L3-fMH"/>
                                                 </constraints>
                                                 <connections>
@@ -811,6 +811,9 @@
                                                         <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Wrs-s6-4xL" id="95k-BP-gMv"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -958,9 +961,6 @@
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="leading" secondItem="1JB-kV-Mix" secondAttribute="leading" id="rCL-5p-401"/>
                             <constraint firstItem="KvQ-mh-bCF" firstAttribute="trailing" secondItem="1JB-kV-Mix" secondAttribute="trailing" id="tRa-T9-Vkc"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="reviewTitle" destination="25E-5q-fPp" id="jOJ-zB-khv"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="k0j-yU-bDU"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -976,6 +976,8 @@
                         <outlet property="reviewTextView" destination="LPM-vk-1ve" id="p9R-nk-X9n"/>
                         <outlet property="scrollView" destination="w7W-cf-uWl" id="MXB-N8-KGd"/>
                         <outlet property="termsButton" destination="6Ll-Eq-Fo8" id="yEK-BF-12J"/>
+                        <outlet property="titleLabel" destination="nfn-EZ-NZN" id="y0E-Te-Eta"/>
+                        <outlet property="titleTextField" destination="25E-5q-fPp" id="jdF-rw-yWs"/>
                         <segue destination="l3K-fo-kwH" kind="push" identifier="publish" id="K0N-se-rsF"/>
                     </connections>
                 </viewController>

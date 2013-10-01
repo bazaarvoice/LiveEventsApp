@@ -2,7 +2,7 @@
 //  ProductReview.h
 //  Live Events
 //
-//  Created by Bazaarvoice Engineering on 9/4/13.
+//  Created by Alex Medearis on 10/1/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -20,8 +20,9 @@
 @property (nonatomic, retain) NSString * productId;
 @property (nonatomic, retain) NSString * productPageUrl;
 @property (nonatomic, retain) NSNumber * rating;
-@property (nonatomic, retain) NSString * submissionId;
 @property (nonatomic, retain) NSString * reviewText;
 @property (nonatomic, retain) NSString * status;
+@property (nonatomic, retain) NSString * submissionId;
+@property (nonatomic, retain) NSString * title;
 
 @end

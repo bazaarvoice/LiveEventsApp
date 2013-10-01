@@ -2,7 +2,7 @@
 //  ProductReview.m
 //  Live Events
 //
-//  Created by Bazaarvoice Engineering on 9/4/13.
+//  Created by Alex Medearis on 10/1/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
@@ -19,8 +19,9 @@
 @dynamic productId;
 @dynamic productPageUrl;
 @dynamic rating;
-@dynamic submissionId;
 @dynamic reviewText;
 @dynamic status;
+@dynamic submissionId;
+@dynamic title;
 
 @end

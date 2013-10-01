@@ -25,6 +25,7 @@
         self.userEmail = productReview.email;
         self.rating = [productReview.rating intValue];
         self.reviewText = productReview.reviewText;
+        self.title = productReview.title;
         self.action = BVActionSubmit;
         
         // Fix nickname so that it is unique and short enough
