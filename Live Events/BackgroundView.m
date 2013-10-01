@@ -16,6 +16,7 @@
 @property (strong) UIImage * logo;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+@property (weak, nonatomic) IBOutletCollection(UITextField) NSArray *reviewTitle;
 
 @end
 

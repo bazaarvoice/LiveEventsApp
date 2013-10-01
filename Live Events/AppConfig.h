@@ -36,4 +36,5 @@
 // Custom default text for emails sent from this application
 +(NSString *)emailText;
 
+
 @end

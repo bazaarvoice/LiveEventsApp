@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 @property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
+@property (weak, nonatomic) IBOutlet UIButton *termsButton;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -53,6 +54,8 @@
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.title = @"Write a Review";
+    
+    [self.termsButton setTitleColor:[AppConfig secondaryActionColor] forState:UIControlStateNormal];
     
     self.scrollView.bounces = NO;
     
@@ -140,7 +143,7 @@
     {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer setSubject:[NSString stringWithFormat:@"Please review %@", self.productToReview.name]];
+        [mailer setSubject:[NSString stringWithFormat:@"Please Review %@", self.productToReview.name]];
         NSString *emailBody = [NSString stringWithFormat:@"<a href=\"%@\">%@</a> <br /><br /> %@", self.productToReview.productPageUrl, self.productToReview.productPageUrl, [AppConfig emailText]];
         [mailer setMessageBody:emailBody isHTML:YES];
         mailer.modalPresentationStyle = UIModalPresentationPageSheet;
