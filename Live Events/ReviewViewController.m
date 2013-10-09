@@ -16,7 +16,7 @@
 #define KEYBOARD_PORTRAIT 264
 #define KEYBOARD_LANDSCAPE 352
 #define SCROLL_TO_BOTTOM_PORTRAIT 180
-#define SCROLL_TO_BOTTOM_LANSCAPE 475
+#define SCROLL_TO_BOTTOM_LANSCAPE 490
 
 
 @interface ReviewViewController ()
@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
 @property (weak, nonatomic) IBOutlet UIButton *termsButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -55,14 +56,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStyleBordered target:self action:@selector(submit)];
-    self.navigationItem.rightBarButtonItem = rightBar;
     self.rateView.notSelectedImage = [UIImage imageNamed:@"A_Star-Empty.png"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"A_Star-Filled.png"];
     self.rateView.rating = 0;
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
-    self.title = @"Write a Review";
+    self.title = @"Share Your Thoughts";
     
     [self.termsButton setTitleColor:[AppConfig secondaryActionColor] forState:UIControlStateNormal];
     
@@ -71,6 +70,7 @@
     self.continueButton.borderColor = [AppConfig primaryColor];
     [self.continueButton setTitleColor:[AppConfig primaryColor] forState:UIControlStateNormal];
 
+    self.emailButton.hidden = ![AppConfig emailEnabled];
     
     self.errorLabel.alpha = 0;
     
@@ -171,8 +171,8 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
-                                                        message:@"Your device doesn't support the composer sheet"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Please double check that you have configured an email account and try again later."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];

@@ -53,6 +53,7 @@
         NSError *error;
         [self.managedObjectContext deleteObject:self.outstandingProductReview];
         [self.managedObjectContext save:&error];
+        self.outstandingProductReview = nil;
     }
     
     ProductReview * productReview = [NSEntityDescription
@@ -87,12 +88,31 @@
         [self.managedObjectContext save:&error];
     }
     
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductReview"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    return productsToSend;
+    
+
+    // Sometimes there are empty products, either due to a restart of the all (the review persists) or due to the inital install, but no completed reviews
+    // In that case, remove the empty reviews, then return only non-empty reviews.
+    BOOL deletedObjects = NO;
+    for (int i = 0; i < productsToSend.count; i++) {
+        ProductReview *currProduct = productsToSend[i];
+        if(currProduct.reviewText.length == 0) {
+            deletedObjects = YES;
+            [self.managedObjectContext deleteObject:currProduct];
+            [self.managedObjectContext save:&error];
+        }
+    }
+    if(deletedObjects) {
+        // Try again
+        return [self getAllProductReviews];
+    } else {
+        return productsToSend;
+    }
 }
 
 -(void)purgeQueue {

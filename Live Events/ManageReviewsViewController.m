@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet MDSpreadView *spreadView;
 @property (strong) NSArray * reviews;
 @property (strong) NSArray * columns;
+@property (strong) NSMutableArray * sorts;
+
 @end
 
 @implementation ManageReviewsViewController
@@ -21,6 +23,10 @@
     self.title = @"Review Submission Dashboard";
     
     self.columns = @[@"Status", @"Created", @"Nickname", @"ProductId", @"Title", @"Review Text", @"SubmissionId"];
+    self.sorts = [[NSMutableArray alloc] init];
+    for(int i = 0; i < self.columns.count; i++) {
+        [self.sorts addObject:[NSNumber numberWithBool:YES]];
+    }
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];
 }
@@ -97,7 +103,7 @@
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnAtIndexPath:(MDIndexPath *)indexPath
 {
-    if(indexPath.column == 0 || indexPath.column == 4) {
+    if(indexPath.column == 4) {
         return 420;
     } else {
         return 220;
@@ -110,7 +116,11 @@
     
     ProductReview * currProductReview = self.reviews[rowPath.row];
     if(columnPath.column == 0){
-        text = currProductReview.status;
+        if([currProductReview.status isEqualToString:@"Pending"] || [currProductReview.status isEqualToString:@"Submitted"]) {
+            text = currProductReview.status;
+        } else {
+            text = @"Error";
+        }
     } else if(columnPath.column == 1){
         text = currProductReview.created;
     } else if(columnPath.column == 2){
@@ -162,8 +172,53 @@
     return [self textForRowAtIndexPath:rowPath forColumnAtIndexPath:columnPath];
 }
 
+- (void)sortColumn:(int)column {
+    NSString *columnName;
+    BOOL ascending = YES;
+    if(column == 0){
+        columnName = @"status";
+        ascending = [self.sorts[0] boolValue];
+        self.sorts[0] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 1){
+        columnName = @"created";
+        ascending = [self.sorts[1] boolValue];
+        self.sorts[1] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 2){
+        columnName = @"nickname";
+        ascending = [self.sorts[2] boolValue];
+        self.sorts[2] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 3){
+        columnName = @"productId";
+        ascending = [self.sorts[3] boolValue];
+        self.sorts[3] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 4){
+        columnName = @"title";
+        ascending = [self.sorts[4] boolValue];
+        self.sorts[4] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 5){
+        columnName = @"reviewText";
+        ascending = [self.sorts[5] boolValue];
+        self.sorts[5] = [NSNumber numberWithBool:!ascending];
+    } else if(column == 6){
+        columnName = @"submissionId";
+        ascending = [self.sorts[6] boolValue];
+        self.sorts[6] = [NSNumber numberWithBool:!ascending];
+    }
+
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:columnName ascending:ascending];
+    self.reviews = [self.reviews sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    [self.spreadView reloadData];
+}
+
 - (void)spreadView:(MDSpreadView *)aSpreadView didSelectCellForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath
 {
+    if(rowPath.row == -1) {
+        [self sortColumn:columnPath.row];
+    } else if(columnPath.column == 0) {
+        ProductReview * currProductReview = self.reviews[rowPath.row];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Status" message:currProductReview.status delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
     [self.spreadView deselectCellForRowAtIndexPath:rowPath forColumnAtIndexPath:columnPath animated:YES];
     NSLog(@"Selected %@ x %@", rowPath, columnPath);
 }

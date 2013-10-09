@@ -32,7 +32,7 @@
 }
 
 -(NSString *)reuseIdentifier {
-    return @"ReviewCell";
+    return @"ReviewItemCell";
 }
 
 - (void)setup{

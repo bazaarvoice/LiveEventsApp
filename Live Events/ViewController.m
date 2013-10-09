@@ -44,16 +44,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.title = [AppConfig title];
+    // Global appearance
+    self.navigationController.navigationBar.tintColor = [AppConfig primaryColor];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[AppConfig primaryColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    
+    
+    self.title = @"Choose a Product";
     [BVSettings instance].baseURL = [AppConfig apiEndpoint];
-    [BVSettings instance].staging = true;
     [BVSettings instance].passKey = [AppConfig apiKey];
     
     self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:INITIAL_SEARCH];
     self.productsView.dataArray = self.productsData;
     
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
-    [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:@"27101950,27101948,27101946,27101945,27101944,24761799,26354605,24857366,26678596,26906088,24537160,21151436,26975622,26975621,26975620,26975619,26975618,26975616,25634479,26464937,24633531,24244654,23001149,25246401,25246400,16671381,25139301,27101953,26922972,24857342,24857338,24857337,24761803,22959246,22959245,22726173,22726171,21129050,25710579,24501961,23764195,22018267,22018255,27130731,24857302,24857361,24857359,25863298,24430386,24787041,24787040,26680901,26680887,26012799,25863345,25863344,25863343,25634553,25246421,25246420,23268060,20968683,25440895,23991159,24625660,24625659,24511209,24511205,24413342,23583146,23583145,26827376,24062803,24062802,24062801,24221406,26095121,26095120,24017198,24017186,21106759,24857365,24625654,26906090,22881103,21095595,26906086,26095141,24413343,24414348,21151441,21151440,21151439,21151438,21151437,21151435,21151434,26095143,26095134,26354616,25634436,25634438,25634445"];
+    if([AppConfig initialProducts].length > 0) {
+        [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:[AppConfig initialProducts]];        
+    }
     getFresh.limit = 100;
     [getFresh addStatsOn:BVIncludeStatsTypeReviews];
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
@@ -72,7 +78,7 @@
     
     self.startBar.backgroundColor = [AppConfig primaryColor];
     
-    self.seeAllButton.titleLabel.text = [NSString stringWithFormat:@"See all %@ products >", [AppConfig title]];
+    [self.seeAllButton setTitle:[NSString stringWithFormat:@"See all %@ products >", [AppConfig brandName]] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

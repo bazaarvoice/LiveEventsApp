@@ -47,6 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Publish";
     self.errorLabel.alpha = 0;
     self.doneButton.borderColor = [AppConfig primaryColor];
     [self.doneButton setTitleColor:[AppConfig primaryColor] forState:UIControlStateNormal];
@@ -118,7 +119,7 @@
         //[[LEDataManager sharedInstanceWithContext:self.managedObjectContext] purgeQueue];
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Success!"
                                                           message:@"Your review has been submitted. Thank you for your feedback."
-                                                         delegate:self
+                                                         delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];

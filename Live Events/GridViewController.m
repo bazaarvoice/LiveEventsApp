@@ -15,8 +15,7 @@
 #import "LEDataManager.h"
 #import "ManageReviewsViewController.h"
 #import "HuedUIImageView.h"
-
-#define DEFAULT_SEARCH @""
+#import "AppConfig.h"
 
 @interface GridViewController ()
 
@@ -43,13 +42,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.collectionView registerClass:[ReviewItemView class] forCellWithReuseIdentifier:@"ReviewItemCell"];
+    
+    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(secretButtonClicked:)];
+    [self.navigationController.navigationBar addGestureRecognizer:self.longPressRecognizer];
+    
+    self.title = @"Choose a Product";
+    
     CGRect frame = self.searchTextField.frame;
     frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 15);
     self.searchTextField.frame = frame;
     self.dataArray = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:PRODUCT_SEARCH];
 
     if(!self.dataArray){
-        [self searchWithTerm:DEFAULT_SEARCH];
+        [self defaultSearch];
     } else {
         [self reload];
     }
@@ -64,10 +70,28 @@
 
 - (IBAction)emptySearch:(id)sender {
     self.searchTextField.text = @"";
-    //TODO: remove
-    return;
-    [self searchWithTerm:DEFAULT_SEARCH];
+    if([AppConfig performNetworkSearchForAllProducts]) {
+        [self defaultSearch];
+    }
 }
+
+- (void)defaultSearch {
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	HUD.labelText = @"Loading";
+    [HUD show:YES];
+    self.HUD = HUD;
+    
+    BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
+    if([AppConfig secondaryProducts].length > 0) {
+        [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:[AppConfig secondaryProducts]];
+    }
+    getFresh.limit = 100;
+    [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
+    [getFresh sendRequestWithDelegate:self];
+    
+}
+
 
 - (void)searchWithTerm:(NSString *)term {
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
@@ -80,8 +104,7 @@
     if(term.length > 0){
         getFresh.search = term;
     } else {
-        [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:@"27101950,27101948,27101946,27101945,27101944,24761799,26354605,24857366,26678596,26906088,24537160,21151436,26975622,26975621,26975620,26975619,26975618,26975616,25634479,26464937,24633531,24244654,23001149,25246401,25246400,16671381,25139301,27101953,26922972,24857342,24857338,24857337,24761803,22959246,22959245,22726173,22726171,21129050,25710579,24501961,23764195,22018267,22018255,27130731,24857302,24857361,24857359,25863298,24430386,24787041,24787040,26680901,26680887,26012799,25863345,25863344,25863343,25634553,25246421,25246420,23268060,20968683,25440895,23991159,24625660,24625659,24511209,24511205,24413342,23583146,23583145,26827376,24062803,24062802,24062801,24221406,26095121,26095120,24017198,24017186,21106759,24857365,24625654,26906090,22881103,21095595,26906086,26095141,24413343,24414348,21151441,21151440,21151439,21151438,21151437,21151435,21151434,26095143,26095134,26354616,25634436,25634438,25634445"];
-        
+        [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:[AppConfig secondaryProducts]];
     }
     getFresh.limit = 100;
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
@@ -132,7 +155,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     int index = indexPath.row;
     NSDictionary *product = self.tempDataArray[index];
-    ReviewItemView * reviewItem = [[ReviewItemView alloc] init];
+    ReviewItemView * reviewItem = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ReviewItemCell" forIndexPath:indexPath];
+    if(!reviewItem) {
+        reviewItem = [[ReviewItemView alloc] init];
+    }
+    
     reviewItem.index = index;
     reviewItem.productTitle.text = product[@"Name"];
     if(product[@"ImageUrl"] && product[@"ImageUrl"] != [NSNull null]) {
@@ -173,15 +200,17 @@
 
 
 - (IBAction)textFieldChanged:(id)sender {
-    [self pruneResults];
-    [self reload];
+    if(![AppConfig performNetworkSearchForAllProducts]){
+        [self pruneResults];
+        [self reload];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    // TODO: remove later
-    return NO;
-    [self searchWithTerm:self.searchTextField.text];
+    if([AppConfig performNetworkSearchForAllProducts]) {
+        [self searchWithTerm:self.searchTextField.text];
+    }
     return NO;
 }
 

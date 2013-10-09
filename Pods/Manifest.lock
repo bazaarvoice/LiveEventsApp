@@ -9,7 +9,7 @@ PODS:
   - libwebp/dsp (0.3.0-rc7)
   - libwebp/utils (0.3.0-rc7)
   - libwebp/webp (0.3.0-rc7)
-  - MBProgressHUD (0.7)
+  - MBProgressHUD (0.8)
   - MDSpreadView (0.7)
   - SDWebImage (3.4):
     - libwebp
@@ -26,8 +26,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bazaarvoice: 6c8e54efc376714e2dc28eb47a289e7312252430
   libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
-  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MDSpreadView: 877fd57820c972854f0a38033ccd167bc534c464
   SDWebImage: f13f791e411c632489824aa7f129e230b52bf5c4
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.25.0
