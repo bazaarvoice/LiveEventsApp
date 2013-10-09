@@ -46,7 +46,7 @@
     
     // Global appearance
     self.navigationController.navigationBar.tintColor = [AppConfig primaryColor];
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[AppConfig primaryColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor darkGrayColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil];
     
     
     self.title = @"Choose a Product";

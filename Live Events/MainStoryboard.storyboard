@@ -907,7 +907,7 @@
                                         <rect key="frame" x="82" y="0.0" width="604" height="918"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="478" translatesAutoresizingMaskIntoConstraints="NO" id="z9u-Vm-Sv5">
-                                                <rect key="frame" x="53" y="26" width="478" height="52"/>
+                                                <rect key="frame" x="53" y="14" width="478" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="478" id="bv2-7X-xX9"/>
                                                     <constraint firstAttribute="height" constant="52" id="mRZ-XB-r6D"/>
@@ -917,7 +917,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a nickname, for example &quot;love2write&quot;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="389" translatesAutoresizingMaskIntoConstraints="NO" id="UH9-Zi-52u">
-                                                <rect key="frame" x="53" y="96" width="389" height="36"/>
+                                                <rect key="frame" x="53" y="84" width="389" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="6o4-7T-hum"/>
                                                 </constraints>
@@ -926,7 +926,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="There is an error in this form." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="389" translatesAutoresizingMaskIntoConstraints="NO" id="RB4-Ln-qe1">
-                                                <rect key="frame" x="53" y="67" width="389" height="36"/>
+                                                <rect key="frame" x="53" y="55" width="389" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="389" id="HPT-tQ-RQn"/>
                                                     <constraint firstAttribute="height" constant="36" id="rXX-hN-7sZ"/>
@@ -936,7 +936,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Where should we send your confirmation email?" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="406" translatesAutoresizingMaskIntoConstraints="NO" id="Knj-Fn-ycp">
-                                                <rect key="frame" x="53" y="203" width="406" height="46"/>
+                                                <rect key="frame" x="53" y="191" width="406" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="406" id="HNm-dd-QDB"/>
                                                     <constraint firstAttribute="height" constant="46" id="uyS-ss-GI7"/>
@@ -946,7 +946,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hM-WY-v5t" customClass="RoundedCornerView">
-                                                <rect key="frame" x="45" y="140" width="514" height="55"/>
+                                                <rect key="frame" x="45" y="128" width="514" height="55"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Nickname:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="103" translatesAutoresizingMaskIntoConstraints="NO" id="MGS-Vn-wHN">
                                                         <rect key="frame" x="12" y="13" width="103" height="30"/>
@@ -986,7 +986,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B15-VY-nZu" customClass="RoundedCornerView">
-                                                <rect key="frame" x="45" y="257" width="514" height="55"/>
+                                                <rect key="frame" x="45" y="245" width="514" height="55"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email:" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="o0C-gh-tID">
                                                         <rect key="frame" x="11" y="14" width="95" height="30"/>
@@ -1026,7 +1026,7 @@
                                                 </connections>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3I0-fz-TxD" customClass="RoundedCornerButton">
-                                                <rect key="frame" x="413" y="320" width="147" height="44"/>
+                                                <rect key="frame" x="413" y="308" width="147" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="147" id="YNd-Pm-qti"/>
                                                 </constraints>
@@ -1043,7 +1043,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjA-ha-uIU" customClass="RoundedCornerButton">
-                                                <rect key="frame" x="319" y="320" width="73" height="44"/>
+                                                <rect key="frame" x="319" y="308" width="73" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="73" id="X50-R0-LnY"/>
                                                     <constraint firstAttribute="height" constant="44" id="fq0-q0-5UA"/>
@@ -1065,11 +1065,11 @@
                                         <constraints>
                                             <constraint firstItem="B15-VY-nZu" firstAttribute="trailing" secondItem="8hM-WY-v5t" secondAttribute="trailing" id="3Ly-UR-oL7"/>
                                             <constraint firstItem="Knj-Fn-ycp" firstAttribute="top" secondItem="8hM-WY-v5t" secondAttribute="bottom" constant="8" symbolic="YES" id="Kgp-Ii-BsC"/>
-                                            <constraint firstItem="UH9-Zi-52u" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="96" id="RwB-mn-nDB"/>
+                                            <constraint firstItem="UH9-Zi-52u" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="84" id="RwB-mn-nDB"/>
                                             <constraint firstItem="z9u-Vm-Sv5" firstAttribute="leading" secondItem="3e8-Mi-x77" secondAttribute="leading" constant="53" id="TcM-IG-oNb"/>
                                             <constraint firstAttribute="trailing" secondItem="8hM-WY-v5t" secondAttribute="trailing" constant="45" id="UAE-gu-Xik"/>
                                             <constraint firstItem="8hM-WY-v5t" firstAttribute="top" secondItem="UH9-Zi-52u" secondAttribute="bottom" constant="8" symbolic="YES" id="Vjj-Xk-3cZ"/>
-                                            <constraint firstItem="RB4-Ln-qe1" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="67" id="a0e-wJ-UAD"/>
+                                            <constraint firstItem="RB4-Ln-qe1" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="55" id="a0e-wJ-UAD"/>
                                             <constraint firstItem="B15-VY-nZu" firstAttribute="top" secondItem="Knj-Fn-ycp" secondAttribute="bottom" constant="8" symbolic="YES" id="bLP-9h-oOZ"/>
                                             <constraint firstItem="RB4-Ln-qe1" firstAttribute="leading" secondItem="UH9-Zi-52u" secondAttribute="leading" id="bS1-JF-Vdh"/>
                                             <constraint firstItem="8hM-WY-v5t" firstAttribute="leading" secondItem="B15-VY-nZu" secondAttribute="leading" id="co6-z7-ruK"/>
@@ -1082,7 +1082,7 @@
                                             <constraint firstItem="UH9-Zi-52u" firstAttribute="trailing" secondItem="RB4-Ln-qe1" secondAttribute="trailing" id="pPm-7O-4ED"/>
                                             <constraint firstItem="3I0-fz-TxD" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="bottom" constant="8" symbolic="YES" id="pd8-h5-Jb3"/>
                                             <constraint firstItem="SjA-ha-uIU" firstAttribute="top" secondItem="B15-VY-nZu" secondAttribute="bottom" constant="8" symbolic="YES" id="vgb-ni-PX4"/>
-                                            <constraint firstItem="z9u-Vm-Sv5" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="26" id="xHz-nj-0KJ"/>
+                                            <constraint firstItem="z9u-Vm-Sv5" firstAttribute="top" secondItem="3e8-Mi-x77" secondAttribute="top" constant="14" id="xHz-nj-0KJ"/>
                                             <constraint firstAttribute="trailing" secondItem="3I0-fz-TxD" secondAttribute="trailing" constant="44" id="xkb-20-DOG"/>
                                         </constraints>
                                     </view>

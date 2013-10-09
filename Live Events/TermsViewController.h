@@ -2,7 +2,7 @@
 //  TermsViewController.h
 //  
 //
-//  Created by Alex Medearis on 9/30/13.
+//  Created by Alex Bazaarvoice Engineering on 9/30/13.
 //
 //
 

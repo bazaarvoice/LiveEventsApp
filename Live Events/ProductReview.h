@@ -2,7 +2,7 @@
 //  ProductReview.h
 //  Live Events
 //
-//  Created by Alex Medearis on 10/1/13.
+//  Created by Alex Bazaarvoice Engineering on 10/1/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
