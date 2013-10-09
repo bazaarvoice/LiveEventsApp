@@ -1,0 +1,22 @@
+#!/bin/bash
+f=$(pwd)
+
+if [ -z "${$1}" ]; then
+   echo "Usage: ./createIcons <filename>";
+   exit 1;
+fi
+
+sips --resampleWidth 512 "${f}/${1}" --out "${f}/Live Events/iTunesArtwork"
+sips --resampleWidth 1024 "${f}/${1}" --out "${f}/Live Events/iTunesArtwork@2x"
+sips --resampleWidth 72 "${f}/${1}" --out "${f}/Live Events/Icon-72.png"
+sips --resampleWidth 144 "${f}/${1}" --out "${f}/Live Events/Icon-72@2x.png"
+sips --resampleWidth 76 "${f}/${1}" --out "${f}/Live Events/Icon-76.png"
+sips --resampleWidth 152 "${f}/${1}" --out "${f}/Live Events/Icon-76@2x.png"
+
+sips --resampleWidth 50 "${f}/${1}" --out "${f}/Live Events/Icon-Small-50.png"
+sips --resampleWidth 100 "${f}/${1}" --out "${f}/Live Events/Icon-Small-50@2x.png"
+sips --resampleWidth 40 "${f}/${1}" --out "${f}/Live Events/Icon-Small-40.png"
+sips --resampleWidth 80 "${f}/${1}" --out "${f}/Live Events/Icon-Small-40@2x.png"
+
+sips --resampleWidth 29 "${f}/${1}" --out "${f}/Live Events/Icon-Small.png"
+sips --resampleWidth 58 "${f}/${1}" --out "${f}/Live Events/Icon-Small@2x.png"
