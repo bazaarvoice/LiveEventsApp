@@ -77,7 +77,7 @@
     reviewItem.index = index;
     reviewItem.productTitle.text = self.dataArray[index][@"Name"];
     if(self.dataArray[index][@"ImageUrl"] && self.dataArray[index][@"ImageUrl"] != [NSNull null]) {
-        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]]];
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }

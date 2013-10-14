@@ -109,7 +109,6 @@
     getFresh.limit = 100;
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
     [getFresh sendRequestWithDelegate:self];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,7 +128,10 @@
     [self.collectionView reloadData];
     [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
     [self.HUD hide:YES];
-    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forTerm:PRODUCT_SEARCH];
+    BVGet *getRequest = (BVGet *)request;
+    if(!getRequest.search) {
+        [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forTerm:PRODUCT_SEARCH];
+    }
 }
 
 -(void)didFailToReceiveResponse:(NSError *)err forRequest:(id)request {
@@ -163,7 +165,7 @@
     reviewItem.index = index;
     reviewItem.productTitle.text = product[@"Name"];
     if(product[@"ImageUrl"] && product[@"ImageUrl"] != [NSNull null]) {
-        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]]];
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }
@@ -175,8 +177,9 @@
     NSDictionary * selectedProduct = self.tempDataArray[index];
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
-    productReview.imageUrl = selectedProduct[@"ImageUrl"];
+    productReview.imageUrl = selectedProduct[@"ImageUrl"] != [NSNull null] ? selectedProduct[@"ImageUrl"] : nil;
     productReview.productId = selectedProduct[@"Id"];
+    productReview.productPageUrl = selectedProduct[@"ProductPageUrl"] != [NSNull null] ? selectedProduct[@"ProductPageUrl"] : nil;
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 
@@ -209,7 +212,11 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     if([AppConfig performNetworkSearchForAllProducts]) {
-        [self searchWithTerm:self.searchTextField.text];
+        if(self.searchTextField.text.length) {
+            [self searchWithTerm:self.searchTextField.text];
+        } else {
+            [self defaultSearch];
+        }
     }
     return NO;
 }

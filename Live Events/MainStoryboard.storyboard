@@ -408,7 +408,7 @@
                         <viewControllerLayoutGuide type="top" id="nMB-4P-2us"/>
                         <viewControllerLayoutGuide type="bottom" id="FWa-cH-gHa"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HVm-RZ-yjQ">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="HVm-RZ-yjQ">
                         <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -1239,7 +1239,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qex-kf-4qK" customClass="BorderedBar">
-                                <rect key="frame" x="0.0" y="63.999999999999993" width="768" height="42"/>
+                                <rect key="frame" x="0.0" y="64" width="768" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-Zy-mTp" customClass="HuedUIButton">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="42"/>

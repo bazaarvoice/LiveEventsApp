@@ -161,9 +161,9 @@
     NSDictionary * selectedProduct = self.productsData[index];
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
-    productReview.imageUrl = selectedProduct[@"ImageUrl"];
+    productReview.imageUrl = selectedProduct[@"ImageUrl"] != [NSNull null] ? selectedProduct[@"ImageUrl"] : nil;
     productReview.productId = selectedProduct[@"Id"];
-    productReview.productPageUrl = selectedProduct[@"ProductPageUrl"];
+    productReview.productPageUrl = selectedProduct[@"ProductPageUrl"] != [NSNull null] ? selectedProduct[@"ProductPageUrl"] : nil;
     [self performSegueWithIdentifier:@"rate" sender:productReview];
 }
 

@@ -17,8 +17,8 @@
 +(NSString *)apiKey;
 // The endpoint to use for api requests.  In most cases, this can be api.bazaarvoice.com or stg.api.bazaarvoice.com for staging requests.
 +(NSString *)apiEndpoint;
-// A context data value (and campaignid) that will be used to identify submissions from this campaign
-+(NSString *)appCDV;
+// A campaignid (and context data value) that will be used to identify submissions from this campaign
++(NSString *)appCampaignID;
 // The name that will be dispayed in all copy "ex. See all <title> products..."
 +(NSString *)brandName;
 // Initial list of product ids to display in carousel, comma separated 

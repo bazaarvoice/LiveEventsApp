@@ -38,8 +38,8 @@
         self.userId = self.userNickname;
         
         // Campaign id and CDV
-        self.campaignId = [AppConfig appCDV];
-        [self setContextDataValue:[AppConfig appCDV] value:@"true"];
+        self.campaignId = [AppConfig appCampaignID];
+        [self setContextDataValue:[AppConfig appCampaignID] value:@"true"];
 
     }
     return self;

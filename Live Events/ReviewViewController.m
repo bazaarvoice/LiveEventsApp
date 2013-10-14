@@ -86,12 +86,10 @@
     self.productLabel.text = self.productToReview.name;
     
     if(self.productToReview.imageUrl && self.productToReview.imageUrl !=(id)[NSNull null]) {
-        [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
+        [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         self.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }
-
-    [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl]];
 }
 
 - (void)didReceiveMemoryWarning
