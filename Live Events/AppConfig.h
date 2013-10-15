@@ -21,11 +21,15 @@
 +(NSString *)appCampaignID;
 // The name that will be dispayed in all copy "ex. See all <title> products..."
 +(NSString *)brandName;
-// Initial list of product ids to display in carousel, comma separated 
-+(NSString *)initialProducts;
-// Initial list of product ids to display on the "all products" screen, comma separated
-+(NSString *)secondaryProducts;
 
+// Initial list of product ids to display in carousel, comma separated.  Leave blank for no filter.
++(NSString *)initialProducts;
+// Initial list of category ids to filter in carousel, comma separated.  Leave blank for no filter.
++(NSString *)initialCategory;
+// Initial list of product ids to display on the "all products" screen, comma separated.  Leave blank for no filter.
++(NSString *)secondaryProducts;
+// Initial list of category ids to filter on the "all products" screen, comma separated.  Leave blank for no filter.
++(NSString *)secondaryCategory;
 
 // The primary tint color of the application -- title bar, progress bar etc.
 +(UIColor *)primaryColor;

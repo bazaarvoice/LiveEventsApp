@@ -14,7 +14,7 @@
 // Your Bazaarvoice API key -- see https://developer.bazaarvoice.com/ to request a key
 +(NSString *)apiKey {
     // Stg
-    return @"hmdkxxnfjgubmlynunx1slewl";
+    return @"ml23eof6sxmbunjnz6iwp05xk";
     
     // Prod
     //return @"3pup8wj4h78ywndrgz0d5imna";
@@ -36,13 +36,23 @@
     return @"Acuvue";
 }
 
-// Initial list of product ids to display in carousel, comma separated 
+// Initial list of product ids to display in carousel, comma separated.  Leave blank for no filter.
 +(NSString *)initialProducts {
     return @"";
 }
 
-// Initial list of product ids to display on the "all products" screen, comma separated
+// Initial list of category ids to filter in carousel, comma separated.  Leave blank for no filter.
++(NSString *)initialCategory {
+    return @"";
+}
+
+// Initial list of product ids to display on the "all products" screen, comma separated.  Leave blank for no filter.
 +(NSString *)secondaryProducts {
+    return @"";
+}
+
+// Initial list of category ids to filter on the "all products" screen, comma separated.  Leave blank for no filter.
++(NSString *)secondaryCategory {
     return @"";
 }
 

@@ -60,6 +60,9 @@
     if([AppConfig initialProducts].length > 0) {
         [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:[AppConfig initialProducts]];        
     }
+    if([AppConfig initialCategory].length > 0) {
+        [getFresh setFilterForAttribute:@"CategoryId" equality:BVEqualityEqualTo value:[AppConfig initialCategory]];
+    }
     getFresh.limit = 100;
     [getFresh addStatsOn:BVIncludeStatsTypeReviews];
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
