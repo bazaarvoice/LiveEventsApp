@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import <BVSDK/BVSDK.h>
-#import "CategoryCell.h"
+#import "BVProductCarousel.h"
 
 @interface ViewController : UIViewController<BVDelegate, SwipeViewDelegate>
 

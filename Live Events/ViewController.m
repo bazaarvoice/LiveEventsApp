@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CategoryCell.h"
+#import "BVProductCarousel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "FadeLabel.h"
 #import "BorderedBar.h"
@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *seeAllButton;
 @property (weak, nonatomic) IBOutlet FadeLabel *informOthers;
 @property (weak, nonatomic) IBOutlet FadeLabel *rateAndReview;
-@property (weak, nonatomic) IBOutlet CategoryCell *productsView;
+@property (weak, nonatomic) IBOutlet BVProductCarousel *productsView;
 @property (weak, nonatomic) IBOutlet BorderedBar *bottomBar;
 @property (weak, nonatomic) IBOutlet UIView *startBar;
 

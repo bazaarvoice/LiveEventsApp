@@ -137,7 +137,7 @@
                                     <action selector="seeAllClicked:" destination="LNe-cw-EMo" eventType="touchUpInside" id="Bal-5a-EtI"/>
                                 </connections>
                             </button>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNG-Xr-ddA" customClass="CategoryCell">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNG-Xr-ddA" customClass="BVProductCarousel">
                                 <rect key="frame" x="-115" y="315" width="883" height="350"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>

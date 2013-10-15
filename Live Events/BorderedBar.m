@@ -26,12 +26,12 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [UIColor grayColor].CGColor);
     
-    // Draw them with a 2.0 stroke width so they are a bit more visible.
+    // Top border
     CGContextSetLineWidth(context, 3.0);
     CGContextMoveToPoint(context, 0,0); //start at this point
     CGContextAddLineToPoint(context, rect.size.width, 0); //draw to this point
     
-    // Draw them with a 2.0 stroke width so they are a bit more visible.
+    // Bottom border
     CGContextSetLineWidth(context, 2.0);
     CGContextMoveToPoint(context, 0,rect.size.height); //start at this point
     CGContextAddLineToPoint(context, rect.size.width, rect.size.height); //draw to this point

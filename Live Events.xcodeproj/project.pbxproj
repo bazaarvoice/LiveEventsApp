@@ -48,7 +48,7 @@
 		6F5F2D6817737EE1002E899B /* Live_Events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */; };
 		6F5F2D7617737FB4002E899B /* ReviewItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7517737FB4002E899B /* ReviewItemView.m */; };
 		6F5F2D7C17737FBD002E899B /* ReviewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7717737FBD002E899B /* ReviewItem.xib */; };
-		6F5F2D7D17737FBD002E899B /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7817737FBD002E899B /* CategoryCell.m */; };
+		6F5F2D7D17737FBD002E899B /* BVProductCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7817737FBD002E899B /* BVProductCarousel.m */; };
 		6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7B17737FBD002E899B /* SwipeView.m */; };
 		6F5F2D8617737FC8002E899B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */; };
 		6F5F2D8717737FC8002E899B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8117737FC8002E899B /* ViewController.m */; };
@@ -136,8 +136,8 @@
 		6F5F2D7417737FB4002E899B /* ReviewItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewItemView.h; sourceTree = "<group>"; };
 		6F5F2D7517737FB4002E899B /* ReviewItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewItemView.m; sourceTree = "<group>"; };
 		6F5F2D7717737FBD002E899B /* ReviewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewItem.xib; sourceTree = "<group>"; };
-		6F5F2D7817737FBD002E899B /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
-		6F5F2D7917737FBD002E899B /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		6F5F2D7817737FBD002E899B /* BVProductCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductCarousel.m; sourceTree = "<group>"; };
+		6F5F2D7917737FBD002E899B /* BVProductCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductCarousel.h; sourceTree = "<group>"; };
 		6F5F2D7A17737FBD002E899B /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		6F5F2D7B17737FBD002E899B /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -256,8 +256,8 @@
 				6F5F2D8D17737FD0002E899B /* BorderedBar.m */,
 				6F4324431778F010006C93A0 /* BVProductReviewPost.h */,
 				6F4324441778F010006C93A0 /* BVProductReviewPost.m */,
-				6F5F2D7917737FBD002E899B /* CategoryCell.h */,
-				6F5F2D7817737FBD002E899B /* CategoryCell.m */,
+				6F5F2D7917737FBD002E899B /* BVProductCarousel.h */,
+				6F5F2D7817737FBD002E899B /* BVProductCarousel.m */,
 				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
 				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
 				6F542E80177A12EB00A36849 /* GridViewController.h */,
@@ -496,7 +496,7 @@
 				6F5F2D5C17737EE1002E899B /* AppDelegate.m in Sources */,
 				6F5F2D6817737EE1002E899B /* Live_Events.xcdatamodeld in Sources */,
 				6F5F2D7617737FB4002E899B /* ReviewItemView.m in Sources */,
-				6F5F2D7D17737FBD002E899B /* CategoryCell.m in Sources */,
+				6F5F2D7D17737FBD002E899B /* BVProductCarousel.m in Sources */,
 				6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */,
 				6F5F2D8717737FC8002E899B /* ViewController.m in Sources */,
 				6F5F2D8817737FC8002E899B /* ReviewViewController.m in Sources */,

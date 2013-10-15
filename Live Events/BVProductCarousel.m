@@ -1,25 +1,26 @@
 //
-//  CategoryCell.m
-//  Mockup
+//  BVProductCarousel
+//  Live Events
 //
 //  Created by Bazaarvoice Engineering on 5/16/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
-#import "CategoryCell.h"
+#import "BVProductCarousel.h"
 #import "ReviewItemView.h"
 #import "SwipeView.h"
 #import "UIImageView+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CategoryCell()
+@interface BVProductCarousel()
 
+// Internal swipeview
 @property (strong) SwipeView * swipeView;
 
 @end
 
 
-@implementation CategoryCell
+@implementation BVProductCarousel
 
 @synthesize dataArray = _dataArray;
 
@@ -32,6 +33,7 @@
     return self;
 }
 
+// Loaded from storyboard
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self layoutIfNeeded];
@@ -39,6 +41,7 @@
 }
 
 - (void)setup{
+    // Create a swipe view and position it to take up the entirety of the
     SwipeView * swipeView = [[SwipeView alloc] init];
     swipeView.translatesAutoresizingMaskIntoConstraints = NO;
     swipeView.dataSource = self;
