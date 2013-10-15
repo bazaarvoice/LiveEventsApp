@@ -1,0 +1,9 @@
+#!/bin/bash
+f=$(pwd)
+
+if [ -z "${$1}" ]; then
+   echo "Usage: ./createLogo <filename>";
+   exit 1;
+fi
+
+sips --resampleWidth 512 "${f}/${1}" --out "${f}/Live Events/logo.png"
