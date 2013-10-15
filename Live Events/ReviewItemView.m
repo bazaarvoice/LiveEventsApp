@@ -1,6 +1,6 @@
 //
 //  ReviewItemView.m
-//  Mockup
+//  LiveEvents
 //
 //  Created by Bazaarvoice Engineering on 5/16/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
@@ -36,6 +36,7 @@
 }
 
 - (void)setup{
+    // Load the review item as a subview from nib
     [self addSubview:[[[NSBundle mainBundle] loadNibNamed:@"ReviewItem" owner:self options:nil] objectAtIndex:0]];
 }
 

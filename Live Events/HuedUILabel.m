@@ -31,8 +31,6 @@
     return self;
 }
 
-
-
 -(void)setup {
     self.textColor = [AppConfig primaryColor];
 }

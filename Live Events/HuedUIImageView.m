@@ -19,11 +19,11 @@
 
 
 -(void)setImage:(UIImage *)image {
-    
     CGFloat hue;
     CGFloat saturation;
     CGFloat brightness;
     CGFloat alpha;
+    // Attempt to blend the image with a hue color
     BOOL success = [[AppConfig primaryColor] getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     if(success){
         [super setImage:[self imageWithImage:image hue:hue saturation:saturation brightness:brightness alpha:alpha]];

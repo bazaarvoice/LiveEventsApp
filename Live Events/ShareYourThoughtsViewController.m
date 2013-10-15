@@ -1,12 +1,12 @@
 //
-//  ReviewViewController.m
-//  Mockup
+//  ShareYourThoughtsViewController.m
+//  LiveEvents
 //
 //  Created by Bazaarvoice Engineering on 5/23/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
-#import "ReviewViewController.h"
+#import "ShareYourThoughtsViewController.h"
 #import "UIImageView+WebCache.h"
 #import "RoundedCornerButton.h"
 #import "PublishViewController.h"
@@ -19,52 +19,63 @@
 #define SCROLL_TO_BOTTOM_LANSCAPE 490
 
 
-@interface ReviewViewController ()
+@interface ShareYourThoughtsViewController ()
 
+// Image of product
 @property (weak, nonatomic) IBOutlet UIImageView *productImage;
+// Name of product
 @property (weak, nonatomic) IBOutlet UILabel *productLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
-@property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
-@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
-
-@property (weak, nonatomic) IBOutlet RateView *rateView;
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
-@property (weak, nonatomic) IBOutlet UIButton *termsButton;
+// Scroll view containing form
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+// Review later by email button
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+// Label indicating an error occurred
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
+// Rating field
+@property (weak, nonatomic) IBOutlet RateView *rateView;
+// Rating label
+@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+
+// Title field
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+// Title label
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+// Review field
+@property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
+// Review label
+@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
+
+// Display terms and conditions button
+@property (weak, nonatomic) IBOutlet UIButton *termsButton;
+
+// Continue to next page button
+@property (weak, nonatomic) IBOutlet RoundedCornerButton *continueButton;
+
+// Manages the scrollview height so that it can be moved up when the keyboard is displayed
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 
 @end
 
-@implementation ReviewViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation ShareYourThoughtsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.title = @"Share Your Thoughts";
+    
+	// Set up the rating field
     self.rateView.notSelectedImage = [UIImage imageNamed:@"A_Star-Empty.png"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"A_Star-Filled.png"];
     self.rateView.rating = 0;
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
-    self.title = @"Share Your Thoughts";
     
     [self.termsButton setTitleColor:[AppConfig secondaryActionColor] forState:UIControlStateNormal];
-    
+
     self.scrollView.bounces = NO;
     
     self.continueButton.borderColor = [AppConfig primaryColor];
@@ -73,18 +84,9 @@
     self.emailButton.hidden = ![AppConfig emailEnabled];
     
     self.errorLabel.alpha = 0;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHideHandler:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-}
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self positionScrollView:NO orientation:self.interfaceOrientation];
-    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
-    self.productLabel.text = self.productToReview.name;
     
+    self.productLabel.text = self.productToReview.name;
     if(self.productToReview.imageUrl && self.productToReview.imageUrl !=(id)[NSNull null]) {
         [self.productImage setImageWithURL:[NSURL URLWithString:self.productToReview.imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
@@ -92,18 +94,38 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated{
+    // Receive keyboard notification events
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHideHandler:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+
+    
+    // Scroll to top of form
+    [self positionScrollView:NO orientation:self.interfaceOrientation];
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    
+    [super viewWillAppear:animated];
 }
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewWillDisappear:animated];
+}
+
+// Bottom bar actions
 - (IBAction)chooseAProductClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+// Cancel handler
 - (IBAction)cancelClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+// If continue is clicked, perform validation.  If valid, move on, otherwise, highlight
+// the offending field.
 - (IBAction)continueClicked:(id)sender {
     BOOL error = NO;
     
@@ -146,21 +168,24 @@
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"publish"])
     {
-        // Get reference to the destination view controller
+        // Get reference to the destination view controller, pass on the product context
         PublishViewController *pubVC = [segue destinationViewController];
         pubVC.productToReview = (ProductReview *)self.productToReview;
         pubVC.managedObjectContext = self.managedObjectContext;
     }
 }
 
+// Sets focus to the title field, even if they didn't exactly click it
 - (IBAction)titleBGClicked:(id)sender {
     [self.titleTextField becomeFirstResponder];
 }
 
+// Sets focus to the review field, even if they didn't exactly click it
 - (IBAction)reviewBGClicked:(id)sender {
     [self.reviewTextView becomeFirstResponder];
 }
 
+// If supported, display the email compose view with the configured text and a link to the product
 - (IBAction)emailClicked:(id)sender {
     if ([MFMailComposeViewController canSendMail])
     {
@@ -183,10 +208,10 @@
     }
 }
 
+// Handler for mail compose dismissal
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     if(result == MFMailComposeResultSent) {
-        NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
         UIAlertView * submitted = [[UIAlertView alloc] initWithTitle:@"Sent!" message:@"Thanks!  You should receive an email shortly." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [submitted show];
     } else if (result == MFMailComposeResultFailed) {
@@ -224,6 +249,7 @@
     return YES;
 }
 
+// Manipulates the bottom of the scrollview based on whether the keyboard is visible and the current orientation
 -(void) positionScrollView:(BOOL)up orientation:(UIInterfaceOrientation)orientation {
     float offset;
     if(up) {
@@ -245,10 +271,6 @@
                          [self.view layoutIfNeeded];
                          self.scrollView.contentOffset = CGPointMake(0, offset);
                      }];
-}
-
-- (IBAction)backClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {

@@ -34,7 +34,7 @@
 		6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F43243A1778B877006C93A0 /* PublishViewController.m */; };
 		6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324411778E40A006C93A0 /* LEDataManager.m */; };
 		6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4324441778F010006C93A0 /* BVProductReviewPost.m */; };
-		6F542E82177A12EB00A36849 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E81177A12EB00A36849 /* GridViewController.m */; };
+		6F542E82177A12EB00A36849 /* ChooseAProductGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F542E81177A12EB00A36849 /* ChooseAProductGridViewController.m */; };
 		6F5F2D4A17737EE1002E899B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4917737EE1002E899B /* UIKit.framework */; };
 		6F5F2D4C17737EE1002E899B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4B17737EE1002E899B /* Foundation.framework */; };
 		6F5F2D4E17737EE1002E899B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5F2D4D17737EE1002E899B /* CoreGraphics.framework */; };
@@ -52,7 +52,7 @@
 		6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7B17737FBD002E899B /* SwipeView.m */; };
 		6F5F2D8617737FC8002E899B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */; };
 		6F5F2D8717737FC8002E899B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8117737FC8002E899B /* ViewController.m */; };
-		6F5F2D8817737FC8002E899B /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8317737FC8002E899B /* ReviewViewController.m */; };
+		6F5F2D8817737FC8002E899B /* ShareYourThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */; };
 		6F5F2D8917737FC8002E899B /* FadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8517737FC8002E899B /* FadeLabel.m */; };
 		6F5F2D8E17737FD0002E899B /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8B17737FD0002E899B /* BackgroundView.m */; };
 		6F5F2D8F17737FD0002E899B /* BorderedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8D17737FD0002E899B /* BorderedBar.m */; };
@@ -116,8 +116,8 @@
 		6F4324411778E40A006C93A0 /* LEDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEDataManager.m; sourceTree = "<group>"; };
 		6F4324431778F010006C93A0 /* BVProductReviewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductReviewPost.h; sourceTree = "<group>"; };
 		6F4324441778F010006C93A0 /* BVProductReviewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductReviewPost.m; sourceTree = "<group>"; };
-		6F542E80177A12EB00A36849 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
-		6F542E81177A12EB00A36849 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		6F542E80177A12EB00A36849 /* ChooseAProductGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAProductGridViewController.h; sourceTree = "<group>"; };
+		6F542E81177A12EB00A36849 /* ChooseAProductGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAProductGridViewController.m; sourceTree = "<group>"; };
 		6F5F2D4617737EE1002E899B /* Live Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5F2D4917737EE1002E899B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F5F2D4B17737EE1002E899B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,8 +143,8 @@
 		6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6F5F2D8017737FC8002E899B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6F5F2D8117737FC8002E899B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6F5F2D8217737FC8002E899B /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
-		6F5F2D8317737FC8002E899B /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
+		6F5F2D8217737FC8002E899B /* ShareYourThoughtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareYourThoughtsViewController.h; sourceTree = "<group>"; };
+		6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareYourThoughtsViewController.m; sourceTree = "<group>"; };
 		6F5F2D8417737FC8002E899B /* FadeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeLabel.h; sourceTree = "<group>"; };
 		6F5F2D8517737FC8002E899B /* FadeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeLabel.m; sourceTree = "<group>"; };
 		6F5F2D8A17737FD0002E899B /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
@@ -260,8 +260,8 @@
 				6F5F2D7817737FBD002E899B /* BVProductCarousel.m */,
 				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
 				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
-				6F542E80177A12EB00A36849 /* GridViewController.h */,
-				6F542E81177A12EB00A36849 /* GridViewController.m */,
+				6F542E80177A12EB00A36849 /* ChooseAProductGridViewController.h */,
+				6F542E81177A12EB00A36849 /* ChooseAProductGridViewController.m */,
 				6FF1C40717DF880400214D83 /* HuedUIButton.h */,
 				6FF1C40817DF880400214D83 /* HuedUIButton.m */,
 				6FF1C40117DF74FA00214D83 /* HuedUIImageView.h */,
@@ -285,8 +285,8 @@
 				6F5F2D7717737FBD002E899B /* ReviewItem.xib */,
 				6F5F2D7417737FB4002E899B /* ReviewItemView.h */,
 				6F5F2D7517737FB4002E899B /* ReviewItemView.m */,
-				6F5F2D8217737FC8002E899B /* ReviewViewController.h */,
-				6F5F2D8317737FC8002E899B /* ReviewViewController.m */,
+				6F5F2D8217737FC8002E899B /* ShareYourThoughtsViewController.h */,
+				6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */,
 				6F4324361778AB0F006C93A0 /* RoundedCornerButton.h */,
 				6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */,
 				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
@@ -499,7 +499,7 @@
 				6F5F2D7D17737FBD002E899B /* BVProductCarousel.m in Sources */,
 				6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */,
 				6F5F2D8717737FC8002E899B /* ViewController.m in Sources */,
-				6F5F2D8817737FC8002E899B /* ReviewViewController.m in Sources */,
+				6F5F2D8817737FC8002E899B /* ShareYourThoughtsViewController.m in Sources */,
 				6F5F2D8917737FC8002E899B /* FadeLabel.m in Sources */,
 				6F5F2D8E17737FD0002E899B /* BackgroundView.m in Sources */,
 				6F5F2D8F17737FD0002E899B /* BorderedBar.m in Sources */,
@@ -509,7 +509,7 @@
 				6F43243B1778B877006C93A0 /* PublishViewController.m in Sources */,
 				6F4324421778E40A006C93A0 /* LEDataManager.m in Sources */,
 				6F4324451778F010006C93A0 /* BVProductReviewPost.m in Sources */,
-				6F542E82177A12EB00A36849 /* GridViewController.m in Sources */,
+				6F542E82177A12EB00A36849 /* ChooseAProductGridViewController.m in Sources */,
 				6F1D0FB417FB46A9005B957F /* ProductReview.m in Sources */,
 				6FEEDFF117C51C1100FBA26B /* ProductsResponse.m in Sources */,
 				6F7034ED17CE741D00D094D7 /* ManageReviewsViewController.m in Sources */,

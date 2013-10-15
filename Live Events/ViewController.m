@@ -12,9 +12,9 @@
 #import "FadeLabel.h"
 #import "BorderedBar.h"
 #import "ProductReview.h"
-#import "ReviewViewController.h"
+#import "ShareYourThoughtsViewController.h"
 #import "LEDataManager.h"
-#import "GridViewController.h"
+#import "ChooseAProductGridViewController.h"
 #import "AppConfig.h"
 
 #define SLIDE_INTERVAL 3.0
@@ -53,7 +53,7 @@
     [BVSettings instance].baseURL = [AppConfig apiEndpoint];
     [BVSettings instance].passKey = [AppConfig apiKey];
     
-    self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForTerm:INITIAL_SEARCH];
+    self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForIdentifier:INITIAL_SEARCH];
     self.productsView.dataArray = self.productsData;
     
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
@@ -142,7 +142,7 @@
 
 - (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
     NSArray *results = [response objectForKey:@"Results"];
-    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forTerm:INITIAL_SEARCH];
+    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forIdentifier:INITIAL_SEARCH];
     self.productsData = results;
     self.productsView.dataArray = self.productsData;
 }
@@ -176,11 +176,11 @@
     if ([[segue identifier] isEqualToString:@"rate"])
     {
         // Get reference to the destination view controller
-        ReviewViewController *rateVC = [segue destinationViewController];
+        ShareYourThoughtsViewController *rateVC = [segue destinationViewController];
         rateVC.productToReview = (ProductReview *)sender;
         rateVC.managedObjectContext = self.managedObjectContext;
     } else if ([[segue identifier] isEqualToString:@"seeall"]){
-        GridViewController *gridView = [segue destinationViewController];
+        ChooseAProductGridViewController *gridView = [segue destinationViewController];
         gridView.managedObjectContext = self.managedObjectContext;
     }
 }

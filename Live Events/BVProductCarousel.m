@@ -1,5 +1,5 @@
 //
-//  BVProductCarousel
+//  BVProductCarousel.m
 //  Live Events
 //
 //  Created by Bazaarvoice Engineering on 5/16/13.
@@ -13,12 +13,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface BVProductCarousel()
-
 // Internal swipeview
 @property (strong) SwipeView * swipeView;
-
 @end
-
 
 @implementation BVProductCarousel
 
@@ -41,7 +38,7 @@
 }
 
 - (void)setup{
-    // Create a swipe view and position it to take up the entirety of the
+    // Create a swipe view and position it to take up the entirety of the view
     SwipeView * swipeView = [[SwipeView alloc] init];
     swipeView.translatesAutoresizingMaskIntoConstraints = NO;
     swipeView.dataSource = self;
@@ -54,13 +51,9 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[swipeView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(swipeView)]];
 }
 
-- (void)reload{
-    [self.swipeView reloadData];
-}
-
 - (void)setDataArray:(NSArray *)dataArray{
     _dataArray = dataArray;
-    [self reload];
+    [self.swipeView reloadData];
 }
 
 - (NSArray *)dataArray{
@@ -72,13 +65,15 @@
 }
 
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
-    
+    // Create view if necessary
     ReviewItemView * reviewItem = (ReviewItemView *)view;
     if(reviewItem == nil){
         reviewItem = [[ReviewItemView alloc] init];
     }
     reviewItem.index = index;
     reviewItem.productTitle.text = self.dataArray[index][@"Name"];
+    
+    // Image data can be finnicky, particularly on staging -- validate imageurl before setting
     if(self.dataArray[index][@"ImageUrl"] && self.dataArray[index][@"ImageUrl"] != [NSNull null]) {
         [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
@@ -91,6 +86,7 @@
     return CGSizeMake(250, 350);
 }
 
+// Pass on delegate methods to delegate
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
     [self.delegate swipeView:swipeView didSelectItemAtIndex:index];
 }
@@ -102,14 +98,5 @@
 - (void)animateToNext {
     [self.swipeView scrollToItemAtIndex:self.swipeView.currentItemIndex + 1 duration:3.0];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

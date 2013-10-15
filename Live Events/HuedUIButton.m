@@ -31,11 +31,8 @@
     return self;
 }
 
-
-
 -(void)setup {
     [self setTitleColor:[AppConfig primaryColor] forState:UIControlStateNormal];
 }
-
 
 @end

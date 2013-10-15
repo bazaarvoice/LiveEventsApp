@@ -1,5 +1,5 @@
 //
-//  BVProductCarousel
+//  BVProductCarousel.h
 //  Live Events
 //
 //  Encapsulates a custom carousel for displaying an array of BV products

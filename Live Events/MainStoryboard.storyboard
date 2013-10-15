@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="688" y="-99"/>
         </scene>
-        <!--Grid View Controller-->
+        <!--ChooseA Product Grid View Controller-->
         <scene sceneID="byT-GK-62U">
             <objects>
-                <viewController id="Wcb-Hk-ATf" customClass="GridViewController" sceneMemberID="viewController">
+                <viewController id="Wcb-Hk-ATf" customClass="ChooseAProductGridViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWk-nK-lXS"/>
                         <viewControllerLayoutGuide type="bottom" id="bkY-OJ-WT4"/>
@@ -467,10 +467,10 @@
             </objects>
             <point key="canvasLocation" x="2992" y="-1661"/>
         </scene>
-        <!--Review View Controller-->
+        <!--Share Your Thoughts View Controller-->
         <scene sceneID="FK1-QP-oho">
             <objects>
-                <viewController id="Wrs-s6-4xL" customClass="ReviewViewController" sceneMemberID="viewController">
+                <viewController id="Wrs-s6-4xL" customClass="ShareYourThoughtsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k9Z-D4-aFU"/>
                         <viewControllerLayoutGuide type="bottom" id="rvO-5l-YHr"/>

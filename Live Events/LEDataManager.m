@@ -10,17 +10,17 @@
 #import "BVProductReviewPost.h"
 #import "ProductsResponse.h"
 
+// Number of allowed, concurrent review requests
 #define CONCURRRENT_REQUESTS 2
 
 @interface LEDataManager()
 
-@property (strong) NSMutableDictionary * outstandingReviews;
+// Currently outstanding product review
 @property (strong) ProductReview * outstandingProductReview;
-// Semaphore for ensuring only CONCURRENT_REQUESTS requests are outstanding at a time
 
+// Condition for ensuring only CONCURRENT_REQUESTS requests are outstanding at a time, functions as a semaphore
 @property (strong) NSCondition *outstandingCondition;
 @property (assign) int outstandingRequests;
-
 
 @end
 
@@ -28,6 +28,7 @@
 
 +(id)sharedInstanceWithContext:(NSManagedObjectContext *) managedObjectContext;
 {
+    // Ensures that the shared instance is only created once.
     static dispatch_once_t pred;
     static LEDataManager *sharedInstance = nil;
     dispatch_once(&pred, ^{
@@ -40,7 +41,6 @@
 -(id)init {
     self = [super init];
     if (self) {
-        self.outstandingReviews = [[NSMutableDictionary alloc] init];
         self.outstandingProductReview = nil;
         self.outstandingCondition = [[NSCondition alloc] init];
     }
@@ -129,6 +129,7 @@
     [fetchRequest setEntity:entity];
     NSArray *productsToSend = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (ProductReview *product in productsToSend) {
+        // If already submitted, don't submit again
         if([product.status isEqualToString:@"Submitted"]){
             continue;
         }
@@ -151,7 +152,7 @@
     [self.outstandingCondition unlock];
 }
 
-- (NSArray *)getCachedProductsForTerm:(NSString *)term{
+- (NSArray *)getCachedProductsForIdentifier:(NSString *)identifier{
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductsResponse"
@@ -160,7 +161,7 @@
     NSArray *response = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     ProductsResponse * productResponse;
     for(ProductsResponse * currProductResponse in response){
-        if([currProductResponse.term isEqualToString:term]){
+        if([currProductResponse.term isEqualToString:identifier]){
             productResponse = currProductResponse;
         }
     }
@@ -178,7 +179,7 @@
 }
 
 
-- (BOOL)setCachedProducts:(NSArray *)products forTerm:(NSString *)term {
+- (BOOL)setCachedProducts:(NSArray *)products forIdentifier:(NSString *)identifier {
     // Look up the existing ProductResponse
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -189,7 +190,7 @@
     
     ProductsResponse * productResponse;
     for(ProductsResponse * currProductResponse in response){
-        if([currProductResponse.term isEqualToString:term]){
+        if([currProductResponse.term isEqualToString:identifier]){
             productResponse = currProductResponse;
         }
     }
@@ -202,7 +203,7 @@
     }
     
     // Set term
-    productResponse.term = term;
+    productResponse.term = identifier;
     
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];

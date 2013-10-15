@@ -10,9 +10,17 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ManageReviewsViewController ()
+
+// Spreadsheet of reviews
 @property (weak, nonatomic) IBOutlet MDSpreadView *spreadView;
+
+// Array of cached reviews
 @property (strong) NSArray * reviews;
+
+// Array of colum namges
 @property (strong) NSArray * columns;
+
+// Boolean array indicating the current sort of a column
 @property (strong) NSMutableArray * sorts;
 
 @end
@@ -34,10 +42,6 @@
 -(void)receivedResponse {
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];
-}
-
-- (IBAction)backClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,6 +73,7 @@
 }
 
 - (IBAction)sendClicked:(id)sender {
+    // Show hud, kick off submission via data manager, hide hud once completed
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         LEDataManager * dataManager = [LEDataManager sharedInstanceWithContext:self.managedObjectContext];
@@ -81,28 +86,10 @@
 }
 
 #pragma mark Heights
-/*
- // Comment these out to use normal values (see MDSpreadView.h)
- - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowAtIndexPath:(MDIndexPath *)indexPath
- {
- return 25+indexPath.row;
- }
- 
- - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowHeaderInSection:(NSInteger)rowSection
- {
- //    if (rowSection == 2) return 0; // uncomment to hide this header!
- return 22+rowSection;
- }
- 
- - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnHeaderInSection:(NSInteger)columnSection
- {
- //    if (columnSection == 2) return 0; // uncomment to hide this header!
- return 110+columnSection*5;
- }
- */
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnAtIndexPath:(MDIndexPath *)indexPath
 {
+    // The reviews column is wider than the others
     if(indexPath.column == 4) {
         return 420;
     } else {
@@ -213,14 +200,15 @@
 - (void)spreadView:(MDSpreadView *)aSpreadView didSelectCellForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath
 {
     if(rowPath.row == -1) {
+        // row = -1 means title row, so do a sort
         [self sortColumn:columnPath.row];
     } else if(columnPath.column == 0) {
+        // column = 0 means the status column, show an alert with the detailed status
         ProductReview * currProductReview = self.reviews[rowPath.row];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Status" message:currProductReview.status delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
     [self.spreadView deselectCellForRowAtIndexPath:rowPath forColumnAtIndexPath:columnPath animated:YES];
-    NSLog(@"Selected %@ x %@", rowPath, columnPath);
 }
 
 - (MDSpreadViewSelection *)spreadView:(MDSpreadView *)aSpreadView willSelectCellForSelection:(MDSpreadViewSelection *)selection

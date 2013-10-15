@@ -36,6 +36,7 @@
 }
 
 - (void)setup {
+    // Core animation can't fade colors, so we accomplish the same effect by fading the alpha of an overlaid label
     UILabel *boldLabel = [[UILabel alloc] initWithFrame:self.frame];
     [self addSubview:boldLabel];
     self.boldLabel = boldLabel;
@@ -65,13 +66,5 @@
         self.boldLabel.alpha = 0;
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

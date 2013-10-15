@@ -1,6 +1,8 @@
 //
-//  ReviewViewController.h
-//  Mockup
+//  ShareYourThoughtsViewController.h
+//  LiveEvents
+//
+//  Step 2 - Rate, Set Title, Write Review
 //
 //  Created by Bazaarvoice Engineering on 5/23/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
@@ -11,11 +13,11 @@
 #import "ProductReview.h"
 #import <MessageUI/MessageUI.h>
 
-@interface ReviewViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
+@interface ShareYourThoughtsViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong) ProductReview *productToReview;
 
+// Shared review object context
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-
 
 @end

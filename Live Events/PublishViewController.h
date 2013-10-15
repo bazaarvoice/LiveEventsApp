@@ -2,6 +2,8 @@
 //  PublishViewController.h
 //  Live Events
 //
+//  Step 3 - Set nickname, email and submit
+//
 //  Created by Bazaarvoice Engineering on 6/24/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
@@ -13,6 +15,7 @@
 
 @property (strong) ProductReview *productToReview;
 
+// Shared object context
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

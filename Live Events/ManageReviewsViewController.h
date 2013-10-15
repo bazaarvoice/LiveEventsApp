@@ -2,6 +2,8 @@
 //  ManageReviewsViewController.h
 //  Live Events
 //
+//  Allows client to manage submitted/cached reviews and submit as a batch.
+//
 //  Created by Bazaarvoice Engineering on 8/28/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
@@ -12,6 +14,7 @@
 
 @interface ManageReviewsViewController : UIViewController<MDSpreadViewDelegate, MDSpreadViewDataSource, LEDDataManagerDelegate>
 
+// Shared object context
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end
