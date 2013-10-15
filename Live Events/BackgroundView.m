@@ -12,11 +12,8 @@
 
 @interface BackgroundView()
 
-@property (strong) UIImage * background;
+// Logo
 @property (strong) UIImage * logo;
-@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
-@property (weak, nonatomic) IBOutletCollection(UITextField) NSArray *reviewTitle;
 
 @end
 
@@ -40,8 +37,9 @@
 }
 
 - (void)setup{
-    // Initialization code
+    // Background pattern
     self.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"A_Pattern.png"]];
+    // Greyscaled logo image
     self.logo = [self convertImageToGrayScale:[UIImage imageNamed:[AppConfig backgroundImage]]];
 }
 
@@ -49,6 +47,10 @@
 {
     [super drawRect:rect];
     
+    // Essentially, we are simulating aspect-fit behavior
+    
+    // If the image width:height is greater than the background w/h, then
+    // the background width is constraining, otherwise, the height
     float imageWHRatio = self.logo.size.width / self.logo.size.height;
     float rectWHRatio = rect.size.width / rect.size.height;
     
@@ -64,6 +66,8 @@
         float offset = (rect.size.width - rectWidth) / 2;
         drawRect = CGRectMake(offset, 0, rectWidth, rect.size.height);
     }
+    // Draw the logo, cenetered, aspect fit, and blended with the background texture (white becomes
+    // transparent) 
     [self.logo drawInRect:drawRect blendMode:kCGBlendModeMultiply alpha:.7];
 }
 

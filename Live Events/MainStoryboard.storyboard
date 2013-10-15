@@ -716,6 +716,9 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.85512659670000002" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="nvM-Jq-6n1" appends="YES" id="5Xg-n3-iF4"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -883,6 +886,11 @@
                 <tapGestureRecognizer id="63j-E6-DQc">
                     <connections>
                         <action selector="reviewBGClicked:" destination="Wrs-s6-4xL" id="5Q5-rc-TXh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nvM-Jq-6n1">
+                    <connections>
+                        <action selector="titleBGClicked:" destination="Wrs-s6-4xL" id="ATc-BJ-kZO"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

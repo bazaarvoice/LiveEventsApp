@@ -152,6 +152,11 @@
         pubVC.managedObjectContext = self.managedObjectContext;
     }
 }
+
+- (IBAction)titleBGClicked:(id)sender {
+    [self.titleTextField becomeFirstResponder];
+}
+
 - (IBAction)reviewBGClicked:(id)sender {
     [self.reviewTextView becomeFirstResponder];
 }
