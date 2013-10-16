@@ -8,8 +8,8 @@
 
 #import "BVProductCarousel.h"
 #import "ReviewItemView.h"
-#import "SwipeView.h"
 #import "UIImageView+WebCache.h"
+#import "LinearEaseSwipeView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BVProductCarousel()
@@ -39,7 +39,7 @@
 
 - (void)setup{
     // Create a swipe view and position it to take up the entirety of the view
-    SwipeView * swipeView = [[SwipeView alloc] init];
+    LinearEaseSwipeView * swipeView = [[LinearEaseSwipeView alloc] init];
     swipeView.translatesAutoresizingMaskIntoConstraints = NO;
     swipeView.dataSource = self;
     swipeView.delegate = self;
