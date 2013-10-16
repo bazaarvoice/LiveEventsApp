@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>85339B2D-986F-4994-909E-11C9EB19AE03</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Live Events</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</key>
+		<string>ssh://github.com/bazaarvoice/LiveEventsApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Live Events.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/bazaarvoice/LiveEventsApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Live Events</string>
+		</dict>
+	</array>
+</dict>
+</plist>
