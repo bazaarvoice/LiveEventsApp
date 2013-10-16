@@ -175,8 +175,8 @@
 		6FF78313177380A500F3A4E2 /* A_Star-Empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "A_Star-Empty.png"; path = "Resources/A_Star-Empty.png"; sourceTree = "<group>"; };
 		6FF78314177380A500F3A4E2 /* A_Star-Filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "A_Star-Filled.png"; path = "Resources/A_Star-Filled.png"; sourceTree = "<group>"; };
 		6FF78315177380A500F3A4E2 /* A_X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = A_X.png; path = Resources/A_X.png; sourceTree = "<group>"; };
-		6FF78337177380C500F3A4E2 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RateView.h; path = RateView/RateView.h; sourceTree = "<group>"; };
-		6FF78338177380C500F3A4E2 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RateView.m; path = RateView/RateView.m; sourceTree = "<group>"; };
+		6FF78337177380C500F3A4E2 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
+		6FF78338177380C500F3A4E2 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
 		6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedCornerView.h; sourceTree = "<group>"; };
 		6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedCornerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,28 +243,15 @@
 		6F5F2D5117737EE1002E899B /* Live Events */ = {
 			isa = PBXGroup;
 			children = (
+				6F726F52180F0F9700CBC7A4 /* Views */,
 				6FF1C3FB17DF741900214D83 /* AppConfig.h */,
 				6FF1C3FC17DF741900214D83 /* AppConfig.m */,
 				6F5F2D5A17737EE1002E899B /* AppDelegate.h */,
 				6F5F2D5B17737EE1002E899B /* AppDelegate.m */,
-				6F5F2D8A17737FD0002E899B /* BackgroundView.h */,
-				6F5F2D8B17737FD0002E899B /* BackgroundView.m */,
-				6F5F2D8C17737FD0002E899B /* BorderedBar.h */,
-				6F5F2D8D17737FD0002E899B /* BorderedBar.m */,
 				6F4324431778F010006C93A0 /* BVProductReviewPost.h */,
 				6F4324441778F010006C93A0 /* BVProductReviewPost.m */,
-				6F5F2D7917737FBD002E899B /* BVProductCarousel.h */,
-				6F5F2D7817737FBD002E899B /* BVProductCarousel.m */,
-				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
-				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
 				6F542E80177A12EB00A36849 /* ChooseAProductGridViewController.h */,
 				6F542E81177A12EB00A36849 /* ChooseAProductGridViewController.m */,
-				6FF1C40717DF880400214D83 /* HuedUIButton.h */,
-				6FF1C40817DF880400214D83 /* HuedUIButton.m */,
-				6FF1C40117DF74FA00214D83 /* HuedUIImageView.h */,
-				6FF1C40217DF74FA00214D83 /* HuedUIImageView.m */,
-				6FF1C40417DF851800214D83 /* HuedUILabel.h */,
-				6FF1C40517DF851900214D83 /* HuedUILabel.m */,
 				6F4324401778E40A006C93A0 /* LEDataManager.h */,
 				6F4324411778E40A006C93A0 /* LEDataManager.m */,
 				6F5F2D6617737EE1002E899B /* Live_Events.xcdatamodeld */,
@@ -277,17 +264,9 @@
 				6FEEDFF017C51C1100FBA26B /* ProductsResponse.m */,
 				6F4324391778B877006C93A0 /* PublishViewController.h */,
 				6F43243A1778B877006C93A0 /* PublishViewController.m */,
-				6FF783071773807E00F3A4E2 /* RateView */,
 				6FF783091773809100F3A4E2 /* Resources */,
-				6F5F2D7717737FBD002E899B /* ReviewItem.xib */,
-				6F5F2D7417737FB4002E899B /* ReviewItemView.h */,
-				6F5F2D7517737FB4002E899B /* ReviewItemView.m */,
 				6F5F2D8217737FC8002E899B /* ShareYourThoughtsViewController.h */,
 				6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */,
-				6F4324361778AB0F006C93A0 /* RoundedCornerButton.h */,
-				6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */,
-				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
-				6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
 				6FF6459817FA20EE0073ECBC /* TermsViewController.h */,
 				6FF6459917FA20EE0073ECBC /* TermsViewController.m */,
@@ -312,13 +291,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6FF783071773807E00F3A4E2 /* RateView */ = {
+		6F726F52180F0F9700CBC7A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6F5F2D8A17737FD0002E899B /* BackgroundView.h */,
+				6F5F2D8B17737FD0002E899B /* BackgroundView.m */,
+				6F5F2D8C17737FD0002E899B /* BorderedBar.h */,
+				6F5F2D8D17737FD0002E899B /* BorderedBar.m */,
+				6F5F2D8417737FC8002E899B /* FadeLabel.h */,
+				6F5F2D8517737FC8002E899B /* FadeLabel.m */,
+				6FF1C40717DF880400214D83 /* HuedUIButton.h */,
+				6FF1C40817DF880400214D83 /* HuedUIButton.m */,
+				6FF1C40117DF74FA00214D83 /* HuedUIImageView.h */,
+				6FF1C40217DF74FA00214D83 /* HuedUIImageView.m */,
+				6FF1C40417DF851800214D83 /* HuedUILabel.h */,
+				6FF1C40517DF851900214D83 /* HuedUILabel.m */,
+				6F5F2D7917737FBD002E899B /* BVProductCarousel.h */,
+				6F5F2D7817737FBD002E899B /* BVProductCarousel.m */,
 				6FF78337177380C500F3A4E2 /* RateView.h */,
 				6FF78338177380C500F3A4E2 /* RateView.m */,
+				6F5F2D7717737FBD002E899B /* ReviewItem.xib */,
+				6F5F2D7417737FB4002E899B /* ReviewItemView.h */,
+				6F5F2D7517737FB4002E899B /* ReviewItemView.m */,
+				6F4324361778AB0F006C93A0 /* RoundedCornerButton.h */,
+				6F4324371778AB0F006C93A0 /* RoundedCornerButton.m */,
+				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
+				6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */,
 			);
-			name = RateView;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		6FF783091773809100F3A4E2 /* Resources */ = {
