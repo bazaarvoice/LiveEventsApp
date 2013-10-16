@@ -22,7 +22,7 @@
             self.userNickname = [self.userNickname substringWithRange:NSMakeRange(0, 15)];
         // Append random number for uniqueness
         int randNum = rand() % 100;
-        self.userNickname = [NSString stringWithFormat:@"%@_%d", self.userNickname, randNum];
+        self.userNickname = [NSString stringWithFormat:@"%@%d", self.userNickname, randNum];
         // Remove spaces (just in case)
         self.userNickname = [self.userNickname stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.productToReview = productReview;
