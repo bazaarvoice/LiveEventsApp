@@ -28,7 +28,7 @@
 
 // A campaignid (and context data value) that will be used to identify submissions from this campaign
 +(NSString *)appCampaignID {
-    return @"AAO2013";
+    return @"aao2013";
 }
 
 // The name that will be dispayed in all copy "ex. See all <title> products..."

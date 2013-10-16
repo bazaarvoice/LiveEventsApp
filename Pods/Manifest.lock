@@ -1,33 +1,24 @@
 PODS:
   - Bazaarvoice (2.1.5)
-  - libwebp (0.3.0-rc7):
-    - libwebp/dec
-    - libwebp/dsp
-    - libwebp/utils
-    - libwebp/webp
-  - libwebp/dec (0.3.0-rc7)
-  - libwebp/dsp (0.3.0-rc7)
-  - libwebp/utils (0.3.0-rc7)
-  - libwebp/webp (0.3.0-rc7)
   - MBProgressHUD (0.8)
   - MDSpreadView (0.7)
   - SDWebImage (3.4):
-    - libwebp
-    - SDWebImage/MapKit
-  - SDWebImage/MapKit (3.4):
-    - libwebp
+    - SDWebImage/Core
+  - SDWebImage/Core (3.4)
+  - SwipeView (1.2.10)
 
 DEPENDENCIES:
   - Bazaarvoice
   - MBProgressHUD (~> 0.7)
   - MDSpreadView
   - SDWebImage
+  - SwipeView
 
 SPEC CHECKSUMS:
   Bazaarvoice: 6c8e54efc376714e2dc28eb47a289e7312252430
-  libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MDSpreadView: 877fd57820c972854f0a38033ccd167bc534c464
-  SDWebImage: f13f791e411c632489824aa7f129e230b52bf5c4
+  SDWebImage: 366188f04c019bfd712d45e3b36aa52070f4abd8
+  SwipeView: 0218f1fe1a271a610279815101b808a054fe631a
 
 COCOAPODS: 0.25.0

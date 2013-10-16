@@ -49,9 +49,8 @@
 		6F5F2D7617737FB4002E899B /* ReviewItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7517737FB4002E899B /* ReviewItemView.m */; };
 		6F5F2D7C17737FBD002E899B /* ReviewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7717737FBD002E899B /* ReviewItem.xib */; };
 		6F5F2D7D17737FBD002E899B /* BVProductCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7817737FBD002E899B /* BVProductCarousel.m */; };
-		6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7B17737FBD002E899B /* SwipeView.m */; };
 		6F5F2D8617737FC8002E899B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */; };
-		6F5F2D8717737FC8002E899B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8117737FC8002E899B /* ViewController.m */; };
+		6F5F2D8717737FC8002E899B /* ChooseAProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8117737FC8002E899B /* ChooseAProductViewController.m */; };
 		6F5F2D8817737FC8002E899B /* ShareYourThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */; };
 		6F5F2D8917737FC8002E899B /* FadeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8517737FC8002E899B /* FadeLabel.m */; };
 		6F5F2D8E17737FD0002E899B /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5F2D8B17737FD0002E899B /* BackgroundView.m */; };
@@ -138,11 +137,9 @@
 		6F5F2D7717737FBD002E899B /* ReviewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewItem.xib; sourceTree = "<group>"; };
 		6F5F2D7817737FBD002E899B /* BVProductCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BVProductCarousel.m; sourceTree = "<group>"; };
 		6F5F2D7917737FBD002E899B /* BVProductCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BVProductCarousel.h; sourceTree = "<group>"; };
-		6F5F2D7A17737FBD002E899B /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
-		6F5F2D7B17737FBD002E899B /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		6F5F2D7F17737FC8002E899B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		6F5F2D8017737FC8002E899B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6F5F2D8117737FC8002E899B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6F5F2D8017737FC8002E899B /* ChooseAProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAProductViewController.h; sourceTree = "<group>"; };
+		6F5F2D8117737FC8002E899B /* ChooseAProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAProductViewController.m; sourceTree = "<group>"; };
 		6F5F2D8217737FC8002E899B /* ShareYourThoughtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareYourThoughtsViewController.h; sourceTree = "<group>"; };
 		6F5F2D8317737FC8002E899B /* ShareYourThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareYourThoughtsViewController.m; sourceTree = "<group>"; };
 		6F5F2D8417737FC8002E899B /* FadeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeLabel.h; sourceTree = "<group>"; };
@@ -292,12 +289,10 @@
 				6FF783411773AB1E00F3A4E2 /* RoundedCornerView.h */,
 				6FF783421773AB1E00F3A4E2 /* RoundedCornerView.m */,
 				6F5F2D5217737EE1002E899B /* Supporting Files */,
-				6F5F2D7A17737FBD002E899B /* SwipeView.h */,
-				6F5F2D7B17737FBD002E899B /* SwipeView.m */,
 				6FF6459817FA20EE0073ECBC /* TermsViewController.h */,
 				6FF6459917FA20EE0073ECBC /* TermsViewController.m */,
-				6F5F2D8017737FC8002E899B /* ViewController.h */,
-				6F5F2D8117737FC8002E899B /* ViewController.m */,
+				6F5F2D8017737FC8002E899B /* ChooseAProductViewController.h */,
+				6F5F2D8117737FC8002E899B /* ChooseAProductViewController.m */,
 				6F1D0FC917FB5CD2005B957F /* Images.xcassets */,
 			);
 			path = "Live Events";
@@ -497,8 +492,7 @@
 				6F5F2D6817737EE1002E899B /* Live_Events.xcdatamodeld in Sources */,
 				6F5F2D7617737FB4002E899B /* ReviewItemView.m in Sources */,
 				6F5F2D7D17737FBD002E899B /* BVProductCarousel.m in Sources */,
-				6F5F2D7E17737FBD002E899B /* SwipeView.m in Sources */,
-				6F5F2D8717737FC8002E899B /* ViewController.m in Sources */,
+				6F5F2D8717737FC8002E899B /* ChooseAProductViewController.m in Sources */,
 				6F5F2D8817737FC8002E899B /* ShareYourThoughtsViewController.m in Sources */,
 				6F5F2D8917737FC8002E899B /* FadeLabel.m in Sources */,
 				6F5F2D8E17737FD0002E899B /* BackgroundView.m in Sources */,
@@ -578,7 +572,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -630,7 +624,7 @@
 				GCC_PREFIX_HEADER = "Live Events/Live Events-Prefix.pch";
 				INFOPLIST_FILE = "Live Events/Live Events-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D828CE11-A014-4507-A697-A4ED9B24369C";
+				PROVISIONING_PROFILE = "1ADDFEA0-DA5C-4799-A75A-33B8494CE57C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D828CE11-A014-4507-A697-A4ED9B24369C";
 				WRAPPER_EXTENSION = app;
 			};

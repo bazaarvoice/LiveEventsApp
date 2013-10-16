@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ChooseAProductViewController.h"
 
 @implementation AppDelegate
 
@@ -19,7 +19,7 @@
 {
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    ViewController *controller = (ViewController *)navigationController.topViewController;
+    ChooseAProductViewController *controller = (ChooseAProductViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     

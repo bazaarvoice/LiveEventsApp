@@ -1,9 +1,7 @@
 //
 //  TermsViewController.m
-//  
 //
 //  Created by Bazaarvoice Engineering on 9/30/13.
-//
 //
 
 #import "TermsViewController.h"
@@ -35,12 +33,6 @@
     if (fileContents != nil) {
          self.termsView.text = fileContents;
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

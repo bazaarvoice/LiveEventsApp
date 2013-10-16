@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ChooseAProductViewController.h"
 #import "BVProductCarousel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "FadeLabel.h"
@@ -20,42 +20,57 @@
 #define SLIDE_INTERVAL 3.0
 #define IDLE_INTERVAL 6.0
 
-@interface ViewController ()
+@interface ChooseAProductViewController ()
+
+// Overlay containing the "Start" bar
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
-@property (weak, nonatomic) IBOutlet UIButton *seeAllButton;
-@property (weak, nonatomic) IBOutlet FadeLabel *informOthers;
-@property (weak, nonatomic) IBOutlet FadeLabel *rateAndReview;
-@property (weak, nonatomic) IBOutlet BVProductCarousel *productsView;
-@property (weak, nonatomic) IBOutlet BorderedBar *bottomBar;
+// Start bar
 @property (weak, nonatomic) IBOutlet UIView *startBar;
+// "See all X products" button
+@property (weak, nonatomic) IBOutlet UIButton *seeAllButton;
+// Large guidance label
+@property (weak, nonatomic) IBOutlet FadeLabel *rateAndReview;
+// "Inform others" guidance label
+@property (weak, nonatomic) IBOutlet FadeLabel *informOthers;
+// Carousel of products to display
+@property (weak, nonatomic) IBOutlet BVProductCarousel *productsView;
+// Bottom bar
+@property (weak, nonatomic) IBOutlet BorderedBar *bottomBar;
 
+// Counts the number of times we've received a callback so that we know when to fade to screensaver mode
 @property (assign) int idleCount;
-
-@property (strong) NSArray * productsData;
+// Timer to create screensaver callbacks
 @property (strong) NSTimer * scrollTimer;
+
+// Products to display
+@property (strong) NSArray * productsData;
+// Mode -- screensaver or enabled
 @property (assign) BOOL enabled;
 
 @end
 
-@implementation ViewController
+@implementation ChooseAProductViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.title = @"Choose a Product";
+    
     // Global appearance
     self.navigationController.navigationBar.tintColor = [AppConfig primaryColor];
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor darkGrayColor], UITextAttributeTextColor, [UIColor clearColor], UITextAttributeTextShadowColor, nil];
     
-    
-    self.title = @"Choose a Product";
+    // Configure global API key and endpoint to use for requests
     [BVSettings instance].baseURL = [AppConfig apiEndpoint];
     [BVSettings instance].passKey = [AppConfig apiKey];
     
+    // Load cached products data if possible
     self.productsData = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getCachedProductsForIdentifier:INITIAL_SEARCH];
     self.productsView.dataArray = self.productsData;
     
+    // Fetch products over network
     BVGet *getFresh = [[BVGet alloc]initWithType:BVGetTypeProducts];
     if([AppConfig initialProducts].length > 0) {
         [getFresh setFilterForAttribute:@"id" equality:BVEqualityEqualTo value:[AppConfig initialProducts]];        
@@ -68,20 +83,30 @@
     [getFresh setFilterForAttribute:@"Name" equality:BVEqualityNotEqualTo value:@"null"];
     [getFresh sendRequestWithDelegate:self];
 
+    // Setup scroll timer (each time this fires, the carousel scrolls 1 over if in screensaver mode)
     self.scrollTimer = [NSTimer scheduledTimerWithTimeInterval:SLIDE_INTERVAL
                                                         target:self
                                                       selector:@selector(timerFired:)
                                                       userInfo:nil
                                                        repeats:YES];
 
+    // Set up initial colors
     self.rateAndReview.secondaryColor = [AppConfig primaryColor];
     self.informOthers.secondaryColor = [AppConfig primaryColor];
-    
-    self.productsView.delegate = self;
-    
     self.startBar.backgroundColor = [AppConfig primaryColor];
     
+    // Receive callbacks from carousel
+    self.productsView.delegate = self;
+    
     [self.seeAllButton setTitle:[NSString stringWithFormat:@"See all %@ products >", [AppConfig brandName]] forState:UIControlStateNormal];
+}
+
+- (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
+    NSArray *results = [response objectForKey:@"Results"];
+    // Write results to disk cache with identifier INITIAL_SEARCH
+    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forIdentifier:INITIAL_SEARCH];
+    self.productsData = results;
+    self.productsView.dataArray = self.productsData;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,6 +114,7 @@
     [self enabledValues];
 }
 
+// Sets appearance to "enabled"
 -(void)enabledValues {
     self.idleCount = 0;
     self.overlayView.alpha = 0;
@@ -99,6 +125,7 @@
     self.seeAllButton.alpha = 1;
 }
 
+// Sets appearance to disabled / screensaver
 -(void)notEnabledValues {
     self.overlayView.alpha = 1.0;
     self.productsView.alpha = 0.5;
@@ -108,6 +135,7 @@
     self.seeAllButton.alpha = 0;
 }
 
+// Animate to enabled or screensaver state
 -(void)animateEnabled:(BOOL)enabled {
     [UIView animateWithDuration:0.5
                           delay: 0.0
@@ -126,27 +154,21 @@
                      }];
 }
 
+// Callback for timer events
 -(void)timerFired:(NSTimer *) theTimer
 {
     if(self.enabled){
+        // If enabled then increatse the timer count to return to screen saver mode
+        // With every action the idle count is set back to 0
         self.idleCount++;
         if(self.idleCount > (IDLE_INTERVAL / SLIDE_INTERVAL)) {
             [self animateEnabled:NO];
         }
     } else if([self.navigationController visibleViewController] == self) {
-        // Animate to next if this is the VC in the foreground
+        // Animate to next item in the carousel if this is the VC in the foreground
         [self.productsView animateToNext];
     }
 }
-
-
-- (void)didReceiveResponse:(NSDictionary *)response forRequest:(id)request {
-    NSArray *results = [response objectForKey:@"Results"];
-    [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] setCachedProducts:results forIdentifier:INITIAL_SEARCH];
-    self.productsData = results;
-    self.productsView.dataArray = self.productsData;
-}
-
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if(!self.enabled && self.productsData.count > 0){
@@ -162,6 +184,7 @@
 - (void)swipeView:(SwipeView *)swipeView didSelectItemAtIndex:(NSInteger)index {
     self.idleCount = 0;
     NSDictionary * selectedProduct = self.productsData[index];
+    // Fill in the product review data from the selected item
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"] != [NSNull null] ? selectedProduct[@"ImageUrl"] : nil;
@@ -189,25 +212,8 @@
     [self performSegueWithIdentifier:@"seeall" sender:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self.view setNeedsDisplay];
 }
 
-- (void)viewDidUnload {
-    [self setProductsView:nil];
-    [self setOverlayView:nil];
-    [self setSeeAllButton:nil];
-    [self setRateAndReview:nil];
-    [self setInformOthers:nil];
-    [self setInformOthers:nil];
-    [self setRateAndReview:nil];
-    [self setBottomBar:nil];
-    [super viewDidUnload];
-}
 @end

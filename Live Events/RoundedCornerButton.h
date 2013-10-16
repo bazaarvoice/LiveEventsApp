@@ -2,6 +2,8 @@
 //  RoundedCornerButton.h
 //  Live Events
 //
+//  Solid UI Button with rounded corners, background color and border
+//
 //  Created by Bazaarvoice Engineering on 6/24/13.
 //  Copyright (c) 2013 Bazaarvoice. All rights reserved.
 //

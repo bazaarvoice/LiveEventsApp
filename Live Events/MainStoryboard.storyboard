@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-240" y="-104"/>
         </scene>
-        <!--View Controller-->
+        <!--ChooseA Product View Controller-->
         <scene sceneID="sa4-Hg-SUl">
             <objects>
-                <viewController id="LNe-cw-EMo" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="LNe-cw-EMo" customClass="ChooseAProductViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Act-7h-SZH"/>
                         <viewControllerLayoutGuide type="bottom" id="ORl-HU-Mg3"/>
