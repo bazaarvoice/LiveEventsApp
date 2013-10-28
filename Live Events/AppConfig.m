@@ -14,16 +14,16 @@
 // Your Bazaarvoice API key -- see https://developer.bazaarvoice.com/ to request a key
 +(NSString *)apiKey {
     // Stg
-    return @"ml23eof6sxmbunjnz6iwp05xk";
+    //return @"tih8og4iurvrvqa5q5q7vrz8t";
     
     // Prod
-    //return @"3pup8wj4h78ywndrgz0d5imna";
+    return @"bc6oj9q8ntn60w2lc4oiyzol9";
 }
 
 // The endpoint to use for api requests.  In most cases, this can be api.bazaarvoice.com or stg.api.bazaarvoice.com for staging requests.
 +(NSString *)apiEndpoint {
-    //return @"api.bazaarvoice.com";
-    return @"stg.api.bazaarvoice.com";
+    return @"api.bazaarvoice.com";
+    //return @"stg.api.bazaarvoice.com";
 }
 
 // A campaignid (and context data value) that will be used to identify submissions from this campaign
@@ -43,7 +43,7 @@
 
 // Initial list of category ids to filter in carousel, comma separated.  Leave blank for no filter.
 +(NSString *)initialCategory {
-    return @"";
+    return @"1D5,1DM,1MA,AGT,ALP,AV2,AVG,CYP,EG2,PH";
 }
 
 // Initial list of product ids to display on the "all products" screen, comma separated.  Leave blank for no filter.
@@ -53,7 +53,7 @@
 
 // Initial list of category ids to filter on the "all products" screen, comma separated.  Leave blank for no filter.
 +(NSString *)secondaryCategory {
-    return @"";
+    return @"1D2,1D5,1DM,1MA,AGT,ALP,AV2,AVC,AVG,BAC,CYP,EG2,PH";
 }
 
 // The primary tint color of the application -- title bar, progress bar etc.
@@ -81,7 +81,7 @@
 
 // Indicates whether users should have the option of emailing themselves a product to review later.  If not enabled, the email icon will be hidden.
 +(BOOL)emailEnabled {
-    return YES;
+    return NO;
 }
 
 // Custom default text for emails sent from this application
@@ -91,7 +91,7 @@
 
 // Indicates whether searches on the "all products" screen will act as a filter of secondaryProducts, or will go to the network and search all products
 +(BOOL)performNetworkSearchForAllProducts {
-    return YES;
+    return NO;
 }
 
 @end

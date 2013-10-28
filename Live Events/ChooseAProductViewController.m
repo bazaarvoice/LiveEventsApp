@@ -188,6 +188,13 @@
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"] != [NSNull null] ? selectedProduct[@"ImageUrl"] : nil;
+    
+    // TODO: remove custom code for Acuvue
+    if(productReview.imageUrl) {
+        productReview.imageUrl = [productReview.imageUrl stringByReplacingOccurrencesOfString:@"http://www.jnjvisioncare.com/en_US/images/products/"
+                                                                                   withString:@"http://www.acuvue.com/sites/default/files/content/us/images/products/"];
+    }
+    
     productReview.productId = selectedProduct[@"Id"];
     productReview.productPageUrl = selectedProduct[@"ProductPageUrl"] != [NSNull null] ? selectedProduct[@"ProductPageUrl"] : nil;
     [self performSegueWithIdentifier:@"rate" sender:productReview];

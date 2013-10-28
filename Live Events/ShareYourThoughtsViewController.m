@@ -45,7 +45,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 // Review field
-@property (weak, nonatomic) IBOutlet UITextField *reviewTextView;
+@property (weak, nonatomic) IBOutlet UITextView *reviewTextView;
 // Review label
 @property (weak, nonatomic) IBOutlet UILabel *reviewLabel;
 
@@ -124,18 +124,22 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-// If continue is clicked, perform validation.  If valid, move on, otherwise, highlight
-// the offending field.
+// If continue is clicked, perform validation.
 - (IBAction)continueClicked:(id)sender {
-    BOOL error = NO;
+    [self validate];
+}
+
+// If valid, move on, otherwise, highlight the offending field.
+- (void)validate {
     
+    BOOL error = NO;
     if(self.rateView.rating == 0) {
         self.rateLabel.textColor = [AppConfig errorColor];
         error = YES;
     } else {
         self.rateLabel.textColor = [AppConfig secondaryActionColor];
-    
-    
+        
+        
     }
     
     if(self.titleTextField.text.length == 0) {
@@ -161,6 +165,7 @@
     } else {
         self.errorLabel.alpha = 1;
     }
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -192,7 +197,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         [mailer setSubject:[NSString stringWithFormat:@"Please Review %@", self.productToReview.name]];
-        NSString *emailBody = [NSString stringWithFormat:@"<a href=\"%@\">%@</a> <br /><br /> %@", self.productToReview.productPageUrl, self.productToReview.productPageUrl, [AppConfig emailText]];
+        NSString *emailBody = [NSString stringWithFormat:@"This is the reminder you requested to write a review. Click on the link below to submit your review: <br /><a href=\"%@\">%@</a> <br /><br />Thank you for your sharing your thoughts with us.", self.productToReview.productPageUrl, self.productToReview.productPageUrl];
         [mailer setMessageBody:emailBody isHTML:YES];
         mailer.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentViewController:mailer animated:YES completion:nil];
@@ -236,16 +241,25 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
+    BOOL shouldChange = YES;
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
-        return NO;
+        shouldChange = NO;
+        if(textView == self.reviewTextView) {
+            [self validate];
+        }
     }
     
-    return YES;
+
+    return shouldChange;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    
+    if(textField == self.titleTextField) {
+        [self.reviewTextView becomeFirstResponder];
+    }
     return YES;
 }
 

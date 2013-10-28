@@ -343,7 +343,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.15686275064945221" green="0.15686275064945221" blue="0.15686275064945221" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
                                 <connections>
                                     <action selector="textFieldChanged:" destination="Wcb-Hk-ATf" eventType="editingChanged" id="ljg-oZ-xnu"/>
                                     <outlet property="delegate" destination="Wcb-Hk-ATf" id="NaN-za-5KR"/>
@@ -708,7 +708,7 @@
                                                         <rect key="frame" x="109" y="14" width="374" height="30"/>
                                                         <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Wrs-s6-4xL" id="95k-BP-gMv"/>
                                                         </connections>
@@ -1239,52 +1239,20 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgo-0z-eIt">
-                                <rect key="frame" x="0.0" y="43" width="768" height="981"/>
+                                <rect key="frame" x="0.0" y="65" width="768" height="959"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qex-kf-4qK" customClass="BorderedBar">
-                                <rect key="frame" x="0.0" y="63.999999999999993" width="768" height="42"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFM-Zy-mTp" customClass="HuedUIButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="42"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="g6b-VC-3HK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <state key="normal" title="&lt; Back">
-                                            <color key="titleColor" red="0.1333333333" green="0.44705882349999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backClicked:" destination="Pmj-xZ-1ZD" eventType="touchUpInside" id="RWL-72-EcS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.93798471719999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="SFM-Zy-mTp" firstAttribute="top" secondItem="qex-kf-4qK" secondAttribute="top" id="7A8-kw-OFx"/>
-                                    <constraint firstItem="SFM-Zy-mTp" firstAttribute="leading" secondItem="qex-kf-4qK" secondAttribute="leading" id="No7-Rc-1pq"/>
-                                    <constraint firstAttribute="height" constant="42" id="jAd-Me-RiT"/>
-                                    <constraint firstAttribute="bottom" secondItem="SFM-Zy-mTp" secondAttribute="bottom" id="tAW-xS-vb7"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xgo-0z-eIt" firstAttribute="leading" secondItem="3wS-jB-pkt" secondAttribute="leading" id="FtP-zD-9zz"/>
-                            <constraint firstItem="qex-kf-4qK" firstAttribute="leading" secondItem="3wS-jB-pkt" secondAttribute="leading" id="M6V-5D-fyW"/>
-                            <constraint firstAttribute="trailing" secondItem="qex-kf-4qK" secondAttribute="trailing" id="Qea-C8-ie6"/>
-                            <constraint firstItem="Xgo-0z-eIt" firstAttribute="top" secondItem="3wS-jB-pkt" secondAttribute="top" constant="43" id="aLt-5L-elG"/>
-                            <constraint firstItem="qex-kf-4qK" firstAttribute="top" secondItem="YXq-rd-cDB" secondAttribute="bottom" id="ax8-ki-BoE"/>
-                            <constraint firstAttribute="trailing" secondItem="Xgo-0z-eIt" secondAttribute="trailing" id="e1g-2A-7Cz"/>
-                            <constraint firstItem="avu-1v-6Mq" firstAttribute="top" secondItem="Xgo-0z-eIt" secondAttribute="bottom" id="odS-Ca-7fU"/>
+                            <constraint firstAttribute="bottom" secondItem="Xgo-0z-eIt" secondAttribute="bottom" id="0Bx-DQ-r2u"/>
+                            <constraint firstAttribute="trailing" secondItem="Xgo-0z-eIt" secondAttribute="trailing" id="3Yp-lh-rpg"/>
+                            <constraint firstItem="Xgo-0z-eIt" firstAttribute="top" secondItem="YXq-rd-cDB" secondAttribute="bottom" constant="1" id="Jss-MS-cfH"/>
+                            <constraint firstItem="Xgo-0z-eIt" firstAttribute="leading" secondItem="3wS-jB-pkt" secondAttribute="leading" id="tgx-H1-Knt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E4B-nc-DSK"/>

@@ -49,10 +49,6 @@
     // Fixes iOS 7 bug -- reuse identifier must be registered
     [self.collectionView registerClass:[ReviewItemView class] forCellWithReuseIdentifier:@"ReviewItemCell"];
     
-    // Create long-press recognizer to take the user to the "secret" management screen
-    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(secretButtonClicked:)];
-    [self.navigationController.navigationBar addGestureRecognizer:self.longPressRecognizer];
-    
     // Make the search field extra tall
     CGRect frame = self.searchTextField.frame;
     frame.size = CGSizeMake(self.searchTextField.frame.size.width, self.searchTextField.frame.size.height + 15);
@@ -74,6 +70,17 @@
     // Set up the clear search button
     HuedUIImageView *clearSearchButton = [[HuedUIImageView alloc] initWithImage:[UIImage imageNamed:@"a_nf_Search-Button.png"]];
     [self.clearSearchButton setBackgroundImage:clearSearchButton.image forState:UIControlStateNormal];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // Create long-press recognizer to take the user to the "secret" management screen
+    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(secretButtonClicked:)];
+    [self.navigationController.navigationBar addGestureRecognizer:self.longPressRecognizer];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController.navigationBar removeGestureRecognizer:self.longPressRecognizer];
 }
 
 // Handler for clear search button
@@ -186,7 +193,11 @@
     
     // Image data can be finnicky, particularly on staging -- validate imageurl before setting
     if(product[@"ImageUrl"] && product[@"ImageUrl"] != [NSNull null]) {
-        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:product[@"ImageUrl"]] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
+        // TODO: remove custom code for Acuvue
+        NSString * imageUrl = [product[@"ImageUrl"] stringByReplacingOccurrencesOfString:@"http://www.jnjvisioncare.com/en_US/images/products/"
+                                                            withString:@"http://www.acuvue.com/sites/default/files/content/us/images/products/"];
+            
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }
@@ -200,6 +211,12 @@
     ProductReview * productReview = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getNewProductReview];
     productReview.name = selectedProduct[@"Name"];
     productReview.imageUrl = selectedProduct[@"ImageUrl"] != [NSNull null] ? selectedProduct[@"ImageUrl"] : nil;
+    
+    // TODO: remove custom code for Acuvue
+    if(productReview.imageUrl) {
+        productReview.imageUrl = [productReview.imageUrl stringByReplacingOccurrencesOfString:@"http://www.jnjvisioncare.com/en_US/images/products/"
+                                                                                   withString:@"http://www.acuvue.com/sites/default/files/content/us/images/products/"];
+    }
     productReview.productId = selectedProduct[@"Id"];
     productReview.productPageUrl = selectedProduct[@"ProductPageUrl"] != [NSNull null] ? selectedProduct[@"ProductPageUrl"] : nil;
     [self performSegueWithIdentifier:@"rate" sender:productReview];

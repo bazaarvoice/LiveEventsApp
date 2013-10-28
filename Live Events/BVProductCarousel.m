@@ -75,7 +75,11 @@
     
     // Image data can be finnicky, particularly on staging -- validate imageurl before setting
     if(self.dataArray[index][@"ImageUrl"] && self.dataArray[index][@"ImageUrl"] != [NSNull null]) {
-        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:self.dataArray[index][@"ImageUrl"]] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
+        // TODO: remove custom code for Acuvue
+        NSString * imageUrl = [self.dataArray[index][@"ImageUrl"] stringByReplacingOccurrencesOfString:@"http://www.jnjvisioncare.com/en_US/images/products/"
+                                                                              withString:@"http://www.acuvue.com/sites/default/files/content/us/images/products/"];
+        
+        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }
