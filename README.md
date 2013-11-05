@@ -8,7 +8,6 @@ The Bazaarvoice Live Events App allows brands and retailers to gather UGC during
 ```
 git clone [git-repo-url] liveevents
 cd liveevents
-pod install
 open "Live Events.xcworkspace"
 ```
 
