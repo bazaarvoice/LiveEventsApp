@@ -30,7 +30,8 @@ Note: The Bazaarvoice Live Events App uses CocoaPods for dependency management. 
 This package includes the following:
 
 * Live Events.xcworkspace project (generated via CocoaPods)
-* QuickStartGuide.pdf
+* Bazaarvoice Live Capture App - Getting Started Guide v3.pdf
+* Bazaarvoice Live Capture App - User Guide v3.pdf
 
 ## License
 Copyright 2013, Bazaarvoice Inc.
