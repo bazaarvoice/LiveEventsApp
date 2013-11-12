@@ -6,4 +6,4 @@ if [ -z "${$1}" ]; then
    exit 1;
 fi
 
-sips --resampleWidth 960 "${f}/${1}" --out "${f}/Live Events/logo.png"
+sips --resampleWidth 960 "${f}/${1}" --out "${f}/Live Events/Resources/logo.png"
