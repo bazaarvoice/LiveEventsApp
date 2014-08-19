@@ -90,13 +90,14 @@
 @interface MDSpreadViewCell ()
 
 @property (nonatomic, readwrite, copy) NSString *reuseIdentifier;
-@property (nonatomic, readwrite, assign) MDSpreadView *spreadView;
+@property (nonatomic, readwrite, weak) MDSpreadView *spreadView;
 @property (nonatomic, retain) MDSortDescriptor *sortDescriptorPrototype;
 @property (nonatomic) MDSpreadViewSortAxis defaultSortAxis;
 
 @property (nonatomic, readonly) UIGestureRecognizer *_tapGesture;
 @property (nonatomic, retain) MDIndexPath *_rowPath;
 @property (nonatomic, retain) MDIndexPath *_columnPath;
+@property (nonatomic) CGRect _pureFrame;
 
 @end
 
@@ -110,7 +111,7 @@
 
 @implementation MDSpreadViewCell
 
-@synthesize backgroundView, highlighted, highlightedBackgroundView, reuseIdentifier, textLabel, detailTextLabel, style, objectValue, _tapGesture, spreadView, sortDescriptorPrototype, defaultSortAxis, _rowPath, _columnPath;
+@synthesize backgroundView, highlighted, highlightedBackgroundView, reuseIdentifier, textLabel, detailTextLabel, style, objectValue, _tapGesture, spreadView, sortDescriptorPrototype, defaultSortAxis, _rowPath, _columnPath, _pureFrame;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -125,37 +126,53 @@
         self.backgroundColor = [UIColor whiteColor];
         self.reuseIdentifier = aReuseIdentifier;
         self.multipleTouchEnabled = YES;
-//        self.layer.shouldRasterize = YES;
-//        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        //        self.layer.shouldRasterize = YES;
+        //        self.layer.rasterizationScale = [UIScreen mainScreen].scale;
         style = aStyle;
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MDSpreadViewCell.png"]];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        imageView.contentStretch = CGRectMake(2./imageView.frame.size.width, 2./imageView.frame.size.height, 1./imageView.frame.size.width, 1./imageView.frame.size.height);
-        self.backgroundView = imageView;
-        [imageView release];
-        
-        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MDSpreadViewCellSelected.png"]];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        imageView.contentStretch = CGRectMake(2./imageView.frame.size.width, 2./imageView.frame.size.height, 1./imageView.frame.size.width, 1./imageView.frame.size.height);
-        self.highlightedBackgroundView = imageView;
-        [imageView release];
-        
-        UILabel *label = [[UILabel alloc] init];
-		label.opaque = YES;
-		label.backgroundColor = [UIColor whiteColor];
-        label.font = [UIFont boldSystemFontOfSize:18];
-		label.highlightedTextColor = [UIColor blackColor];
-        self.textLabel = label;
-        [label release];
-        
-        label = [[UILabel alloc] init];
-		label.opaque = YES;
-		label.backgroundColor = [UIColor whiteColor];
-        label.font = [UIFont boldSystemFontOfSize:18];
-		label.highlightedTextColor = [UIColor blackColor];
-        self.detailTextLabel = label;
-        [label release];
+        if (NSClassFromString(@"UIMotionEffect")) {
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MDSpreadViewCell.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)]];
+            self.backgroundView = imageView;
+            
+            UIView *view = [[UIView alloc] init];
+            view.backgroundColor = [UIColor colorWithWhite:217./255. alpha:1.];
+            self.highlightedBackgroundView = view;
+            
+            UILabel *label = [[UILabel alloc] init];
+            label.opaque = YES;
+            label.backgroundColor = [UIColor whiteColor];
+            label.font = [UIFont systemFontOfSize:16];
+            label.highlightedTextColor = [UIColor blackColor];
+            self.textLabel = label;
+            
+            label = [[UILabel alloc] init];
+            label.opaque = YES;
+            label.backgroundColor = [UIColor whiteColor];
+            label.font = [UIFont systemFontOfSize:16];
+            label.highlightedTextColor = [UIColor blackColor];
+            self.detailTextLabel = label;
+        } else {
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MDSpreadViewCell.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)]];
+            self.backgroundView = imageView;
+            
+            imageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MDSpreadViewCellSelected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)]];
+            self.highlightedBackgroundView = imageView;
+            
+            UILabel *label = [[UILabel alloc] init];
+            label.opaque = YES;
+            label.backgroundColor = [UIColor whiteColor];
+            label.font = [UIFont boldSystemFontOfSize:18];
+            label.highlightedTextColor = [UIColor blackColor];
+            self.textLabel = label;
+            
+            label = [[UILabel alloc] init];
+            label.opaque = YES;
+            label.backgroundColor = [UIColor whiteColor];
+            label.font = [UIFont boldSystemFontOfSize:18];
+            label.highlightedTextColor = [UIColor blackColor];
+            self.detailTextLabel = label;
+        }
         
         _tapGesture = [[MDSpreadViewCellTapGestureRecognizer alloc] init];
         _tapGesture.cancelsTouchesInView = NO;
@@ -163,7 +180,6 @@
         _tapGesture.delegate = self;
         [_tapGesture addTarget:self action:@selector(_handleTap:)];
         [self addGestureRecognizer:_tapGesture];
-        [_tapGesture release];
     }
     return self;
 }
@@ -171,8 +187,6 @@
 - (void)setReuseIdentifier:(NSString *)anIdentifier
 {
     if (reuseIdentifier != anIdentifier) {
-        [anIdentifier retain];
-        [reuseIdentifier release];
         reuseIdentifier = anIdentifier;
         
         _reuseHash = [reuseIdentifier hash];
@@ -200,8 +214,6 @@
 - (void)setBackgroundView:(UIView *)aBackgroundView
 {
     [backgroundView removeFromSuperview];
-    [aBackgroundView retain];
-    [backgroundView release];
     backgroundView = aBackgroundView;
     
     [self insertSubview:backgroundView atIndex:0];
@@ -211,8 +223,6 @@
 - (void)setHighlightedBackgroundView:(UIView *)aHighlightedBackgroundView
 {
     [highlightedBackgroundView removeFromSuperview];
-    [aHighlightedBackgroundView retain];
-    [highlightedBackgroundView release];
     highlightedBackgroundView = aHighlightedBackgroundView;
     
     if (highlighted) {
@@ -227,8 +237,6 @@
 - (void)setTextLabel:(UILabel *)aTextLabel
 {
     [textLabel removeFromSuperview];
-    [aTextLabel retain];
-    [textLabel release];
     textLabel = aTextLabel;
     
     textLabel.highlighted = highlighted;
@@ -239,8 +247,6 @@
 - (void)setDetailTextLabel:(UILabel *)aTextLabel
 {
     [detailTextLabel removeFromSuperview];
-    [aTextLabel retain];
-    [detailTextLabel release];
     detailTextLabel = aTextLabel;
     
     detailTextLabel.highlighted = highlighted;
@@ -270,7 +276,8 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    [super setFrame:frame];
+    if (!CGRectEqualToRect(self.frame, frame))
+        [super setFrame:frame];
 }
 
 - (void)setHighlighted:(BOOL)isHighlighted animated:(BOOL)animated
@@ -317,8 +324,6 @@
 - (void)setObjectValue:(id)anObject
 {
     if (anObject != objectValue) {
-        [anObject retain];
-        [objectValue release];
         objectValue = anObject;
     
         if ([objectValue respondsToSelector:@selector(description)]) {
@@ -327,18 +332,10 @@
     }
 }
 
-- (void)dealloc
+- (void)set_pureFrame:(CGRect)pureFrame
 {
-    [sortDescriptorPrototype release];
-    spreadView = nil;
-    [objectValue release];
-    [backgroundView release];
-	[_rowPath release];
-    [_columnPath release];
-    [highlightedBackgroundView release];
-    [textLabel release];
-    [reuseIdentifier release];
-    [super dealloc];
+    _pureFrame = pureFrame;
+    self.frame = _pureFrame;
 }
 
 - (BOOL)isAccessibilityElement

@@ -79,7 +79,7 @@
         NSString * imageUrl = [self.dataArray[index][@"ImageUrl"] stringByReplacingOccurrencesOfString:@"http://www.jnjvisioncare.com/en_US/images/products/"
                                                                               withString:@"http://www.acuvue.com/sites/default/files/content/us/images/products/"];
         
-        [reviewItem.productImage setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
+        [reviewItem.productImage sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"noimage.jpeg"]];
     } else {
         reviewItem.productImage.image = [UIImage imageNamed:@"noimage.jpeg"];
     }

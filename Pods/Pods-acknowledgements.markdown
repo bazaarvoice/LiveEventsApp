@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## Bazaarvoice
+## BVSDK
 
 See http://developer.bazaarvoice.com/API_Terms_of_Use
 
@@ -68,7 +68,7 @@ THE SOFTWARE.
 
 SwipeView
 
-Version 1.2.10, June 19th, 2013
+Version 1.3.2, April 28th, 2014
 
 Copyright (C) 2010 Charcoal Design
 

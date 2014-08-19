@@ -9,7 +9,7 @@ SwipeView's interface and implementation is based on the iCarousel library, and 
 Supported OS & SDK Versions
 -----------------------------
 
-* Supported build target - iOS 6.1 (Xcode 4.6, Apple LLVM compiler 4.2)
+* Supported build target - iOS 7.0 (Xcode 5.0, Apple LLVM compiler 5.0)
 * Earliest supported deployment target - iOS 5.0
 * Earliest compatible deployment target - iOS 4.3
 
@@ -19,7 +19,9 @@ NOTE: 'Supported' means that the library has been tested with this version. 'Com
 ARC Compatibility
 ------------------
 
-SwipeView automatically works with both ARC and non-ARC projects through conditional compilation. There is no need to exclude SwipeView files from the ARC validation process, or to convert SwipeView using the ARC conversion tool.
+As of version 1.3, SwipeView requires ARC. If you wish to use SwipeView in a non-ARC project, just add the -fobjc-arc compiler flag to the SwipeView.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click SwipeView.m in the list and type -fobjc-arc into the popover.
+
+If you wish to convert your whole project to ARC, comment out the #error line in SwipeView.m, then run the Edit > Refactor > Convert to Objective-C ARC... tool in Xcode and make sure all files that you wish to use ARC for (including SwipeView.m) are checked.
 
 
 Thread Safety
@@ -81,7 +83,7 @@ The first item view of the currently centered (or left-aligned, depending on the
     
     @property (nonatomic, readonly) NSInteger currentItemIndex;
     
-The index of the first item of the currently centered (or left-aligned, depending on the alignment value) page. Setting this value is value is equivalent to calling `scrollToItemAtIndex:duration:` with the duration argument set to 0.0.
+The index of the first item of the currently centered (or left-aligned, depending on the alignment value) page. Setting this value is equivalent to calling `scrollToItemAtIndex:duration:` with the duration argument set to 0.0.
 
     @property (nonatomic, assign) NSInteger currentPage;
 
@@ -134,6 +136,10 @@ Returns YES if the SwipeView is currently being scrolled programatically.
     @property (nonatomic, assign) BOOL defersItemViewLoading;
 
 Sometimes when your SwipeView contains very complex item views, or large images, there can be a noticeable jerk in scrolling performance as it loads the new views. Setting the `defersItemViewLoading` property to `YES` forces the SwipeView to defer updating the currentItemIndex property and loading of new item views until after the scroll has finished. This can result in visible gaps in the SwipeView if you scroll too far in one go, but for scrolling short distances you may find that this improves animation performance.
+
+    @property (nonatomic, assign) CGFloat autoscroll;
+
+This property can be used to set the SwipeView scrolling at a constant speed. A value of 1.0 would scroll the SwipeView forwards at a rate of one item per second. The autoscroll value can be positive or negative and defaults to 0.0 (stationary). Autoscrolling will stop if the user interacts with the SwipeView, and will resume when they stop.
 	
 	
 Methods
@@ -189,7 +195,7 @@ Return a view to be displayed at the specified index in the SwipeView. The `reus
 
 The SwipeViewDelegate protocol has the following optional methods:
 
-    - (CGFloat)swipeViewItemSize:(SwipeView *)swipeView;
+    - (CGSize)swipeViewItemSize:(SwipeView *)swipeView;
 
 Returns the size in points/pixels of each item view. If this method is not implemented, the item size is automatically calculated from the first item view that is loaded.
 
@@ -207,7 +213,7 @@ This method is called when the SwipeView is about to start moving as the result 
     
     - (void)swipeViewDidEndDragging:(SwipeView *)swipeView willDecelerate:(BOOL)decelerate;
     
-This method is called when the user stops dragging the SwipeView. The willDecelerate parameter indicates whether the SwipeView is travelling fast enough that it needs to decelerate before it stops (i.e. the current index is not necessarily the one it will stop at) or if it will stop where it is. Note that even if willDecelerate is NO, the SwipeView will still scroll automatically until it aligns exactly on the current index.
+This method is called when the user stops dragging the SwipeView. The willDecelerate parameter indicates whether the SwipeView is travelling fast enough that it needs to decelerate before it stops (i.e. the current index is not necessarily the one it will stop at) or if it will stop where it is. Note that even if willDecelerate is NO, if pagin is enabled, the SwipeView will still scroll automatically until it aligns exactly on the current index.
     
     - (void)swipeViewWillBeginDecelerating:(SwipeView *)swipeView;
     
@@ -240,3 +246,145 @@ Alternatively, if you want a little more control you can supply a UIButton or UI
 You can also nest UIControls within your item views and these will receive touches as expected (See the Controls Example project for how this can be done).
 
 If you wish to detect other types of interaction such as swipes, double taps or long presses, the simplest way is to attach a UIGestureRecognizer to your item view or its subviews before passing it to the SwipeView.
+
+
+Release Notes
+----------------
+
+Version 1.3.2
+
+- Scroll offsets are now calculated correctly when SwipeView is scaled or rotated
+- Reverted fix from 1.3.1 as it caused other scrollOffset bugs that were worse 
+
+Version 1.3.1
+
+- Fixed bug with scrollOffset changing when screen is rotated
+
+Version 1.3
+
+- SwipeView now requires ARC (see README for details)
+- Added autoscroll property to set SwipeView scrolling at a constant speed
+- Now supports animated item view resizing and screen rotation
+- No longer crashes sometimes on iOS 7
+- The scrollOffset property is now public
+- Added scrollByOffset:duration: and scrollToOffset:duration: methods
+- Calling reloadData no longer resets scroll position
+- No longer behaves strangely if there is only one item and wrap is enabled
+- Fixed problems with contentOffset when used inside UINavigationController
+- You can now toggle wrapEnabled at any time without messing up item views
+- Now conforms to -Weverything warning level
+
+Version 1.2.10
+
+- Fixed confict between SwipeView animation and UIScrollView scrolling
+- Fixed issue due to missing [super layoutSubviews]
+
+Version 1.2.9
+
+- Fixed tap handling when wrap is enabled
+
+Version 1.2.8
+
+- Fixed bounds error when swipe view size is zero
+- Fixed bug in the logic for automatically calculating item size
+- Fixed bug where last visible view was sometimes not draw in non-wrapped mode
+- Moved ARCHelper macros out of .h file so they do not affect non-ARC code in other classes
+
+Version 1.2.7
+
+- numberOfItems / numberOfPages getters now call numberOfItemsInSwipeView: dataSource method to ensure that value is correct.
+
+Version 1.2.6
+
+- SwipeView now calculates number of visible views more accurately
+- Fixed a bug in the wrapping logic that could cause gaps when wrapEnabled = YES and alignment = SwipeViewAlignmentEdge
+- SwipeView now won't attempt to call any datasource methods until the views need to be drawn, which avoids certain race conditions
+
+Version 1.2.5
+
+- Fixed issue where SwipeView was not correctly deferring view loading when the defersItemViewLoading option was enabled
+
+Version 1.2.4
+
+- SwipeView now correctly handles touch events on views outside the current page bounds
+- Fixed rounding error when using defersItemViewLoading is enabled
+- Added Controls Example to demo touch event handling
+
+Version 1.2.3
+
+- Fixed issue where setting currentItemIndex immediately after creating SwipeView would prevent user being able to swipe to the left 
+
+Version 1.2.2
+
+- Fixed rounding error for edge-aligned SwipeViews with paging enabled
+
+Version 1.2.1
+
+- Fixed off-by-one error when using scrollToItemAtIndex:duration: method
+- swipeViewDidScroll: event is now sent as normal when defersItemViewLoading is enabled, but swipeViewCurrentItemIndexDidChange: is still deferred
+
+Version 1.2
+
+- Added vertical scrolling option
+- Changed itemWidth property and swipeViewItemWidth: delegate method to itemSize and swipeViewItemSize: respectively
+- Fixes some bugs when defersItemViewLoading is enabled
+
+Version 1.1.7
+
+- Added delaysContentTouches property, which defaults to YES
+- Fixed blank pages issue when using defersItemViewLoading
+
+Version 1.1.6
+
+- defersItemViewLoading property is now observed when swiping as well as when scrolling programatically
+- Fixed divide-by-zero error
+
+Version 1.1.5
+
+- Fixed layout bug when scrolling more than a single page at a time
+- Added defersItemViewLoading property
+
+Version 1.1.4
+
+- Scrolling methods now let you specify the duration of the scroll
+
+Version 1.1.3
+
+- Fixed reloading bug on wrapped SwipeViews
+- Added test projects folder
+
+Version 1.1.2
+
+- Fixed wrapping issue with carousel for certain item counts
+- Calling reloadData on carousel now resets currentItemIndex to zero
+
+Version 1.1.1
+
+- Removed some leftover debug code that had broken the view recycling logic
+- Fixed bug where scrolling SwipeView programmatically immediately after loading
+would cause a crash
+- Added ARC Test example
+
+Version 1.1
+
+- Added support for wrapping
+- It is now possible to display multiple items per page
+- Fixed layout glitches when rotating or resizing view
+- Added additional properties and delegate methods
+- Added page control to example application
+
+Version 1.0.1
+
+- Fixed bug in delegate setter method
+- Fixed crash when total number of items is less than visible number
+
+Version 1.0
+
+- Added dynamic view loading and recycling
+- Added ARC support
+- Added documentation
+- Renamed some methods for consistency with iCarousel
+
+Version 0.9
+
+- Prerelease version.

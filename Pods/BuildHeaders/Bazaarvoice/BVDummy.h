@@ -1,1 +1,0 @@
-../../Bazaarvoice/CocoapodsIgnore/BVDummy.h

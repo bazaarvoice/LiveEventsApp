@@ -78,6 +78,7 @@ typedef enum {
 @class MDSpreadViewCell;
 @class MDIndexPath;
 @class MDSpreadViewSelection;
+@class MDSpreadViewCellMap;
 
 #pragma mark - MDSpreadViewDelegate
 
@@ -88,17 +89,27 @@ typedef enum {
 // Display customization
 
 - (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath;
+
 - (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forHeaderInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
 - (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forHeaderInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
 - (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forHeaderInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
+
+- (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forHeaderInRowSection:(NSInteger)rowSection forColumnFooterSection:(NSInteger)columnSection;
+- (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forHeaderInColumnSection:(NSInteger)columnSection forRowFooterSection:(NSInteger)rowSection;
+
+- (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forFooterInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
+- (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forFooterInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
+- (void)spreadView:(MDSpreadView *)aSpreadView willDisplayCell:(MDSpreadViewCell *)cell forFooterInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
 
 // Variable height support
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowAtIndexPath:(MDIndexPath *)indexPath;
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowHeaderInSection:(NSInteger)rowSection; // pass 0 to hide header
+- (CGFloat)spreadView:(MDSpreadView *)aSpreadView heightForRowFooterInSection:(NSInteger)rowSection; // pass 0 to hide footer
 
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnAtIndexPath:(MDIndexPath *)indexPath;
 - (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnHeaderInSection:(NSInteger)columnSection; // pass 0 to hide header
+- (CGFloat)spreadView:(MDSpreadView *)aSpreadView widthForColumnFooterInSection:(NSInteger)columnSection; // pass 0 to hide header
 
 // Accessories (disclosures). 
 
@@ -128,14 +139,32 @@ extern NSString *MDSpreadViewSelectionDidChangeNotification __attribute__((unava
 
 @interface MDSpreadView : UIScrollView {
   @private
-    id <MDSpreadViewDataSource> _dataSource;
-    
-    CGFloat rowHeight;
-    CGFloat sectionRowHeaderHeight;
-    CGFloat columnWidth;
-    CGFloat sectionColumnHeaderWidth;
+    id <MDSpreadViewDataSource> __weak _dataSource;
     
     NSMutableSet *_dequeuedCells;
+    
+    // New algorithm
+    
+    MDSpreadViewCellMap *mapForContent;
+    MDSpreadViewCellMap *mapForColumnHeaders;
+    MDSpreadViewCellMap *mapForRowHeaders;
+    MDSpreadViewCellMap *mapForCornerHeaders;
+    CGRect mapBounds;
+    
+    MDIndexPath *minColumnIndexPath;
+    MDIndexPath *maxColumnIndexPath;
+    MDIndexPath *minRowIndexPath;
+    MDIndexPath *maxRowIndexPath;
+    
+    NSMutableArray *columnSections;
+    NSMutableArray *rowSections;
+    
+    UIView *dummyView;
+    UIView *dummyViewB;
+    
+    CGSize dequeuedCellSizeHint;
+    
+    // Done with new algorithm
     
     NSMutableArray *visibleCells; // array of array
     MDIndexPath *_visibleRowIndexPath;
@@ -160,19 +189,26 @@ extern NSString *MDSpreadViewSelectionDidChangeNotification __attribute__((unava
     
     BOOL implementsRowHeight;
     BOOL implementsRowHeaderHeight;
+    BOOL implementsRowFooterHeight;
     BOOL implementsColumnWidth;
     BOOL implementsColumnHeaderWidth;
+    BOOL implementsColumnFooterWidth;
+    
+    BOOL implementsRowHeaderData;
+    BOOL implementsRowFooterData;
+    BOOL implementsColumnHeaderData;
+    BOOL implementsColumnFooterData;
+    
+    BOOL didSetHeaderHeight;
+    BOOL didSetFooterHeight;
+    BOOL didSetHeaderWidth;
+    BOOL didSetFooterWidth;
     
     NSMutableArray *_selectedCells;
     MDSpreadViewSelection *_currentSelection;
     
     MDSpreadViewSelectionMode selectionMode;
     NSMutableArray *sortDescriptors;
-    
-    Class _defaultHeaderCornerCellClass;
-    Class _defaultHeaderColumnCellClass;
-    Class _defaultHeaderRowCellClass;
-    Class _defaultCellClass;
     
     BOOL _didSetReloadData;
     
@@ -183,25 +219,35 @@ extern NSString *MDSpreadViewSelectionDidChangeNotification __attribute__((unava
     MDSpreadViewCellResizing rowResizing;
 }
 
-@property (nonatomic, assign) IBOutlet id <MDSpreadViewDataSource> dataSource;
-@property (nonatomic, assign) IBOutlet id <MDSpreadViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id <MDSpreadViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id <MDSpreadViewDelegate> delegate;
 
-// Cell Dimensions
+// Cell Dimensions. The header and footers will report their values, but they will only be used if you
+// implement a data source method for those cells. Otherwise, set them here and they will be used.
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic) CGFloat sectionRowHeaderHeight;
+@property (nonatomic) CGFloat sectionRowFooterHeight;
 @property (nonatomic) CGFloat columnWidth;
 @property (nonatomic) CGFloat sectionColumnHeaderWidth;
+@property (nonatomic) CGFloat sectionColumnFooterWidth;
 
 // default cell setters. must be subclasses of MDSpreadViewCell;
-@property (nonatomic) Class defaultHeaderCornerCellClass;
-@property (nonatomic) Class defaultHeaderColumnCellClass;
-@property (nonatomic) Class defaultHeaderRowCellClass;
-@property (nonatomic) Class defaultCellClass;
+@property (nonatomic, weak) Class defaultHeaderCornerCellClass; // header column, header row
+@property (nonatomic, weak) Class defaultHeaderColumnCellClass; // header column, content row
+@property (nonatomic, weak) Class defaultHeaderColumnFooterCornerCellClass; // header column, footer row
+
+@property (nonatomic, weak) Class defaultHeaderRowCellClass; // header row
+@property (nonatomic, weak) Class defaultCellClass; // content row
+@property (nonatomic, weak) Class defaultFooterRowCellClass; // footer row
+
+@property (nonatomic, weak) Class defaultHeaderRowFooterCornerCellClass; // footer column, header row
+@property (nonatomic, weak) Class defaultFooterColumnCellClass; // footer column, content row
+@property (nonatomic, weak) Class defaultFooterCornerCellClass; // footer column, footer row
 
 @property (nonatomic) MDSpreadViewCellResizing columnResizing __attribute__((unavailable));
 @property (nonatomic) MDSpreadViewCellResizing rowResizing __attribute__((unavailable));
 
-@property (nonatomic, readwrite, retain) UIView *backgroundView __attribute__((unavailable)); // the background view will be automatically resized to track the size of the table view.  this will be placed as a subview of the table view behind all cells and headers/footers.  default may be non-nil for some devices.
+@property (nonatomic, readwrite, strong) UIView *backgroundView __attribute__((unavailable)); // the background view will be automatically resized to track the size of the table view.  this will be placed as a subview of the table view behind all cells and headers/footers.  default may be non-nil for some devices.
 
 // Data
 
@@ -259,7 +305,7 @@ extern NSString *MDSpreadViewSelectionDidChangeNotification __attribute__((unava
 
 @property (nonatomic) MDSpreadViewCellSeparatorStyle separatorStyle __attribute__((unavailable));
 // default is MDSpreadViewCellSeparatorStyleCorner
-@property (nonatomic, retain) UIColor *separatorColor __attribute__((unavailable));
+@property (nonatomic, strong) UIColor *separatorColor __attribute__((unavailable));
 // default is the standard separator gray
 
 - (MDSpreadViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
@@ -294,17 +340,32 @@ extern NSString *MDSpreadViewSelectionDidChangeNotification __attribute__((unava
 
 // shorthands for fast cell generation
 // not called if cells are manually geneated
-// renerally, return an NSString, but just about anything that returns description can be used,
+// generally, return an NSString, but just about anything that returns description can be used,
 // or can also be something that a custom cell defines
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
 - (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
+
 - (id)spreadView:(MDSpreadView *)aSpreadView objectValueForRowAtIndexPath:(MDIndexPath *)rowPath forColumnAtIndexPath:(MDIndexPath *)columnPath;
+
+- (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInRowSection:(NSInteger)rowSection forColumnFooterSection:(NSInteger)columnSection;
+- (id)spreadView:(MDSpreadView *)aSpreadView titleForHeaderInColumnSection:(NSInteger)columnSection forRowFooterSection:(NSInteger)rowSection;
+
+- (id)spreadView:(MDSpreadView *)aSpreadView titleForFooterInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
+- (id)spreadView:(MDSpreadView *)aSpreadView titleForFooterInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
+- (id)spreadView:(MDSpreadView *)aSpreadView titleForFooterInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
 
 // manual cell generation. returning nil creates one for you
 - (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForHeaderInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
 - (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForHeaderInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
 - (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForHeaderInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
+
+- (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForHeaderInRowSection:(NSInteger)rowSection forColumnFooterSection:(NSInteger)columnSection;
+- (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForHeaderInColumnSection:(NSInteger)columnSection forRowFooterSection:(NSInteger)rowSection;
+
+- (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForFooterInRowSection:(NSInteger)rowSection forColumnSection:(NSInteger)columnSection;
+- (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForFooterInRowSection:(NSInteger)section forColumnAtIndexPath:(MDIndexPath *)columnPath;
+- (MDSpreadViewCell *)spreadView:(MDSpreadView *)aSpreadView cellForFooterInColumnSection:(NSInteger)section forRowAtIndexPath:(MDIndexPath *)rowPath;
 
 - (void)spreadView:(MDSpreadView *)aSpreadView sortDescriptorsDidChange:(NSArray *)oldDescriptors;
 // This is the indication that sorting needs to be done.  Typically the data source will sort its data, reload, and adjust selections.
@@ -335,7 +396,7 @@ enum {MDSpreadViewSelectWholeSpreadView = -1};
     MDSpreadViewSortAxis sortAxis;
 }
 
-@property (nonatomic, readonly, retain) MDIndexPath *indexPath;
+@property (nonatomic, readonly, strong) MDIndexPath *indexPath;
 // index path for sort header
 @property (nonatomic, readonly) NSInteger section;
 // the section to sort, or MDSpreadViewSelectWholeSpreadView to sort the whole spread view
@@ -359,8 +420,8 @@ enum {MDSpreadViewSelectWholeSpreadView = -1};
     MDSpreadViewSelectionMode selectionMode;
 }
 
-@property (nonatomic, retain, readonly) MDIndexPath *rowPath;
-@property (nonatomic, retain, readonly) MDIndexPath *columnPath;
+@property (nonatomic, strong, readonly) MDIndexPath *rowPath;
+@property (nonatomic, strong, readonly) MDIndexPath *columnPath;
 @property (nonatomic, readonly) MDSpreadViewSelectionMode selectionMode;
 
 + (id)selectionWithRow:(MDIndexPath *)row column:(MDIndexPath *)column mode:(MDSpreadViewSelectionMode)mode;

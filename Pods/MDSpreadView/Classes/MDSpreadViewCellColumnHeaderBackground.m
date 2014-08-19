@@ -37,19 +37,13 @@
 
 - (void)prepareBackground
 {
-	backgroundLeft = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MDSpreadViewColumnHeaderLeft.png"]
-                                       highlightedImage:[UIImage imageNamed:@"MDSpreadViewColumnHeaderLeftSelected.png"]];
-    backgroundLeft.contentMode = UIViewContentModeScaleToFill;
-    backgroundLeft.contentStretch = CGRectMake(3./backgroundLeft.bounds.size.width, 2./backgroundLeft.bounds.size.height, 1./backgroundLeft.bounds.size.width, 1./backgroundLeft.bounds.size.height);
+	backgroundLeft = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MDSpreadViewColumnHeaderLeft.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 3, 2, 1)]
+                                       highlightedImage:[[UIImage imageNamed:@"MDSpreadViewColumnHeaderLeftSelected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 3, 2, 1)]];
 	[self addSubview:backgroundLeft];
-	[backgroundLeft release];
     
-	backgroundRight = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MDSpreadViewColumnHeaderRight.png"]
-                                        highlightedImage:[UIImage imageNamed:@"MDSpreadViewColumnHeaderRightSelected.png"]];
-    backgroundRight.contentMode = UIViewContentModeScaleToFill;
-    backgroundRight.contentStretch = CGRectMake(2./backgroundRight.bounds.size.width, 2./backgroundRight.bounds.size.height, 1./backgroundRight.bounds.size.width, 1./backgroundRight.bounds.size.height);
+	backgroundRight = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"MDSpreadViewColumnHeaderRight.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)]
+                                        highlightedImage:[[UIImage imageNamed:@"MDSpreadViewColumnHeaderRightSelected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)]];
 	[self addSubview:backgroundRight];
-	[backgroundRight release];
 }
 
 - (void)layoutBackground
