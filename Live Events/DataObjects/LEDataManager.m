@@ -250,10 +250,10 @@
     }
     else if(formErrors && formErrors.count > 0)
     {
-        NSDictionary * fieldErrors = [[formErrors allValues] objectAtIndex:0];
+        NSDictionary * fieldErrors = [formErrors objectForKey:@"FieldErrors"];
         if(fieldErrors.count > 0)
         {
-            NSDictionary * anError = [[fieldErrors allValues] objectAtIndex:0];
+            NSDictionary * anError = [[fieldErrors allValues] firstObject];
             errorMessage = [anError objectForKey:@"Message"];
         } else {
             errorMessage = @"An Error Occurred";
@@ -262,6 +262,9 @@
     else
     {
         errorMessage = @"An Error Occurred";
+    }
+    if(errorMessage == nil){
+        errorMessage = [NSString stringWithFormat:@"Error occured with BV API response: %@", response ];
     }
     return errorMessage;
 }
