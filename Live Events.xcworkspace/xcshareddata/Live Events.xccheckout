@@ -12,20 +12,24 @@
 	<dict>
 		<key>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</key>
 		<string>ssh://github.com/bazaarvoice/LiveEventsApp.git</string>
+		<key>66E52FC66FCD46734215EE2EF61AA1B9D6C88FD9</key>
+		<string>https://github.com/bazaarvoice/liveeventsapp</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Live Events.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</key>
+		<string>../../Live Events</string>
+		<key>66E52FC66FCD46734215EE2EF61AA1B9D6C88FD9</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/bazaarvoice/LiveEventsApp.git</string>
+	<string>https://github.com/bazaarvoice/liveeventsapp</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</string>
+	<string>66E52FC66FCD46734215EE2EF61AA1B9D6C88FD9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>06BE75A8-C842-4E0E-B40B-9407BEC10AF0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Live Events</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>66E52FC66FCD46734215EE2EF61AA1B9D6C88FD9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>liveeventsapp</string>
 		</dict>
 	</array>
 </dict>

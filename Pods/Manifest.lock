@@ -1,5 +1,5 @@
 PODS:
-  - BVSDK (2.2.2)
+  - BVSDK (2.2.3)
   - MBProgressHUD (0.9)
   - MDSpreadView (0.8)
   - SDWebImage (3.7.1):
@@ -15,7 +15,7 @@ DEPENDENCIES:
   - SwipeView
 
 SPEC CHECKSUMS:
-  BVSDK: 781c3e380e4d22a977903a310660985f0e652e81
+  BVSDK: 5c28ca5fcdcc1526efcd4cb2f155e6af419eedb6
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MDSpreadView: 201544d1dc10c53071fe9b86294953a9789f8416
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d

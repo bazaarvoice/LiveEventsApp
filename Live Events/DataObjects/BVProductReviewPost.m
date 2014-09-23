@@ -21,13 +21,13 @@
         if(self.userNickname.length > 15)
             self.userNickname = [self.userNickname substringWithRange:NSMakeRange(0, 15)];
         // Append random number for uniqueness
-        int randNum = rand() % 100;
+        int randNum = arc4random_uniform(100000);
         self.userNickname = [NSString stringWithFormat:@"%@%d", self.userNickname, randNum];
         // Remove spaces (just in case)
         self.userNickname = [self.userNickname stringByReplacingOccurrencesOfString:@" " withString:@""];
         // Add extra padding if too short
         if(self.userNickname.length < 5) {
-            randNum = rand() % 100;
+            randNum = arc4random_uniform(100);
             self.userNickname = [NSString stringWithFormat:@"%@%d", self.userNickname, randNum];
         }
         
