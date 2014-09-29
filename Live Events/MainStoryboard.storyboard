@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="HxY-Sg-7yh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="HxY-Sg-7yh">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -60,7 +59,7 @@
                                             <constraint firstAttribute="height" constant="42" id="QRA-NV-cTt"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-Al-RM3" customClass="HuedUILabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-Al-RM3" customClass="HuedUILabel">
                                         <rect key="frame" x="595" y="11" width="109" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="xLs-LH-cM3"/>
@@ -69,7 +68,7 @@
                                         <color key="textColor" red="0.13333333333333333" green="0.44705882352941173" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-Pr-2z5" customClass="HuedUILabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-Pr-2z5" customClass="HuedUILabel">
                                         <rect key="frame" x="290" y="11" width="188" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="k7b-xK-bfz"/>
@@ -239,10 +238,10 @@
                         <viewControllerLayoutGuide type="bottom" id="bkY-OJ-WT4"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="MbC-Mr-h3s" customClass="BackgroundView">
-                        <rect key="frame" x="0.0" y="44" width="768" height="980"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="936"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-vS-VWS">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-vS-VWS">
                                 <rect key="frame" x="20" y="95" width="728" height="843"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Vlj-2X-gvW">
@@ -257,7 +256,7 @@
                                     <outlet property="delegate" destination="Wcb-Hk-ATf" id="rZJ-h9-Oqs"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zf-sJ-4oc" customClass="BorderedBar">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Zf-sJ-4oc" customClass="BorderedBar">
                                 <rect key="frame" x="0.0" y="938" width="768" height="42"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="A_Progress-Bar_Gray-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="02o-Su-2Wz">
@@ -278,7 +277,7 @@
                                             <constraint firstAttribute="height" constant="42" id="cpX-oy-9kD"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-i8-eLk" customClass="HuedUILabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-i8-eLk" customClass="HuedUILabel">
                                         <rect key="frame" x="595" y="11" width="109" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="48O-MQ-32E"/>
@@ -287,7 +286,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVx-BR-ELa" customClass="HuedUILabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVx-BR-ELa" customClass="HuedUILabel">
                                         <rect key="frame" x="290" y="11" width="188" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="fxW-ec-4td"/>
@@ -386,7 +385,9 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="u2t-Ff-3uR"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="clearSearchButton" destination="k7G-fT-aTe" id="Hyd-SB-p6Z"/>
                         <outlet property="collectionView" destination="KrW-vS-VWS" id="8Ln-am-kLc"/>
@@ -396,9 +397,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GX5-yO-dCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="IwR-C4-Ism"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="-1641"/>
+            <point key="canvasLocation" x="1941" y="-1771"/>
         </scene>
         <!--Manage Reviews View Controller-->
         <scene sceneID="viL-Ch-mr9">
@@ -422,7 +422,6 @@
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="636" translatesAutoresizingMaskIntoConstraints="NO" id="tuG-Ex-Qk4">
                                 <rect key="frame" x="6" y="9" width="636" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="aEj-Xt-10b"/>
                                 </constraints>
@@ -476,18 +475,18 @@
                         <viewControllerLayoutGuide type="bottom" id="rvO-5l-YHr"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="1JB-kV-Mix" customClass="BackgroundView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yb0-dP-Zt2">
-                                <rect key="frame" x="82" y="0.0" width="604" height="960"/>
+                                <rect key="frame" x="82" y="0.0" width="604" height="916"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="604" id="4aa-54-ix8"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7W-cf-uWl">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="920"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="876"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wT-hE-mFx">
                                         <rect key="frame" x="82" y="0.0" width="604" height="910"/>
@@ -680,7 +679,6 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ll-Eq-Fo8">
                                                 <rect key="frame" x="404" y="864" width="165" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Terms and Conditions">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -764,7 +762,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvQ-mh-bCF" customClass="BorderedBar">
-                                <rect key="frame" x="0.0" y="918" width="768" height="42"/>
+                                <rect key="frame" x="0.0" y="874" width="768" height="42"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="A_Progress-Bar_Gray-Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-8o-KwC">
                                         <rect key="frame" x="481" y="0.0" width="336" height="42"/>
@@ -784,7 +782,7 @@
                                             <constraint firstAttribute="height" constant="42" id="qCl-dv-7dr"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-r3-779" customClass="HuedUILabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-r3-779" customClass="HuedUILabel">
                                         <rect key="frame" x="594" y="9" width="109" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="109" id="J6B-CC-EdS"/>
@@ -793,7 +791,7 @@
                                         <color key="textColor" red="0.1333333333" green="0.44705882349999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-4g-ueo">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Share Your Thoughts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-4g-ueo">
                                         <rect key="frame" x="290" y="9" width="188" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="188" id="qmz-d8-uPp"/>
@@ -905,14 +903,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Dvt-z0-AOV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gHu-c5-w9W">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="916"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50n-KS-DUr" customClass="BackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="916"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3e8-Mi-x77">
-                                        <rect key="frame" x="82" y="0.0" width="604" height="918"/>
+                                        <rect key="frame" x="82" y="0.0" width="604" height="874"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="478" translatesAutoresizingMaskIntoConstraints="NO" id="z9u-Vm-Sv5">
                                                 <rect key="frame" x="53" y="14" width="478" height="52"/>
@@ -1095,7 +1093,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-52-FRZ" customClass="BorderedBar">
-                                        <rect key="frame" x="0.0" y="918" width="768" height="42"/>
+                                        <rect key="frame" x="0.0" y="874" width="768" height="42"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="TopLeft" image="A_Progress-Bar_Blue-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="c28-cX-0ck" customClass="HuedUIImageView">
                                                 <rect key="frame" x="481" y="0.0" width="336" height="42"/>
@@ -1115,7 +1113,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="g1I-Tb-9Bg"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oQ-Zh-5ec">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Publish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oQ-Zh-5ec">
                                                 <rect key="frame" x="595" y="9" width="109" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="109" id="i5f-3k-7B0"/>
@@ -1240,7 +1238,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgo-0z-eIt">
                                 <rect key="frame" x="0.0" y="65" width="768" height="959"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1279,6 +1276,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8mQ-j2-cV5"/>
+        <segue reference="mam-v7-Hcz"/>
     </inferredMetricsTieBreakers>
 </document>

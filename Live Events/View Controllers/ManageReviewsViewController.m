@@ -39,6 +39,12 @@
     [self.spreadView reloadData];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"If you're writing a review, this page is not for you! Press the back button in the top left corner. Thanks!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
 -(void)receivedResponse {
     self.reviews = [[LEDataManager sharedInstanceWithContext:self.managedObjectContext] getAllProductReviews];
     [self.spreadView reloadData];

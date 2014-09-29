@@ -19,8 +19,8 @@
 
 @interface ChooseAProductGridViewController ()
 
-// "Secret" long press recognizer to go to review management screen
-@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
+// Settings button - to send reviews
+@property UIBarButtonItem* settingsButton;
 // Button to clear search
 @property (weak, nonatomic) IBOutlet UIButton *clearSearchButton;
 // Loading spinner
@@ -70,17 +70,14 @@
     // Set up the clear search button
     HuedUIImageView *clearSearchButton = [[HuedUIImageView alloc] initWithImage:[UIImage imageNamed:@"a_nf_Search-Button.png"]];
     [self.clearSearchButton setBackgroundImage:clearSearchButton.image forState:UIControlStateNormal];
+    
+    self.settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"⚙" style:UIBarButtonItemStylePlain target:self action:@selector(settingsButtonClicked:)];
+    [self.settingsButton setTitle:@"⚙"];
+    [self.navigationItem setRightBarButtonItem:self.settingsButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // Create long-press recognizer to take the user to the "secret" management screen
-    self.longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(secretButtonClicked:)];
-    [self.navigationController.navigationBar addGestureRecognizer:self.longPressRecognizer];
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController.navigationBar removeGestureRecognizer:self.longPressRecognizer];
 }
 
 // Handler for clear search button
@@ -291,10 +288,9 @@
     return _dataArray;
 }
 
-- (IBAction)secretButtonClicked:(id)sender {
-    if(self.longPressRecognizer.state == UIGestureRecognizerStateBegan){
-        [self performSegueWithIdentifier:@"manageReviews" sender:self];        
-    }
+- (void)settingsButtonClicked:(id)sender {
+    
+    [self performSegueWithIdentifier:@"manageReviews" sender:self];
 }
 
 @end
